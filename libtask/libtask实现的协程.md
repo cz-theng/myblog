@@ -43,7 +43,7 @@
     Task	*taskrunning; // 当前运行中的task
     
     Context	taskschedcontext;  // schedule时候的缓存context
-    Tasklist	taskrunqueue;  // 一个task的单链表
+    Tasklist	taskrunqueue;  // 一个task的双链表
     
     Task	**alltask;// 管理task的task池
     int		nalltask; // task长度
@@ -109,8 +109,8 @@ Libtask的任务创建通过 ：
     }
     t->alltaskslot = nalltask; // 在alltask中的偏移
     alltask[nalltask++] = t; // alltask只是一个指针数组，从而持有并管理所有的task
-    taskready(t); // 将task 挂到单链表runqueue上面
-taskready中首先对Task的ready成员置位。然后调用addtask将task挂载到taskready单链表上。
+    taskready(t); // 将task 挂到双链表runqueue上面
+taskready中首先对Task的ready成员置位。然后调用addtask将task挂载到taskready双链表上。
 
 ##三、任务的调度过程  
 
