@@ -42,7 +42,7 @@
     int	taskexitval;
     Task	*taskrunning; // 当前运行中的task
     
-    Context	taskschedcontext;
+    Context	taskschedcontext;  // schedule时候的缓存context
     Tasklist	taskrunqueue;  // 一个task的单链表
     
     Task	**alltask;// 管理task的task池
@@ -96,9 +96,21 @@ Libtask的任务创建通过 ：
     	i = t->alltaskslot;
     	alltask[i] = alltask[--nalltask]; // 把退出的位置让给最后一个task
     	alltask[i]->alltaskslot = i;
-    	free(t);
+    	free(t); 
     }
 对任务对象进行销毁，并对任务计数器减一。
+
+在创建好Task对象并做了初始化之后，libtask还要管理改对象。其使用了数组存储Task的指针，从而对Task做线性管理。数组的默认大小为64，当超过时每次以64为单位递增。每个元素指向一个Task对象，同时Task对象的alltaskslot成员也指向了存储所有Task的数组。最后调用taskready修改task的状态并将其挂载在runqueue队列上等待调度。
+    
+    taskcount++; // task计数器加一
+    if(nalltask%64 == 0){ // nalltask表示的是alltask的size
+    	// 这里为什么判断对2^^6 对齐要重新分配 ，为的是每64个重新分配下内存
+    	alltask = realloc(alltask, (nalltask+64)*sizeof(alltask[0]));
+    }
+    t->alltaskslot = nalltask; // 在alltask中的偏移
+    alltask[nalltask++] = t; // alltask只是一个指针数组，从而持有并管理所有的task
+    taskready(t); // 将task 挂到单链表runqueue上面
+taskready中首先对Task的ready成员置位。然后调用addtask将task挂载到taskready单链表上。
 
 ##三、任务的调度过程  
 
@@ -123,4 +135,26 @@ Libtask的任务创建通过 ：
 
 当执行中的任务调用`taskyield()`的时候，再切换回上面的for的上下文，进行下一次的调度。
 
-这里我们看下contextswitch的实现。
+与进程不一的是，协程的调度并不是由系统进行调度的，而是自己控制的主动调度。当需要调度时，协程逻辑调用yield让出执行位置。这里我们看下yield定义：
+    
+    int taskyield(void)
+    {
+    	int n;    	
+    	n = tasknswitch;
+    	taskready(taskrunning); // 修改当前run Task的状态
+    	taskstate("yield");  // 修改当前状态
+    	taskswitch(); // 切换Task    
+    	// 再次被调度的时候才会回到这个位置
+    	return tasknswitch - n - 1;
+    }
+    
+当在任务的执行过程中调用taskyield()的时候，会先调用taskready将当前正在执行的任务：taskrunning置为ready状态，然后调用taskswitch进行上下文的切换：
+
+    contextswitch(&taskrunning->context, &taskschedcontext);
+    
+交换当前正在执行的上下文和taskschedcontext做交换。这里“taskschedcontext”是什么呢？咨询看过上面任务创建的同学可以看到，这个就是缓存变量，是上面taskscheduler里面执行contextswitch时候，就是用这个来和新创建的任务进行交换。那么这里再做交换，实际上就是负负得正。回调了上面taskscheduler的上下文中，进入到for循环里面，让后在进行上面的从taskrunqueue列表中取任务执行的过程。
+
+注意，这里的taskready又把这个开始从taskrunqueue队列中卸下来的Task重新追加到其尾部。因此我们得出，libtask的任务调度时线性的依次排队的方式，没有加入其它权重信息。
+
+## 四、小结
+从上面的的分析我们可以大致看出，Libtask实际上就是抽象出一个Task对象，并对其进行了管理，然后通过context的接口：getcontext、makecontext、setcontext以及swapcontext来实现上下文的切换从而完成任务的调度。
