@@ -37,7 +37,7 @@
 
 这里先看几个全局变量的定义：
 
-    int	taskcount;  // 系统级别task 的计数器
+    int	taskcount;  // task 的计数器
     int	tasknswitch; // 统计的切换次数
     int	taskexitval;
     Task	*taskrunning; // 当前运行中的task
