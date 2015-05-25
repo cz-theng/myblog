@@ -1,4 +1,4 @@
-# Libtask
+# Libtask使用的context
 
 通过前面的[libtask实现的协程]()，我们可以看到Libtask主要是通过context接口（getcontext/setcontext/makecontext以及swapcontext）来实现上下文切换从而实现协程的。还有一些协程库用其他的机制实现了上下文的切换。比如用用setjmp+longjmp实现又或者switch...case这等神器实现的protothreads，甚至有汇编来实现的，比如这里的Libtask在某些平台下。
 
