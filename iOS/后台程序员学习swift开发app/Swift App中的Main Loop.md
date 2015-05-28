@@ -3,6 +3,8 @@
 
 ##一、Swift工程目录
 如何创建一个iOS工程，这里就不赘述了，找下“三天学会iOS”那种系列的书或者教程（PS:傻瓜教程问百度，进阶教程问Google）。这里我们创建一个SingalView的工程。首先我们看到工程目录的结构以及其对应的物理结构：
+
+
 ![工程结构](./proj_view.png) 
 
 
@@ -96,10 +98,12 @@
 
 ![Launch周期图](./launch_life_cycle.png)
 
-这里的的MainUIfile是在plist里面进行设置的，也就是我们之前看到的那个Main.storyboard，同时这里应该还包括了Launch界面的UI文件。也是在plist文件中修改的。
+这里的的MainUIfile是在plist里面进行设置的，也就是我们之前看到的那个Main.storyboard，同时这里应该还包括了Launch界面的UI文件。也是在plist文件中修改的:
+
 ![设置1](./plist.png) 
 
-也可以在工程界面中进行设置。
+也可以在工程界面中进行设置:
+
 ![设置2](./plist_2.png)
 
 在这之后就会进入到UI显示的过程了。iOS的应用一般都是由一个window来组织UI的。可以参考[Apple的文档](https://developer.apple.com/library/ios/documentation/WindowsViews/Conceptual/WindowAndScreenGuide/WindowScreenRolesinApp/WindowScreenRolesinApp.html)。一个window就可以认为他是iPhone的屏幕。
