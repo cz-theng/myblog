@@ -41,7 +41,7 @@
 	}
 在Swift中，就是通过上面的`@UIApplicationMain`来指定主应用的Delegate，从而达到和OC里面显示指定类似的效果。这里用OC做对比是这样对于C-Like背景的同学更容易理解。
 
-那这个UIApplicationMain到底是个啥呢？我们来看下iOS官方的[]App Life Cycle](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)。首先看一个iOSApp里面的关键的对象图：
+那这个UIApplicationMain到底是个啥呢？我们来看下iOS官方的[App Life Cycle](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)。首先看一个iOSApp里面的关键的对象图：
 
 ![关键对象图](./keyobj_ios.png)
 
