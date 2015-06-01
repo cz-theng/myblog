@@ -55,10 +55,82 @@ FB内置了两种类型，`flatbuffers::String`和`flatbuffers::Vector`。其中
 
 Vector的实现主要由两个结构组成：VectorIterator和Vector。并且只实现了Get方法，如上所述，这里的Vector主要用来从内存中读出数据。
 
+	template<typename T> class Vector {
+		public:
+		  typedef VectorIterator<T, false> iterator;
+		  typedef VectorIterator<T, true> const_iterator;
+		  ...
+	}
+	
+	template<typename T, bool bConst>
+	struct VectorIterator : public 
+	  std::iterator < std::input_iterator_tag,
+	  typename std::conditional < bConst,
+	  const typename IndirectHelper<T>::return_type,
+	  typename IndirectHelper<T>::return_type > ::type, uoffset_t > {
+	
+		public:
+		  VectorIterator(const uint8_t *data, uoffset_t i) :
+		      data_(data + IndirectHelper<T>::element_stride * i) {};
+	      ...
+	};
+VectorIterator和STL的iterator一样，主要是用来做单元的运算操作，可以看到其实现了一堆的运算符重载。作为只有Get方法的对象，我们主要看其Get是如何获得数据的：
+
+	typedef typename IndirectHelper<T>::return_type return_type;
+	return_type Get(uoffset_t i) const {
+		assert(i < size());
+		return IndirectHelper<T>::Read(Data(), i);
+	}
+为了能够得到一个类型的数据，这里FB实现了一个返回该数据所在的便宜以及其对应的长度的类似C中得Void*但更智能的结构：
+
+		// 取得类似对象数组中的元素
+		template<typename T> struct IndirectHelper {
+		  typedef T return_type;
+		  static const size_t element_stride = sizeof(T);
+		  static return_type Read(const uint8_t *p, uoffset_t i) {
+		    return EndianScalar((reinterpret_cast<const T *>(p))[i]);
+		  }
+		};
+		// 取得一段存储数据指针的数组中的某个数据
+		template<typename T> struct IndirectHelper<Offset<T>> {
+		  typedef const T *return_type;
+		  static const size_t element_stride = sizeof(uoffset_t);
+		  static return_type Read(const uint8_t *p, uoffset_t i) {
+		    p += i * sizeof(uoffset_t);
+		    return reinterpret_cast<return_type>(p + ReadScalar<uoffset_t>(p));
+		  }
+		};
+		// 取得一段内存中规则的偏移结构（类似数组）
+		template<typename T> struct IndirectHelper<const T *> {
+		  typedef const T *return_type;
+		  static const size_t element_stride = sizeof(T);
+		  static return_type Read(const uint8_t *p, uoffset_t i) {
+		    return reinterpret_cast<const T *>(p + i * sizeof(T));
+		  }
+		};
+		
+通过上面的结构，从而使得Vector的Get操作可以从数据内存中取得对应偏移offset的值。
 
 ##四、Enum类型
 
+对于枚举对象,FB并非有一个对应的枚举类型，而仅仅是定义了两个辅助函数。我们先来看其为IDL生成的代码：
+
+	//IDL: enum CMD:ubyte { CMD_BLOG = 0, CMD_CATEGORY} 
+	enum CMD {
+	  CMD_CMD_BLOG = 0,
+	  CMD_CMD_CATEGORY = 1
+	};
+	
+	inline const char **EnumNamesCMD() {
+	  static const char *names[] = { "CMD_BLOG", "CMD_CATEGORY", nullptr };
+	  return names;
+	}
+	
+	inline const char *EnumNameCMD(CMD e) { return EnumNamesCMD()[e]; }
+
+FB会先定义一个枚举表示其真实的值，比如这里的`CMD`，然后还会为其枚举的名字定义一个用其真实值索引的字面值数组，已经一个获得其字面值的接口。这样就组成了一个完整的现代意义上的枚举值：“不关心枚举值的具体值，重要的是其字面值”，这样甚至可以用print函数打印出一个枚举值的字面值。
 ##五、Struct类型
+由于Struct被定义为成员不可缺少的数据类型。FB为其定义了一个内部类型，同时也通过flatc生成了一个在构造函数中便将数据进行序列化的结构。
 
 ##六、Table类型
 
