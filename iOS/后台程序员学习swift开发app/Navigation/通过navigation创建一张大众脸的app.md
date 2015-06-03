@@ -64,9 +64,13 @@ Navigation在一个App中的物理存在：
 	rootVC.navigationItem.backBarButtonItem  = UIBarButtonItem()
     rootVC.navigationItem.backBarButtonItem?.title = "RootVC"
    
-这样我们点击跳转的时候就可以看到对应的变化了。注意，这里我们没有设置其action,因为对于backBarButtonItem的action就一个作用，即使设置了也不起效果![back](./back.png)
+这样我们点击跳转的时候就可以看到对应的变化了。注意，这里我们没有设置其action,因为对于backBarButtonItem的action就一个作用，即使设置了也不起效果
 
-如果不想要返回作用，我们也可以将其设置成自定义的。并且可以通过action设置其自定义动作。比如我们看oschina的客户端，其左上角的按钮就定义成了个人中心 ![oschina](./oschina.png)
+![back](./back.png)
+
+如果不想要返回作用，我们也可以将其设置成自定义的。并且可以通过action设置其自定义动作。比如我们看oschina的客户端，其左上角的按钮就定义成了个人中心 
+
+![oschina](./oschina.png)
 
 这里注意是子ViewController的leftBarButtonItem。比如我们定义rootVC的leftBarButtonItem设置为书签并给SecondVC设置为系统的播放按钮：
 
@@ -83,7 +87,9 @@ Navigation在一个App中的物理存在：
 
 	rootVC.navigationItem.title = "RootVC"
 	
-这样我们看到的首页就会变成 ![root_title](./root_title.png)
+这样我们看到的首页就会变成 
+
+![root_title](./root_title.png)
 
 
 但是很多时候我们并不满足只设置一段文字，我们可能还想实现类似QQ那样的“段页面”，或者插入一个搜素框。
@@ -101,7 +107,11 @@ Navigation在一个App中的物理存在：
     searchBar.barStyle = UIBarStyle.BlackTranslucent
     rootVC.navigationItem.titleView = searchBar
 
-这里我们看到效果图中的搜索栏一下吧后面的空间全给占掉了![root_search](./root_search.png)。但是不要紧，既然是UIView，那么我们只要定义一个容器View，具体里面就随我们自由发挥了。
+这里我们看到效果图中的搜索栏一下吧后面的空间全给占掉了。
+
+![root_search](./root_search.png)
+
+但是不要紧，既然是UIView，那么我们只要定义一个容器View，具体里面就随我们自由发挥了。
 
 
 ### 右边的自定义键
