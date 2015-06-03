@@ -41,6 +41,7 @@ Navigation在一个App中的物理存在：
 函数里面进行设置。
 
 因为需要进行内容的显示，这里我们用了一个容器View "UIView"，并创建了一个Button用来切换到下一个界面。这里有点注意的在iOS7以后，UIButtonType中已经没有圆角了，用System进行替代，如果要定义外观可以用图片。这里就是简单的创建一个UIView和一个UIButton，然后为button设置一个触发时候的动作，并将button用addSubview的方式加到容器View上面，再将容器View设置为UIViewController的view，就可以进行显示了。别忘了最后将UINavigationController设置成window的rootControllerView。这里运行时效果如下：
+
 ![jump_01](./jump_01.png) ![jump_02](./jump_02.png)
 
 这里Button的触发函数里面和前面一样，就是创建一个UIViewController和一个背景View，然后增加一个按钮，同时这个按钮的触发也再执行这个逻辑。这样就可以通过这个按钮无尽的往下去点了。点击“Back”可以回到上层ViewController。这新ViewController的加载是通过调用
