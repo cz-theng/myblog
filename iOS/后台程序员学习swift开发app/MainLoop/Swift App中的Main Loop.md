@@ -52,6 +52,7 @@
 这里的EventLoop为什么叫“Event”呢？其实和我们一个“事件驱动的异步网络库”一样，主循环中的业务逻辑一般都是由网络IO、定时器、信号或者其他事件来触发的。那么对于iOS App我们可以看下下面这个图：
 
 ![iOS事件](./event_loop.png)
+
 从图中可以讲用户触屏认为是一个IO事件，然后通知到上面的EventLoop，然后再loop中Delegate到业务逻辑中的其他对象，最后通过系统对象表现出来。
 
 这样整个流程就和一个后台程序的MainLoop是类似的了，这里的UIApplicationMain就是我们进入iOS App MainLoop的大门。
