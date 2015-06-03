@@ -99,7 +99,9 @@ Navigation在一个App中的物理存在：
 	let segmentedBar = UISegmentedControl(items: ["消息","电话"])
 	rootVC.navigationItem.titleView = segmentedBar
 	
-这里主要是定制navigationItem.titleView,其接受一个UIView对象。这里可以看出来一个UIView给了我们充分的自定义空间。比如上面我们增加了一个“段页面”,效果如下：![root_seg](./root_seg.png)
+这里主要是定制navigationItem.titleView,其接受一个UIView对象。这里可以看出来一个UIView给了我们充分的自定义空间。比如上面我们增加了一个“段页面”,效果如下：
+
+![root_seg](./root_seg.png)
 
 类似的，我们还可以插入一个搜索框:
 
