@@ -110,7 +110,7 @@ Navigation在一个App中的物理存在：
 
 在ViewController之间互相切换的时候，我们也是可以进行一些状态控制的。其通过UINavigationControllerDelegate定义了这些事件变化的接口：
 
-![nav_event](./nav_evnet.png)
+![nav_event](./nav_event.png)
 
 ## 六、灵活使用界面的footer
 
