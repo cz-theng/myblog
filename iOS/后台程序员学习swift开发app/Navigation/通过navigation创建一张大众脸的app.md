@@ -138,8 +138,8 @@ Navigation在一个App中的物理存在：
 
 	// 首先打开rooVC的toolBar显示
     navVC?.toolbarHidden = false
-    let  searchToolbar = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: nil, action: nil)
-    rootVC.toolbarItems = [searchToolbar]
+	let  searchToolbar = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: nil, action: nil)
+	rootVC.toolbarItems = [searchToolbar]
     
     // 对于 SecondVC 关闭toolBar显示
     navVC?.toolbarHidden = true
