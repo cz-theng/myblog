@@ -125,6 +125,36 @@ Navigation在一个App中的物理存在：
 
 ![nav_event](./nav_event.png)
 
+
+通过这个回调我们可以在ViewController消失和加载时加入一些自定义动作。
 ## 六、灵活使用界面的footer
 
+在最上面介绍Navigation的时候，还有一个toolbar的结构。正常情况下这个toolbar是不现实的。当我们将UINavigationController的toolbarHidden属性置为“false”就可以看到在底部会有一个类似首部navigationItem的效果了。在Developer的文档中我们也可以找到
+一副说明的图例：
+
+![nav_apple](./nav_apple.png)
+
+这里我们添加一个搜索的toobaritem，看代码：
+
+	// 首先打开rooVC的toolBar显示
+    navVC?.toolbarHidden = false
+    let  searchToolbar = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Search, target: nil, action: nil)
+    rootVC.toolbarItems = [searchToolbar]
+    
+    // 对于 SecondVC 关闭toolBar显示
+    navVC?.toolbarHidden = true
+    
+这样我们就看到了在首页里面就有一个搜索按钮，当点击到下一个界面就看不到下面的这个toolbar了：
+
+![root_toolbar_search](./root_toolbar_search.png) 
+
+这里在代码中我们首先创建一个UIBarButtonItem，然后将其放在数组中赋给rooVC的toolbarItems成员，从而实现对toolbar的自定义，这里数组中的元素会依次显示在toolbar当中。
+
+这里注意了。和之前我们讨论的backBarButtonItem归属哪个ViewController时候一样，我们这里的toolbarItems是归属于当前的ViewController。因此这里我们要在首页显示，我们就设置RootVC的toolbarItems属性。另外这个toolBar最终还是UINavigationController的
+。因此其是否显示还是要通过这里的额navVC来控制。
+
+
 ## 结语
+
+通过Navigation我们可以构建一个基本的App框架，包括了界面之间的跳转，header/footer的设置以及动作的设置等。这里没有列举出所有的API以及切换的特效，也没有丰富的自定义。但是根据上面的逻辑框架，在结合自定义的动画和View，是很方便可以实现一个与众不同的但是又符合
+这个框架结构的App的。
