@@ -76,8 +76,8 @@ post-index ¼Ä´æÆ÷¼ä½ÓÑ°Ö·|LDR R0, [R1], #4 | ½«¼Ä´æÆ÷R1ÀïµÄÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸Ï
 #### post-index ¼Ä´æÆ÷¼ä½ÓÑ°Ö·
 C/CPPÖÐµÄ×ÔÔöÔËËã·û»¹ÓÐÖÖÐ´·¨¡°i++¡±£¬´ËÊ±ÏÈ·ÃÎÊiºó¶Ôi×ö×ÔÔöÔËËã¡£»ã±àÖÐÒ²ÊÇÈç´ËË³Ðò½øÐÐ¼ÆËã£º
 
-    LDR R0, [R1, #20]!	; ½«¼Ä´æÆ÷R1ÀïµÄÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸ÏòÄÚ´æÖµ¼ÓÔØ½øR0¼Ä´æÆ÷,Í¬Ê±½«R1¼Ä´æÆ÷ÖÐµÄÊý¼Ó20
-    STR R0, [R1, #20]!	; ½«¼Ä´æÆ÷R1ÖÐµÄÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸ÏòÄÚ´æ,Í¬Ê±½«R1¼Ä´æÆ÷ÖÐµÄÊý¼Ó20
+    LDR R0, [R1], #20	; ½«¼Ä´æÆ÷R1ÀïµÄÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸ÏòÄÚ´æÖµ¼ÓÔØ½øR0¼Ä´æÆ÷,Í¬Ê±½«R1¼Ä´æÆ÷ÖÐµÄÊý¼Ó20
+    STR R0, [R1], #20	; ½«¼Ä´æÆ÷R1ÖÐµÄÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸ÏòÄÚ´æ,Í¬Ê±½«R1¼Ä´æÆ÷ÖÐµÄÊý¼Ó20
     
 
 
@@ -130,17 +130,84 @@ AND| 358
     MOV{S}{cond} Rd, Operand2 
     MOV{cond} Rd, # imm16
    
-»¹¿ÉÒÔ¿ØÖÆÊÇ·ñÐÞ¸Ä·ûºÅÎ»£¬ÒÔ¼°²Ù×÷µÄÌõ¼þ¡£
+Æä±äÖÖMOVS»áÔÚ²Ù×÷ÍêÖ®ºó¸üÐÂ½á¹ûµÄÌõ¼þ±êÊ¶Î»¡° condition code flags ¡±Ò²¾ÍÊÇCPSR¼Ä´æÆ÷¡£
+ÕâÀï¸½Ò»ÕÅÍøÉÏÅ£ÈË×Ü½áµÄCPSR±êÊ¶Î»µÄ×Ü½á£º
+
+![cpsr](./cpsr.png)
+
+³ý´ËÖ®Íâ£¬»¹¿ÉÒÔ´øÓÐÌõ¼þÈç¡°MOVEQ¡±¡¢¡°MOVNE¡±
+ÕâÀïEQ/NE¾ÍÊÇÌõ¼þ·û¡£±íÊ¾£ºµ±CPSR±êÊ¶¼Ä´æÆ÷ÖÐµÄZÎªÖÃÎ»£¨EQÅÐ¶ÏÎª1£©µÄÊ±ºò²ÅÈ¥Ö´ÐÐMOV²Ù×÷¡£³£ÓÃµÄ¾ÍÓÐEQ/NE£¬ÕâÀï¸½Ò»ÕÅÌõ¼þ·ûºÅ±í£º
+
+![cond](./cond.png)
 
 #### 2.3.2 Êý¾ÝÔËËã
 
+##### ¼Ó·¨ÔËËã£ºADD/ADDS
+¼Ó·¨²Ù×÷ÊÇ½«¼Ä´æÆ÷»òÕßÁ¢¼´ÊýµÄÖµ½øÐÐÏà¼Ó¡£
+    ADD  Rd, Rn, #12  ; Rn¼Ä´æÆ÷ÖÐµÄÖµºÍÁ¢¼´Êý12×ö¼Ó·¨ºó£¬½«½á¹û´æÈëµ½Rd¼Ä´æÆ÷ÖÐ¡£
+    
+ÆäÔÚÊÖ²áÖÐµÄ¶¨ÒåÊÇ£º
 
+    ADD{S}{cond} { Rd},  Rn, Operand2
+    ADD{cond} { Rd},  Rn, # imm12               ; Thumb, 32-bit encoding only
+    
+Æä±äÖÖADDSÔÚÍê³ÉÉÏÃæµÄ¼ÆËãµÄÍ¬Ê±»¹»áÈ¥¸üÐÂCSPR×´Ì¬¼Ä´æÆ÷ÖÐµÄ½á¹û¡£
+
+##### ¼õ·¨ÔËËã£ºSUB / RSB
+¼õ·¨²Ù×÷ÊÇ½«¼Ä´æÆ÷»òÕßÁ¢¼´ÊýµÄÖµ½øÐÐ¼õ·¨¡£
+    SUB Rd,Rn, #12  ; ÓÃRn¼Ä´æÆ÷ÖÐµÄÖµ¼õÈ¥Á¢¼´Êý12ºó£¬½«½á¹û´æÈëRd¼Ä´æÆ÷ÖÐ¡£
+    RSB Rd,Rn, #12  ; ÓÃÁ¢¼´Êý12¼õÈ¥¼Ä´æÆ÷RnÖÐÖµ£¬½«½á¹û´æÈëRd¼Ä´æÆ÷ÖÐ
+    
+ÆäÔÚÊÖ²áÖÐ¶¨ÒåÊÇ£º
+    SUB{S}{cond} { Rd},  Rn, Operand2
+    SUB{cond} { Rd},  Rn, # imm12               ; Thumb, 32-bit encoding only
+    
+    RSB{S}{cond} { Rd},  Rn, Operand2
+   
+¾ùÓÐÒ»¸ö´øÐÞ¸Ä½á¹û·ûºÅµÄÃüÁî°æ±¾SUBS/RSBSÒÔ¼°´øÌõ¼þµÄ°æ±¾¡£¶þÕßµÄÒ»¸ö±È½Ï´óµÄÈ´±ðÔÚÓÚ£¬Ç°ÕßÊÇÓÃÇ°ÃæµÄ¼Ä´æÆ÷¼õÈ¥ºóÃæµÄ£»ºóÕßÊÇÓÃºóÃæµÄÈ¥¼õÇ°ÃæµÄ¼Ä´æÆ÷ÀïÃæµÄÖµ¡£
+        
+ 
+##### ±È½ÏÔËÐÐ£ºCMP/CNN
+±È½ÏÔËËã·û½«¼Ä´æÆ÷ÖÐµÄÄÚÈÝÓëÆäËûÖµ½øÐÐ±È½Ï£¬¸ÃÔËÐÐ²»Í¬ÓÚ¼Ó¼õ£¬ÆäÃ»ÓÐ½«½á¹û´æÈëÄ³¸ö¼Ä´æÆ÷£¬¶øÊÇÍ¨¹ýÐÞ¸Ä½á¹ûµÄÌõ¼þ±êÊ¶Î»À´±íÊ¾½á¹û¡£
+    
+    CMP  Rn, Rt ; ±È½Ï¼Ä´æÆ÷RnºÍRtÖÐµÄÖµ
+
+ÆäÔÚÊÖ²áÖÐµÄ¶¨ÒåÎª£º    
+    CMP{cond} Rn, Operand2
+    CMN{cond} Rn, Operand2
+    
+Í¨¹ý¼ì²éCPSRµÄ±êÊ¶Î»À´µÃµ½½á¹û¡£
+    
+
+
+##### Çó»ò£ºORR
+¡°»ò¡±ÃüÁî¼ÆËã¼Ä´æÆ÷ÖÐµÄÄÚÈÝÓëÆäËûÖµ½øÐÐ¶þ½øÖÆ»òÔËËãºóµÄ½á¹û¡£
+
+    ORR  Rd, Rn, #12  ; ¼ÆËãRn¼Ä´æÆ÷ÖÐÄÚÈÝ»òÉÏ12ºóµÄ½á¹û£¬²¢½«½á¹û´æÈëRdÖÐ
+    
+ÆäÔÚÊÖ²áÖÐ¶¨Î»Îª£º
+
+    ORR{S}{cond} Rd, Rn, Operand2
+    
+Ò»ÑùÓÐ¸öÓ°Ïì·ûºÅÎ»µÄ°æ±¾£ºORRS¡£ÒÑ¾­ÏàÓ¦µÄÅäºÏif...elseµÄÌõ¼þ°æ±¾ÈçORREQ/ORRNE
+
+##### ÇóÓà£ºAND
+¡°Óë¡±ÃüÁî¼ÆËã¼Ä´æÆ÷ÖÐµÄÄÚÈÝÓëÆäËûÖµ½øÐÐ¶þ½øÖÆÓëÔËËãºóµÄ½á¹û¡£
+    
+    AND Rd, Rn,#12 ; ¼ÆËãRn¼Ä´æÆ÷ÖÐÄÚÈÝÓëÉÏ12ºóµÄ½á¹û£¬²¢½«½á¹û´æÈëRdÖÐ
+    
+ÆäÔÚÊÖ²áÖÐ¶¨Î»Îª£º
+
+    AND{S}{cond} Rd, Rn, Operand2
+    
+Ò»ÑùÓÐ¸öÓ°Ïì·ûºÅÎ»µÄ°æ±¾£ºANDS¡£ÒÑ¾­ÏàÓ¦µÄÅäºÏif...elseµÄÌõ¼þ°æ±¾ÈçANDEQ/ANDNE
 
 #### 2.3.3 ¼Ä´æÆ÷ºÍÄÚ´æÊý¾Ý½»»»
 Êý¾ÝÔËÐÐÊÇÕë¶Ô¼Ä´æÆ÷µÄ£¬µ«ÊÇÎÒÃÇµÄÊý¾ÝºÍÖ¸ÁîÍ¨³£ÓÖÊÇ´æÔÚÄÚ´æµÄ¡£Òª½øÐÐÔËËã¾ÍÊ×ÏÈÐèÒª½«Êý¾Ý´ÓÄÚ´æ¼ÓÔØÖÁ¼Ä´æÆ÷£¬Ê¹ÓÃÖ¸Áî£º
 
     LDR Rt,[Rn]  ;½«¶ººÅºóÃæRnÑ°Ö·µÃµ½µÄÄÚ´æÀïÃæµÄÖµ¼ÓÔØ½øÇ°ÃæµÄRt¼Ä´æÆ÷ÖÐ¡£
     
+LµÄº¬ÒåÈÔÈ»ÊÇLOAD£¬¼´ÊÇLoad from memory into register¡£
 ÕâÀïÎªÁË¼òÃ÷Æð¼û£¬²ÉÓÃÁËÒ»¸ö¼Ä´æÆ÷¼ä½ÓÑ°Ö·×÷ÎªÀý×Ó¡£¾ßÌå»¹¿ÉÒÔ¼ÓÉÏÐÞÊÎ·û±íÊ¾²Ù×÷µÄµ¥Î»Èç8bit/16bitÒÑ¾­²Ù×÷Ìõ¼þ¡£¾ßÌå¿ÉÒÔ²Î¼ûÊÖ²á¡£
 
 ¶ÔÓ¦µÄ£¬Èç¹û½«Êý¾Ý´Ó¼Ä´æÆ÷ÖÐ´æÈëÄÚ´æ£¬ÔòÊ¹ÓÃ
@@ -150,6 +217,31 @@ AND| 358
 Ñ°Ö··½Ê½ÔÚÉÏÃæÒÑ¾­½éÉÜ¡£
 
 ¿ÉÒÔ¿´Ò»Ð©Àý×Ó£º
+    LDR R0, [R1] ; ½«¼Ä´æÆ÷R1ÖÐÊýÖµ±íÊ¾µÄ×ÖÎªµ¥Î»µÄÄÚ´æµØÖ·ÖÐÊý¼ÓÔØR0¼Ä´æÆ÷ÖÐ
+    STR	R2, [R3] ; ½«R2¼Ä´æÆ÷ÖÐµÄÊý´æÈëµ½R3¼Ä´æÆ÷ÖÐÊýÖµ±íÊ¾µÄ×Öµ¥Î»µÄÄÚ´æÖÐ   
+    
+    LDR R0, [R1, #20]	; ½«¼Ä´æÆ÷R1ÀïµÄÖµ¼ÓÉÏ20Ö®ºóµÃµ½µÄµØÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸ÏòÄÚ´æÖµ¼ÓÔØ½øR0¼Ä´æÆ÷
+    STR R0, [R1, #20]	; ½«¼Ä´æÆ÷R1ÖÐµÄÖµ´æÈë¼Ä´æÆ÷R1ÀïµÄÖµ¼ÓÉÏ20Ö®ºóµÃµ½µÄµØÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸ÏòÄÚ´æ 
+    
+    LDR R0, [R1, #20]!	; ½«¼Ä´æÆ÷R1ÀïµÄÖµ¼ÓÉÏ20Ö®ºóµÃµ½µÄµØÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸ÏòÄÚ´æÖµ¼ÓÔØ½øR0¼Ä´æÆ÷,Í¬Ê±½«R1¼Ä´æÆ÷ÖÐµÄÊý¼Ó20
+    STR R0, [R1, #20]!	; ½«¼Ä´æÆ÷R1ÖÐµÄÖµ´æÈë¼Ä´æÆ÷R1ÀïµÄÖµ¼ÓÉÏ20Ö®ºóµÃµ½µÄµØÖµ±íÊ¾µÄ×ÖÎªµ¥Î»ËùÖ¸ÏòÄÚ´æ,Í¬Ê±½«R1¼Ä´æÆ÷ÖÐµÄÊý¼Ó20
+    
 
+³ýÁËÉÏÃæ×î¼òµ¥µÄ¶ÔÒ»¸ö¼Ä´æÆ÷½øÐÐ¡°¼ÓÔØ/´æ´¢¡±²Ù×÷Íâ£¬»¹¿ÉÒÔ¶ÔÒ»¶Ñ¼Ä´æÆ÷½øÐÐ²Ù×÷¡£
+¶ÔÓ¦µÄÊ¹ÓÃÖ¸ÁîLDMºÍSTM¡£Õâ¶þÕßµÄÀí½â½ÏÎª¸´ÔÓ LDM£ºLµÄº¬ÒåÈÔÈ»ÊÇLOAD¡£Õâ¸öÖ¸ÁîÔËÐÐµÄ·½ÏòºÍLDRÊÇ²»Ò»ÑùµÄ£¬ÊÇ´Ó×óµ½ÓÒÔËÐÐµÄ¡£¸ÃÖ¸ÁîÊÇ½«ÄÚ´æÖÐ¶ÑÕ»ÄÚµÄÊý¾Ý£¬ÅúÁ¿µÄ¸³Öµ¸ø¼Ä´æÆ÷£¬¼´ÊÇ³öÕ»²Ù×÷¡£
+Ò»¸ö³£¼ûµÄ³¡¾°¾ÍÊÇÆäÖÐ¶ÑÕ»Ö¸ÕëÒ»°ã¶ÔÓ¦ÓÚSP£¬Ò²¾ÍÊÇ¼Ä´æÆ÷R13£¬×¢ÒâÕâÀïÐ´SPÊµ¼ÊÓÃµ½µÄÊÇR13ÖÐµÄÄÚ´æµØÖ·£¬Ïàµ±ÓÚ[R13]£¬Èç£º
+
+    LDMFD     SP ,   {R0, R1, R2} ;°ÑspÖ¸ÏòµÄ3¸öÁ¬ÐøµØÖ·¶Î£¨Ó¦¸ÃÊÇ3*4=12×Ö½Ú£¨ÒòÎªÎªr0,r1,r2¶¼ÊÇ32Î»£©£©ÖÐµÄÊý¾Ý¿½±´µ½r0,r1,r2Õâ3¸ö¼Ä´æÆ÷ÖÐÈ¥
+					
+STMÓëLDMÊÇÅä¶ÔÊ¹ÓÃµÄ£¬ÆäÖ¸Áî¸ñÊ½ÉÏÒ²ÏàËÆ£¬¼´Çø±ðÓÚSTR£¬ÊÇ½«¶ÑÕ»Ö¸ÕëÐ´ÔÚ×ó±ß£¬¶ø°Ñ¼Ä´æÆ÷×éÐ´ÔÚÓÒ±ß£¬Èç£º
+
+    STMFD      SP,   {R0, R1,R2} ; °ÑR0,R1,R2±£´æµ½¶ÑÕ»£¨spÖ¸ÏòµÄµØÖ·£©ÖÐ¡£
+    
+¿ÉÒÔ¿´µÄ³öÀ´£¬ÉÏÃæµÄ×éºÏ¼´¿ÉÒÔ¹¹³Éº¯Êýµ÷ÓÃµÄ³öÈëÕ»¶¯×÷ÁË¡£
+
+###2.4.4 Bring it to all
+
+ÉÏÃæ½éÉÜÖ»ÊÇ´Ó×î³£ÓÃµÄÒ»Ð©Ö¸ÁîÖÐ½«ËûÃÇ½øÐÐ·ÖÀà²¢½éÉÜÁËÕâÐ©Ö¸Áî»ù±¾µÄ×÷ÓÃ¡£²¢Ã»ÓÐ¶ÔÃ¿¸öÃüÁî×öÏêÏ¸½éÉÜ£¬ÏêÏ¸½éÉÜ¿ÉÒÔ²Î¿¼ÊÖ²áÖÐµÄËµÃ÷£¬
+ºóÐøÒ²»á¶ÔÌØÊâµÄÃüÁî×ö×¨Ìâ½éÉÜ¡£±ÈÈçLDM¡£
 
 
