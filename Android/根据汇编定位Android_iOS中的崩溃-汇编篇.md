@@ -1,5 +1,5 @@
 #¸ù¾Ý»ã±à¶¨Î»Android/iOSÖÐµÄ±ÀÀ£-»ã±àÆª
-### 2.1 Ö÷Òª¼Ä´æÆ÷
+## 1 Ö÷Òª¼Ä´æÆ÷
 ARMÖ÷ÒªÓÐ15¸ö32Î»¼Ä´æÆ÷£º
 
 ![common_registers](./common_registers.png)
@@ -26,7 +26,7 @@ ARMÖ÷ÒªÓÐ15¸ö32Î»¼Ä´æÆ÷£º
    
 µ÷ÓÃÊ±£¬a´æÈër0ÖÐ£¬b´æÈër1ÖÐ£¬·µ»ØÊ±£¬·µ»ØÖµ´æÈër0ÖÐ¡£
 
-### 2.2 ¾­µäÑ°Ö··½Ê½
+## 2 ¾­µäÑ°Ö··½Ê½
 
 ¶ÔÊý¾ÝµÄ²Ù×÷µÄ²Ù×÷¾ÍÖ»ÓÐÁ½¸öµØ·½£º¼Ä´æÆ÷ºÍÄÚ´æ¡£ÄÇÃ´È¡ÄÄ¸ö¼Ä´æÆ÷/ÄÚ´æÎ»ÖÃµÄÊý¾Ý£¬´æ·Åµ½ÄÄÀï£¿ÕâÀïARM¶¨ÒåÁËÒ»Ì×Ñ°Ö·µÄ¹æÔò£¬ÓÃÀ´È·¶¨µ½µ×²Ù×÷ÄÄÀïµÄÊý¾Ý¡£
 
@@ -81,7 +81,7 @@ C/CPPÖÐµÄ×ÔÔöÔËËã·û»¹ÓÐÖÖÐ´·¨¡°i++¡±£¬´ËÊ±ÏÈ·ÃÎÊiºó¶Ôi×ö×ÔÔöÔËËã¡£»ã±àÖÐÒ²ÊÇÈç´Ë
     
 
 
-###2.3 ¾­µäÖ¸Áî
+##3 ¾­µäÖ¸Áî
 
 ARM»ã±àÄÇÃ´¶àÖ¸Áî£¬»¹·ÖARMv6/ThumbµÈÖÖÀà£¬ÄÇÃ´¶àÖ¸ÁîÈçºÎ¼ÇÒäÄØ£¿ÕâÀïÎÒ·´»ã±àAndroid21ÉÏµÄlibc.so·¢ÏÖÓÐ4885ÌõÖ¸Áî¡£È»ºóÈ¡µÃÆäÖÐ»ã±àÖ¸ÁîÅ×È¥__¿ªÍ·µÄ¸¨ÖúÖ¸Áî£¬·¢ÏÖ£º
 
@@ -120,7 +120,7 @@ AND| 358
 
 ¶ÔÕÕÊÖ²áÎÒÃÇÒÀ´ÎÁÐÏÂÕâÐ©×î³£ÓÃÖ¸ÁîµÄ×÷ÓÃ¡£
 
-#### 2.3.1 ¿½±´¸´ÖÆ
+### 3.1 ¿½±´¸´ÖÆ
 ³ÌÐòÂß¼­ÖÐ×î³£ÓÃµÄ¿½±´¸´ÖÆ²Ù×÷£¬ÔÚ»ã±àÖÐÓÐ¸ö¶ÔÓ¦µÄÖ¸ÁîÀ´±íÊ¾£º
 
     MOV Rd, Rn ; ½«Rn¼Ä´æÆ÷ÖÐµÄÊý¸´ÖÆµ½RdÖÐ
@@ -140,7 +140,7 @@ AND| 358
 
 ![cond](./cond.png)
 
-#### 2.3.2 Êý¾ÝÔËËã
+### 3.2 Êý¾ÝÔËËã
 
 ##### ¼Ó·¨ÔËËã£ºADD/ADDS
 ¼Ó·¨²Ù×÷ÊÇ½«¼Ä´æÆ÷»òÕßÁ¢¼´ÊýµÄÖµ½øÐÐÏà¼Ó¡£
@@ -153,7 +153,7 @@ AND| 358
     
 Æä±äÖÖADDSÔÚÍê³ÉÉÏÃæµÄ¼ÆËãµÄÍ¬Ê±»¹»áÈ¥¸üÐÂCSPR×´Ì¬¼Ä´æÆ÷ÖÐµÄ½á¹û¡£
 
-##### ¼õ·¨ÔËËã£ºSUB / RSB
+#### ¼õ·¨ÔËËã£ºSUB / RSB
 ¼õ·¨²Ù×÷ÊÇ½«¼Ä´æÆ÷»òÕßÁ¢¼´ÊýµÄÖµ½øÐÐ¼õ·¨¡£
     SUB Rd,Rn, #12  ; ÓÃRn¼Ä´æÆ÷ÖÐµÄÖµ¼õÈ¥Á¢¼´Êý12ºó£¬½«½á¹û´æÈëRd¼Ä´æÆ÷ÖÐ¡£
     RSB Rd,Rn, #12  ; ÓÃÁ¢¼´Êý12¼õÈ¥¼Ä´æÆ÷RnÖÐÖµ£¬½«½á¹û´æÈëRd¼Ä´æÆ÷ÖÐ
@@ -167,7 +167,7 @@ AND| 358
 ¾ùÓÐÒ»¸ö´øÐÞ¸Ä½á¹û·ûºÅµÄÃüÁî°æ±¾SUBS/RSBSÒÔ¼°´øÌõ¼þµÄ°æ±¾¡£¶þÕßµÄÒ»¸ö±È½Ï´óµÄÈ´±ðÔÚÓÚ£¬Ç°ÕßÊÇÓÃÇ°ÃæµÄ¼Ä´æÆ÷¼õÈ¥ºóÃæµÄ£»ºóÕßÊÇÓÃºóÃæµÄÈ¥¼õÇ°ÃæµÄ¼Ä´æÆ÷ÀïÃæµÄÖµ¡£
         
  
-##### ±È½ÏÔËÐÐ£ºCMP/CNN
+#### ±È½ÏÔËÐÐ£ºCMP/CNN
 ±È½ÏÔËËã·û½«¼Ä´æÆ÷ÖÐµÄÄÚÈÝÓëÆäËûÖµ½øÐÐ±È½Ï£¬¸ÃÔËÐÐ²»Í¬ÓÚ¼Ó¼õ£¬ÆäÃ»ÓÐ½«½á¹û´æÈëÄ³¸ö¼Ä´æÆ÷£¬¶øÊÇÍ¨¹ýÐÞ¸Ä½á¹ûµÄÌõ¼þ±êÊ¶Î»À´±íÊ¾½á¹û¡£
     
     CMP  Rn, Rt ; ±È½Ï¼Ä´æÆ÷RnºÍRtÖÐµÄÖµ
@@ -180,7 +180,7 @@ AND| 358
     
 
 
-##### Çó»ò£ºORR
+#### Çó»ò£ºORR
 ¡°»ò¡±ÃüÁî¼ÆËã¼Ä´æÆ÷ÖÐµÄÄÚÈÝÓëÆäËûÖµ½øÐÐ¶þ½øÖÆ»òÔËËãºóµÄ½á¹û¡£
 
     ORR  Rd, Rn, #12  ; ¼ÆËãRn¼Ä´æÆ÷ÖÐÄÚÈÝ»òÉÏ12ºóµÄ½á¹û£¬²¢½«½á¹û´æÈëRdÖÐ
@@ -191,7 +191,7 @@ AND| 358
     
 Ò»ÑùÓÐ¸öÓ°Ïì·ûºÅÎ»µÄ°æ±¾£ºORRS¡£ÒÑ¾­ÏàÓ¦µÄÅäºÏif...elseµÄÌõ¼þ°æ±¾ÈçORREQ/ORRNE
 
-##### ÇóÓà£ºAND
+#### ÇóÓà£ºAND
 ¡°Óë¡±ÃüÁî¼ÆËã¼Ä´æÆ÷ÖÐµÄÄÚÈÝÓëÆäËûÖµ½øÐÐ¶þ½øÖÆÓëÔËËãºóµÄ½á¹û¡£
     
     AND Rd, Rn,#12 ; ¼ÆËãRn¼Ä´æÆ÷ÖÐÄÚÈÝÓëÉÏ12ºóµÄ½á¹û£¬²¢½«½á¹û´æÈëRdÖÐ
@@ -202,7 +202,7 @@ AND| 358
     
 Ò»ÑùÓÐ¸öÓ°Ïì·ûºÅÎ»µÄ°æ±¾£ºANDS¡£ÒÑ¾­ÏàÓ¦µÄÅäºÏif...elseµÄÌõ¼þ°æ±¾ÈçANDEQ/ANDNE
 
-#### 2.3.3 ¼Ä´æÆ÷ºÍÄÚ´æÊý¾Ý½»»»
+### 3.3 ¼Ä´æÆ÷ºÍÄÚ´æÊý¾Ý½»»»
 Êý¾ÝÔËÐÐÊÇÕë¶Ô¼Ä´æÆ÷µÄ£¬µ«ÊÇÎÒÃÇµÄÊý¾ÝºÍÖ¸ÁîÍ¨³£ÓÖÊÇ´æÔÚÄÚ´æµÄ¡£Òª½øÐÐÔËËã¾ÍÊ×ÏÈÐèÒª½«Êý¾Ý´ÓÄÚ´æ¼ÓÔØÖÁ¼Ä´æÆ÷£¬Ê¹ÓÃÖ¸Áî£º
 
     LDR Rt,[Rn]  ;½«¶ººÅºóÃæRnÑ°Ö·µÃµ½µÄÄÚ´æÀïÃæµÄÖµ¼ÓÔØ½øÇ°ÃæµÄRt¼Ä´æÆ÷ÖÐ¡£
@@ -239,7 +239,7 @@ STMÓëLDMÊÇÅä¶ÔÊ¹ÓÃµÄ£¬ÆäÖ¸Áî¸ñÊ½ÉÏÒ²ÏàËÆ£¬¼´Çø±ðÓÚSTR£¬ÊÇ½«¶ÑÕ»Ö¸ÕëÐ´ÔÚ×ó±ß£¬¶ø°
     
 ¿ÉÒÔ¿´µÄ³öÀ´£¬ÉÏÃæµÄ×éºÏ¼´¿ÉÒÔ¹¹³Éº¯Êýµ÷ÓÃµÄ³öÈëÕ»¶¯×÷ÁË¡£
 
-###2.4.4 Bring it to all
+###3.4 Bring it to all
 
 ÉÏÃæ½éÉÜÖ»ÊÇ´Ó×î³£ÓÃµÄÒ»Ð©Ö¸ÁîÖÐ½«ËûÃÇ½øÐÐ·ÖÀà²¢½éÉÜÁËÕâÐ©Ö¸Áî»ù±¾µÄ×÷ÓÃ¡£²¢Ã»ÓÐ¶ÔÃ¿¸öÃüÁî×öÏêÏ¸½éÉÜ£¬ÏêÏ¸½éÉÜ¿ÉÒÔ²Î¿¼ÊÖ²áÖÐµÄËµÃ÷£¬
 ºóÐøÒ²»á¶ÔÌØÊâµÄÃüÁî×ö×¨Ìâ½éÉÜ¡£±ÈÈçLDM¡£
