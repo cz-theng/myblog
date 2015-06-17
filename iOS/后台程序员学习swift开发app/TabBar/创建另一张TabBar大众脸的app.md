@@ -86,3 +86,39 @@
 ![more_cus](./more_cus.png)
 
 ## 四、中间发生了神马
+在这些点击跳转的过程中，我们是否可以加一些控制呢？比如让某个tab不生效？答案是肯定的，这时UITabBarController抛出了一个delegate来作这样的事情：UITabBarControllerDelegate
+
+其主要代理了如下几个过程：
+
+	@availability(iOS, introduced=3.0)
+    optional func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool
+    optional func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController)
+    
+    @availability(iOS, introduced=3.0)
+    optional func tabBarController(tabBarController: UITabBarController, willBeginCustomizingViewControllers viewControllers: [AnyObject])
+    @availability(iOS, introduced=3.0)
+    optional func tabBarController(tabBarController: UITabBarController, willEndCustomizingViewControllers viewControllers: [AnyObject], changed: Bool)
+    optional func tabBarController(tabBarController: UITabBarController, didEndCustomizingViewControllers viewControllers: [AnyObject], changed: Bool)
+    
+    @availability(iOS, introduced=7.0)
+    optional func tabBarControllerSupportedInterfaceOrientations(tabBarController: UITabBarController) -> Int
+    @availability(iOS, introduced=7.0)
+    optional func tabBarControllerPreferredInterfaceOrientationForPresentation(tabBarController: UITabBarController) -> UIInterfaceOrientation
+    
+    @availability(iOS, introduced=7.0)
+    optional func tabBarController(tabBarController: UITabBarController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning?
+    
+    @availability(iOS, introduced=7.0)
+    optional func tabBarController(tabBarController: UITabBarController, animationControllerForTransitionFromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning?
+    
+每个回调的用途翻阅Developer的[手册](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UITabBarControllerDelegate_Protocol/index.html#//apple_ref/occ/intfm/UITabBarControllerDelegate/tabBarController:didSelectViewController:)即可。最常用的就是前面两个。
+
+* - tabBarController:shouldSelectViewController: // 是否设置选中
+
+这个回调在点击某个tab的时候被调用，此时还没有进行切换，通过控制其返回false，可以使得不发生跳转，也就是点击无效的结果。
+
+* - tabBarController:didSelectViewController:
+
+当点击完tab完成切换后被调用。这个比较常用如，点击后做一些统计操作，或者一些初始化操作。
+
+
