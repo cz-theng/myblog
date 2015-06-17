@@ -46,4 +46,43 @@
 
 ## 三、设置单个界面
 
+在上面的代码中，我们除了设置了每个容器ViewController的view属性，从而展示界面效果，同时还为其设置了tabBarItem属性，该属性就是上面Tab占位区域中的元素。其主要由一个小图标的Icon和一个提示文字组成。对应类：UITabBarItem 。我们看下其构造函数：
+
+	init(title: String?, image: UIImage?, tag: Int)
+    @availability(iOS, introduced=7.0)
+    init(title: String?, image: UIImage?, selectedImage: UIImage?)
+    init(tabBarSystemItem systemItem: UITabBarSystemItem, tag: Int)
+
+构造函数里面传入一个title和一个UIImage对象对应上面说的图标Icon和提示文字。在iOS7.0之后还可以设置一个选中状态时的图标。上面的演示中，直接利用XCode的特性，用named属性初始化一个UIImage对象：
+
+	let barAddItemImg = UIImage(named: "barbuttonicon_add")
+	
+然后用这个UIImage对象和一个title构造一个UITabBarItem:
+
+	tabVC01.tabBarItem = UITabBarItem(title: "One", image: barAddItemImg, tag: 1)
+	
+在构造完每个子界面的容器ViewController的UITabBarItem后，就可以将其装入UITabBarController中了：
+	
+	rootVC.viewControllers = [tabVC01,tabVC02,tabVC03,tabVC04,tabVC05,tabVC06,]
+
+诚如上面的推测，这里直接将要控制的ViewController构成一个数组放置在rootVC中。
+	
+这里，强势的iOS又有一个潜在的规则，Tab上的元素最多不能超过5个（含），多于5个的部分，会将第5个之后的元素全部替换成一个More的UITabBarItem并且其Icon也生成好了。当点击这个“More”的时候，会出现一个TableView的列表将剩余的容器ViewController依次列出来：
+
+![more](./more.png)
+
+这里iOS还自动生成了一个Edit的菜单，点击后用户可以修改TabBarItem的顺序，当然，这一切都是不用我们手动写代码，而是UITabBarController自身带有的功能。
+
+这里我们看到“More”的Title和图标以及点进去后的“Edit”都是自动生成的，那是否可以对这些值进行自定义呢？UITabBarController抛出一个属性让我们可以访问到这个“More”ViewController，也就是：“moreNavigationController” 。从命名中我们就可以看出其是一个NavigationController，那就好办了，翻翻我们前面的一篇文章就知道怎么用这个ViewController。这里我们重新为其生成一个tabBarItem就可以替换在UITabBarController的Tab占位区域中的“More”的Tab了。通过获得moreNavigationController的栈顶的ViewController，遍可以设置其内容中的Title和“Edit”按钮，分别对应到`moreNavigationController.topViewController!.navigationItem.title`和`moreNavigationController.topViewController!.navigationItem.rightBarButtonItem?` ，看下代码：
+
+	rootVC.moreNavigationController.tabBarItem = UITabBarItem(title: "更多", image: barAddItemImg, tag: 7)
+	
+	rootVC.moreNavigationController.tabBarItem.title = "更多"
+	rootVC.moreNavigationController.topViewController!.navigationItem.title = "更多"
+	rootVC.moreNavigationController.topViewController!.navigationItem.rightBarButtonItem?.title = "编辑"
+	
+这里就实现了提示的自定义：
+
+![more_cus](./more_cus.png)
+
 ## 四、中间发生了神马
