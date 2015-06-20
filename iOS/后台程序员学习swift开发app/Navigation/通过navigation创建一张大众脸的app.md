@@ -1,4 +1,4 @@
-#通过Navigation创建一张大众脸的App
+I#通过Navigation创建一张大众脸的App
 
 拿出iPhone。随手点开几个系统应用，比如“信息”，我们会看到如下的界面结构：
 
