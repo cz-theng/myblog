@@ -90,30 +90,81 @@ Cocoapods.xcworkspace是一个类似XCode工程文件Cocoapods.xcodeproj文件�
 在上面使用Cocoapods的过程中，使用pod工具生成了三个文件夹，那么在我们的Repo中，该如何对待这些文件呢？其实对于XCode工程，最好是在创建工程的那一刻就创建好.gitignore
 文件，因为XCode会自己进行Add操作，当然这个是没有使用XCode的代码管理工具的情况下。在.gitigore中，我们把和Cocoapods相关的四个文件中仅“Podfile”放入git托管，二把其他三个生成的文件均写入.gitignore里面。这样多人之间仅共享配置文件，通过pod进行实时生成。
 
-## 四、Podfile语法
+## 四、Podfile自定义
+
+### 指定库的名称和版本
 在上面的Podfile文件中，只写了一句话：
 
 	pod 'AFNetworking', '~> 2.0'
 	
-表示依赖2.0版本前最近的AFNetworking库。这是一个非常简单的依赖语句，Podfile有其自己的语法规则podspec的DSL来描述依赖规则，通过podspec可以定义更多的依赖关系。在Podfile中，只要一部分
-规则即可。
+Podfile是基于Ruby的，就如同Scons使用Python，Gradle使用Groovy一样，内容使用Ruby的语法。上面这个语句指定了依赖的库以及对应的版本。用pod关键字，加上单引号括上的库的名字和版本信息，中间用逗号分隔,版本信息规则如下：
 
-Podfile通过“target”来表示依赖关系的节点。每个Podfile有一个默认的Target，就是原来XCode工程文件中的第一个Target。所以上面的那一句话，其实是为我们的默认Target定义了一条依赖AFNetworking的规则。
+版本号表示 | 版本
+---|---
+> 0.1 | 大于0.1的版本
+>= 0.1| 大于等于0.1 的版本
+< 0.1 | 小于0.1的版本
+<= 0.1| 小于等于0.1 的版本
+~> 0.1.2 | 0.1.2(含)到0.2(不含)之间的版本，也就是 >=0.1.2 && <0.2.0
+~>0.1 | 同上 >= 0.1 && <1.0
 
+除了用版本号表示CocoaPods收录的库外，还可以指定Github上的库：
 
-在Target中提供了一些配置选项：
-
-1. 指定静态库的编译平台
-
-	platform :ios, "4.0" # 指定在iOS 8.0系统上进行编译
-
-2. 指定工程名
-默认情况下，Cocoapods选择Podfile同级目录下的xcodeproj文件为默认工程，这也是上面为什么说要吧Podfile放在xcodeproj文件同级目录的原因，但是也阔以进行指定
-	xcodeproj 'MyProject' # 表示从这个XCode工程中选择Target
+	pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git'
+	pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :branch => 'dev'
+	pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :tag => '0.7.0'
+	pod 'AFNetworking', :git => 'https://github.com/gowalla/AFNetworking.git', :commit => '082f8319af'
 	
-3. 显示指定连接的库文件
-指定某个Target需要连接的库文件
-	link_with 'MyApp'  # 表示需要连接MyApp库
+上面几条分别表示：
+* 使用trunck上的版本
+* 使用分支dev上的版本
+* 使用tag号版本
+* 使用commit号版本
+
+### 自定义Target
+Podfile通过Target
+来组织依赖关系，Target就是我们普通XCode工程中的Target，每个Target产出一个Prouduct，因此只要设置好这个Target依赖的库文件，也就达到目的了。
+
+![target](./target.png)
+
+
+每个Podfile有一个默认的Target,Cocoapods选择Podfile同级目录下的xcodeproj文件为默认工程，这也是上面为什么说要吧Podfile放在xcodeproj文件同级目录的原因。因此原来XCode工程文件中的第一个Target。所以上面的那一句话，其实是为我们的默认Target定义了一条依赖AFNetworking的规则。
+
+target的定义符合Ruby的语法，用end结束：
+
+	target :'cocopods' do
+	  pod 'OCMock', '~> 2.0.1'
+	end
+
+这样就定义了一个test的target依赖OCMock。
+
+这里xcodeproj是根据默认规则的，也可以不将Profile文件放在其同级目录下，此时需要指定xcodeproj的位置：
+
+	xcodeproj './YourProj/cocopods.xcodeproj'
+
+	target :'cocopods' do
+	  pod 'OCMock', '~> 2.0.1'
+	end
+
+对于每个依赖的库（比如这里的OCMock），还可以指定其编译时的sdk，如：
+
+	xcodeproj './YourProj/cocopods.xcodeproj'
+
+	target :'cocopods' do
+		platform :ios, '7.0'   
+	  	pod 'OCMock', '~> 2.0.1'
+	  	
+	  	platform :ios, '7.0'
+	  	pod 'AFNetworking', '~> 0.2'
+	end
+	
+指定了OCMock和AFNetworking编译的使用用的SDK。
+
+### Bring it to all
+
+了解了这几条规则，就够我们去定义自己工程中的依赖关系了。Podfile还提供了一些其他特性，比如“link_with”,"user_frameworkds"等，可以参考[官方文档](https://guides.cocoapods.org/syntax/podfile.html#podfile)
+
+
 
 
 
