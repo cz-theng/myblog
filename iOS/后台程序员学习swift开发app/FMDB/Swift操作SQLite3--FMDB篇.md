@@ -89,7 +89,7 @@ FMDB的接口中有五个类和两个Category：
 	executeStatements(sql: String!)
 	executeStatements(sql: String!, withResultBlock: FMDBExecuteStatementsCallbackBlock! ([NSObject : AnyObject]!) -> Int32)
 
-	
+这个函数可以执行所有的SQL命令，就如同在MySQL中手动敲入一样。	
 	
 当操作完数据后，调用数据库对象的`close()`方法进行关闭。
 
@@ -97,28 +97,109 @@ FMDB的接口中有五个类和两个Category：
 ##创建表（Create）
 创建表适用`db.executeStatements`函数来执行SQL语句：
 
-	let sqlCMD = "CREATE TABLE IF NOT EXISTS CONTACTS (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT)"
+	let sqlCMD = "CREATE TABLE IF NOT EXISTS contacts (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)"
 	rst = db.executeStatements(sqlCMD)
 	if !rst {
 	    print("Create Table Error")
+	    db.close()
 	    return
 	}
 	
 也可以用	executeUpdate 来实现：
 
-	let sqlCMD = "CREATE TABLE IF NOT EXISTS CONTACTS (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT)"
+	let sqlCMD = "CREATE TABLE IF NOT EXISTS contacts (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT)"
 	rst = db.executeUpdate(sqlCMD, withArgumentsInArray: nil)
 	if !rst {
 	    print("Create Table Error")
+	    db.close()
 	    return
 	}
 	
 很直观的通过SQL语句创建一个数据表。
 
-##读取记录（Read）
+## 读取记录（Read）
+读取记录采用`executeQuery`系列函数：
+
+	sqlCMD = "SELECT * FROM contacts"
+	let rstRecords = db.executeQuery(sqlCMD, withArgumentsInArray: [])
+	if rstRecords == nil {
+	    print("Qurey With Array Error!")
+	    db.close()
+	    return
+	}
+	
+	while rstRecords.next() {
+	    let name = rstRecords.stringForColumn("name")
+	    print("Record with id:\(rstRecords.intForColumnIndex(0)) and name:")
+	    print("\(name) \n")
+	}
+	
+这里首先调用结果记录的“next()”方法，并进行遍历。在遍历中依次使用{type}ForColumn和{type}ForColumnIndex两种方法获得记录中的数据。
+
+可以看到类似的输出：
+
+	Record with id:1 and name:FMDB 
+	Record with id:2 and name:FMDB  
 
 ## 更新记录 （Update）
+先看插入操作：
+
+	sqlCMD = "INSERT INTO contacts VALUES (?, ?)"
+	rst = db.executeUpdate(sqlCMD, withArgumentsInArray: [1,"FMDB"])
+	if !rst {
+	    print("Insert Error!")
+	    db.close()
+	    return 
+	}
+	
+这里在SQL语句中用"?"作为占位符，然后调用`executeUpdate(sql: String!, withArgumentsInArray: [AnyObject]!)`,用一个OC的AnyObject的数组对"?"的占位符进行赋值。
+
+除了用"?"作为占位符以外，还可以用字典的方式进行命名操作：
+
+	sqlCMD = "INSERT INTO contacts VALUES (:id, :name)"
+	rst = db.executeUpdate(sqlCMD, withParameterDictionary: ["id":2, "name":"FMDB"])
+	if !rst {
+	   print("Insert With Dictionary Error!")
+	   db.close()
+	   return
+	}
+	
+在SQL语句中用":"冒号加上key的方式作为占位符，然后调用`db.executeUpdate(sql: String!, withParameterDictionary: [NSObject : AnyObject]!)`通过字典做映射关系，填充占位符。这些占位符同样也适用于查询动作`executeQuery`中的过滤条件。
+
+由于Swift和OC导出上不定参数的不同，导致Swift中无法直接使用 `executeUpdateWithFormat` 类似printf的操作方式，但是可以自己扩展下接口，进行支持。
+
+在来看更新操作:
+
+和插入一样，使用相同的占位符即可:
+
+	sqlCMD = "UPDATE contacts SET name=? WHERE id=?"
+	rst = db.executeUpdate(sqlCMD, withArgumentsInArray: ["FMDB Two",2])
+	if !rst {
+	    print("Insert With Dictionary Error!")
+	    db.close()
+	    return
+	}
+	
 
 ## 删除记录（Delete）
+删除记录和更新操作中的占位符类似，可以用“?”或者字典的方式：
 
+	sqlCMD = "DELETE FROM contacts WHERE id=?"
+	rst = db.executeUpdate(sqlCMD, withArgumentsInArray: [1,])
+	if !rst {
+	   print("Delete Record Error!")
+	   db.close()
+	   return
+	}
+
+
+除此之外，还可以使用`db.executeStatements`函数：
+
+	sqlCMD = "DROP TABLE contacts"
+	rst = db.executeUpdate(sqlCMD, withArgumentsInArray: [1,])
+	if !rst {
+	   print("Drop Table Error!")
+	   db.close()
+	   return
+	}
 
