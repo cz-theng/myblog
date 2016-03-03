@@ -27,6 +27,9 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
+
+archive: 1
+
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -64,6 +67,7 @@ pagination_dir: page
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
 theme: hexo-theme-yilia
+#theme: hexo-theme-spfk
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html

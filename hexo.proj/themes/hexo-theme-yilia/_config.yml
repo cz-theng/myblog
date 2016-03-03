@@ -1,7 +1,8 @@
 # Header
 menu:
   主页: /blog
-  所有文章: /blog/archives
+  所有文章: /blog/archives 
+  关于: /about.html
   #TAGS: /blog/tags/
 
 # SubNav
