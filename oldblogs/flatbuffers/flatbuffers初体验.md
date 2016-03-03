@@ -115,6 +115,7 @@ Flutbuffers作为新时代的序列化工具，出身于Google，和Golang一样
     
 对于自定义数据类型，这可以通过指针的直接转换得到：
 
-	Message::BlogMsg *blogMsgUser =(Message::BlogMsg *) msg->msg();	printf("blogName is %s\n",blogMsgUser->blogName()->c_str());
+	Message::BlogMsg *blogMsgUser =(Message::BlogMsg *) msg->msg();	
+	printf("blogName is %s\n",blogMsgUser->blogName()->c_str());
 	
 这也就是Flatbuffers相对于PB优点所在处，无需进行打包和解包的操作，即可获得对象的内容。

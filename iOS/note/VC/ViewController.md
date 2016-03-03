@@ -1,0 +1,3 @@
+#ViewController
+
+1. 两个VC之间的切换。使用presentViewController切换到其他VC，其他VC使用dismissViewControllerAnimated切回来。切换效果通过modalTransitionStyle = UIModalTransitionStyle.CrossDissolve来控制，注意的是切入用了翻页特效。切出时不能改modalTransitionStyle
