@@ -8,7 +8,8 @@ menu:
 # SubNav
 subnav:
   github: "http://github.com/cz-it"
-  #weibo: "#"
+  简书iOS: "http://www.jianshu.com/users/b8b64af5b6f9/timeline"
+  简书Golang: "http://www.jianshu.com/users/86f2f6a5968e/timeline"
   #rss: "#"
   #zhihu: "#"
   #douban: "#"
