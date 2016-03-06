@@ -63,6 +63,42 @@ parent| ONOXMLElement| 父亲节点
 children | NSArray | 子节点
 previousSibling | ONOXMLElement| 左（前一个）兄弟节点
 nextSibling | ONOXMLElement | 右兄弟节点
+blank|BOOL | 节点是否为空
+
+除了上面直接的属性外，还可以通过Ono提供的接口直接获得相关信息
+
+* -(id)valueForAttribute:(NSString *)attribute; 
+	
+直接获得这个节点的某个属性。比如
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<student name="pony"> 	</student>
+要获得student节点的name属性,直接对student（tag为student）节点调用`valueForAttribute：@“name”` 即可。
+
+* -(NSString *)stringValue;
+
+将该节点的内容当成字符串，获取该节点的字符串值。如：
+
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<city> shenzhen 	</city>
+city节点(tag为city)的 stringValue 为“shenzhen”。
+
+* -(NSNumber *)numberValue;
+
+将该节点的内容当成数字，获取该节点的数字内容。如：
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<number> 1024	</number>	
+number节点的numberValue为1024
+
+* -(NSDate *)dateValue;
+将该节点当成日期进行解析，获得该节点的日期内容。如：
+
+	<?xml version="1.0" encoding="utf-8"?>
+	<date> 2016-03-15 </date>	
+	
+date节点的dateValue为NSDate表示的2016年3月15日，可见这里接口非常友好，Ono已经自动帮我们转换成了NSDate类型。
 
 ## 4.获取同类节点
 
