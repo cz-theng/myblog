@@ -48,7 +48,7 @@ Swift要求在构造函数中要完成对所有“Stored”属性的初始化操
 * 一个Convenience构造函数必须调用该类的一个构造函数，可以是Designated也可以是另一个Convenience的构造函数
 * 一个Convenience的调用路径上，最终必须调用一个Designated构造函数
 
-![init_chain](http://images.libcz.com:8000/images/blog/swift/swift_继承中构造函数/init_chain.png)
+![init_chain](http://images.libcz.com:8000/images/blog/swift/construction_in_inherit_on_swift/init_chain.png)
 
 如上图所示，最下面的子类的两个Designated的构造函数都调用了父类的Designated构造函数，而其Convenience构造函数则通过调用其Designated进行初始化，最上面的父类的第二个Convenience构造函数调用其第一个Convenience，最终还是调用了其Designated构造函数。
 
@@ -62,9 +62,9 @@ Swift要求在构造函数中要完成对所有“Stored”属性的初始化操
 * 在完成对所有Stored属性的初始化之前，是不能引用实例方法和属性的，比如用self.x访问一个属性来初始化另一个属性。
 
 这里我们看一个表示两段构造的例子：
-![two_step_init_one](http://images.libcz.com:8000/images/blog/swift/swift_继承中构造函数/two_step_init_one.png)
+![two_step_init_one](http://images.libcz.com:8000/images/blog/swift/construction_in_inherit_on_swift/two_step_init_one.png)
 首先子类从Convenience构造函数开始，先调用其Designated构造函数，在这初始化子类里面的Stored属性，然后调用父类的Designated构造函数，初始化好父类的Stored属性。这样完成第一步，此后才可以访问实例的属性。
-![two_step_init_two](http://images.libcz.com:8000/images/blog/swift/swift_继承中构造函数/two_step_init_two.png)
+![two_step_init_two](http://images.libcz.com:8000/images/blog/swift/construction_in_inherit_on_swift/two_step_init_two.png)
 进入到第二阶段，从父类开始，执行用户的代码对初始化后的属性作修改，然后再到子类里面再做修改，这里可以修改继承的父类的属性，最后到Convenience构造函数里面可以访问实例的属性方式进行再自定义修改，比如将UIView的一个子类里面的某个属性设置为self.bouds大小。
 
 

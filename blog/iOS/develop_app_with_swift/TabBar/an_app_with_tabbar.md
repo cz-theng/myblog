@@ -7,7 +7,7 @@ date: 2015-05-17
 
 前面我们通过Navigation创建了一种可以切换界面外壳的App，其实拿起iPhone，我们发现除了这种类型还有另一种类型外壳的App.如下图：
 
-![alarm](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/alarm.png) ![appstore](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/appstore.png)
+![alarm](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/alarm.png) ![appstore](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/appstore.png)
 
 我们发现这类App都是在最下面有一排Tab，每个Tab的Item表示一个分类的界面，通过点击这些Tab可以切换到对应的界面中。再回想下QQ/微信、
 淘宝/天猫、微博等每天都要用的App。
@@ -22,25 +22,25 @@ date: 2015-05-17
 
 我们来看下其组成结构图：
 
-![tabbar_struct](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/tabbar_struct.png)
+![tabbar_struct](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/tabbar_struct.png)
 
 主要就是由下面的一个TabBar的list和承载显示内容的TabBarControllerView组成，每个TabBar还可以设置一个小的标题title和一个图标。
 并且每个图标上面还可以显示一个红点（想想微信里面有新消息的时候）来表示一些提示信息。因此我们可以猜想，其实现就是用一个数组来保存每个
 界面的ViewController，然后绘制一个可触发的Tab，当点击的时候切换到对应的ViewController中。 这样我们再看官方的分解图就容易理解了:
 
-![tabbar_struct1](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/tabbar_struct1.png)
+![tabbar_struct1](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/tabbar_struct1.png)
 
 
 ## 二、通过Tab切换界面
 
 这里我手写一个界面：
 
-![appdelegate](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/appdelegate.png)
+![appdelegate](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/appdelegate.png)
 
 
 这里创建一个 `UITabBarController`对象`rootVC`作为window的rootviewcontroller。如果就这样的话（打开这里的return 的注释），那么我们可以看到运行结果中就是在下面有个tab站位区间的界面。
 
-![empty_tab](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/empty_tab.png)
+![empty_tab](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/empty_tab.png)
 
 这时我们再创建几个容器ViewController，并为其创建一个一个带有背景颜色的View，从而方便鉴别。最后将这些容器ViewController赋给上面我们说的数组中：
 
@@ -48,7 +48,7 @@ date: 2015-05-17
 	
 可以看到我们的运行效果：
 
-![tabbar_run](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/tabbar_run.png)
+![tabbar_run](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/tabbar_run.png)
 
 ## 三、设置单个界面
 
@@ -75,7 +75,7 @@ date: 2015-05-17
 	
 这里，强势的iOS又有一个潜在的规则，Tab上的元素最多不能超过5个（含），多于5个的部分，会将第5个之后的元素全部替换成一个More的UITabBarItem并且其Icon也生成好了。当点击这个“More”的时候，会出现一个TableView的列表将剩余的容器ViewController依次列出来：
 
-![more](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/more.png)
+![more](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/more.png)
 
 这里iOS还自动生成了一个Edit的菜单，点击后用户可以修改TabBarItem的顺序，当然，这一切都是不用我们手动写代码，而是UITabBarController自身带有的功能。
 
@@ -89,7 +89,7 @@ date: 2015-05-17
 	
 这里就实现了提示的自定义：
 
-![more_cus](http://images.libcz.com:8000/images/blog/iOS/后台程序员学习swift开发app/TabBar/more_cus.png)
+![more_cus](http://images.libcz.com:8000/images/blog/iOS/develop_app_with_swift/TabBar/more_cus.png)
 
 ## 四、中间发生了神马
 在这些点击跳转的过程中，我们是否可以加一些控制呢？比如让某个tab不生效？答案是肯定的，这时UITabBarController抛出了一个delegate来作这样的事情：UITabBarControllerDelegate
