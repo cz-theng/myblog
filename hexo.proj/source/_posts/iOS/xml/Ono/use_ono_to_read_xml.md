@@ -9,14 +9,14 @@
 >DOM解析XML时，读入整个XML文档并构建一个驻留内存的树结构（称“节点树”），之后就通过遍历树结构可以检索任意XML节点，读取它的属性和值。而起通常情况下，可以借助XPath，直接查询XML节点。
 >SAX解析XML，是基于事件通知的模式，一边读取XML文档一边处理，不必等整个文档加载完之后才采取操作，当在读取解析过程中遇到需要处理的对象，会发出通知对其进行处理。
 
-从上面来看，后两者可以满足各种场景，只是使用上面偏向负责，尤其是libxml2还是C接口。而今天我们要介绍的是Ono就是对这个C接口的libxml2的一层OC友好接口的封装，这个接口是谁设计的呢？靠谱么？
+从上面来看，后两者可以满足各种场景，只是使用上面偏向复杂，尤其是libxml2还是C接口。而今天我们要介绍的是Ono就是对这个C接口的libxml2的一层OC友好接口的封装，这个接口是谁设计的呢？靠谱么？
 <!-- more -->
-
 来，我们可以看下他的作者:Mattt Thompson，[matt](https://github.com/mattt) github显示他供职于Apple，且是著名的FormatKit的作者。
 
 这样它就既继承了libxml2的高效，同时又拥有了和NSXMLParser一样友好的接口。
 
 不过现在的Ono有点比较坑的是没有提供修改XML的接口，仅可用于读取的XML(如配置文件、数据文件)的场景(客户端更多的场景还是解析XML)。
+
 
 
 ##1. 集成Ono
@@ -31,6 +31,8 @@ Ono提供了CocoaPods支持，因此只要在Podfile里面加上
 	#import <Ono/Ono.h>
 	
 即可。
+
+Demo可以参考作者自己的[Demo](https://github.com/mattt/Ono/tree/master/Example)。
 
 ## 2. 加载XML数据
 XML数据对象由ONOXMLDocument来表示。其可以从NSData或者NSString中进行加载。
@@ -101,6 +103,28 @@ number节点的numberValue为1024
 date节点的dateValue为NSDate表示的2016年3月15日，可见这里接口非常友好，Ono已经自动帮我们转换成了NSDate类型。
 
 ## 4.获取同类节点
+为了方便使用Ono为我们封装了一系列的遍历接口，可以满足基本的使用，如：
+###获得指定tag的第一个元素
+
+	-(ONOXMLElement *)firstChildWithTag:(NSString *)tag;
+如果用于
+	<?xml version="1.0" encoding="utf-8"?>
+	<city> shenzhen 	</city>
+	<city> shanghai   </city>
+传入city会得到第一个"shenzhen"。
+
+###返回值为tag的所有子节点
+
+	-(NSArray *)childrenWithTag:(NSString *)tag;
+
+如果对上面数据进行操作则可以得到"shanghai"、"shenzhen"组成的数组，一般对于数组较为常用。
+
+### 按照索引返回第idx个子节点
+	
+	-(id)objectAtIndexedSubscript:(NSUInteger)idx;
+
+将节点按照顺序进行排列，按照索引返回第idx个子节点。
+
 
 ## 5.通过选择器获取类型节点
 如何在解析的过程中找到目标节点，或者怎么去遍历节点元素，Ono支持两种选择器
@@ -109,6 +133,50 @@ date节点的dateValue为NSDate表示的2016年3月15日，可见这里接口非
 > CSS： CSS就是CSS那个描述HTML格式里面用到的选择器方法，一般用于HTML，如使用#id来根据ID获取元素,以及使用.class来根据class获取元素.
 
 因此Ono既支持标准格式的XML也支持HTML(HTML是XML的子集)。
+
+Ono中通过ONOSearching协议定义了其选择器接口：
+	
+	//XPath API
+	- (id <NSFastEnumeration>)XPath:(NSString *)XPath;
+	- (void)enumerateElementsWithXPath:(NSString *)XPath
+                           usingBlock:(void (^)(ONOXMLElement *element, NSUInteger idx, BOOL *stop))block;
+	- (ONOXMLElement *)firstChildWithXPath:(NSString *)XPath;      
+	
+	//CSS API
+	- (id <NSFastEnumeration>)CSS:(NSString *)CSS;
+	- (void)enumerateElementsWithCSS:(NSString *)CSS
+                         usingBlock:(void (^)(ONOXMLElement *element, NSUInteger idx, BOOL *stop))block;                     
+	- (ONOXMLElement *)firstChildWithCSS:(NSString *)CSS;                      
+
+可以看到XPath的接口和CSS基本是对应一致的，其实也就是适用对象不同，CSS用于HTML，XPath用于XML，这里当然我们就以XPath来进行介绍。接口主要分成三类
+
+###获得所有符合XPath描述的节点对象
+	(id <NSFastEnumeration>)XPath:(NSString *)XPath;
+
+可以获得获得符合XPath描述的所有对象的一个可迭代对象，可以适用for...in...语法对其进行遍历，然后取出每个ONOXMLElement进行相关操作。
+
+###获得符合条件的第一个节点
+	(ONOXMLElement *)firstChildWithXPath:(NSString *)XPath;
+	
+字面意思以及说的很清楚了，就是获得符合XPath描述的所有节点中的第一个节点。
+
+###遍历符合的XPath节点
+
+	(void)enumerateElementsWithXPath:(NSString *)XPath 
+									 usingBlock:(void (^)(ONOXMLElement *element, NSUInteger idx, BOOL *stop))block;
+	
+手动获得所有符合XPath定义的节点迭代器再进行操作，在代码上面还是比较的不美观，Ono结合OC的block特点，还为我们提供了一个用block遍历节点的接口。该函数会将block运行于符合XPath定义的节点。
+
+element表示所遍历到的节点，idx表示其下标，该下标就是上面`objectAtIndexedSubscript`用到的下标， stop控制是否继续遍历，如果被设置为NO，则不继续遍历了。比如:
+
+	 NSString *XPath = @"//food/name";
+	 NSLog(@"XPath Search: %@", XPath);
+	 [document enumerateElementsWithXPath:XPath usingBlock:^(ONOXMLElement *element, __unused NSUInteger idx, __unused BOOL *stop) {
+	     NSLog(@"%@", element);
+	 }];
+	 
+会一次打印出所有food节点下的name节点。
+
 
 
 
