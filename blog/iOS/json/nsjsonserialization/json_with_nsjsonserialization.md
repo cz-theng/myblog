@@ -1,5 +1,5 @@
 title: 用NSJSONSerialization让JSON变服帖
-tags: JSON NSJSONSerialization
+tags: [JSON, NSJSONSerialization]
 category: iOS
 date: 2016-03-09
 ---

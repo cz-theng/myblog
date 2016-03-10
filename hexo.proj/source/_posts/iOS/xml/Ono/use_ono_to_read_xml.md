@@ -1,5 +1,5 @@
 title: 使用Ono读取XML文件
-tags: Ono xml
+tags: [Ono, xml]
 category: iOS
 date: 2016-03-04
 ---

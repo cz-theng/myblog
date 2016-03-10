@@ -1,5 +1,5 @@
 title: Golang实现命令行菜单CLI效果
-tags: golang cli 
+tags: [golang, cli] 
 category: golang
 date: 2015-03-05
 ---
