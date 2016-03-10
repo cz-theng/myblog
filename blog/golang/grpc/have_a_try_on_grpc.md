@@ -179,3 +179,15 @@ gRPC-go可以通过golang 的get命令直接安装，非常方便。
 		}
 		log.Printf("Greeting: %s", r.Message)
 	}
+	
+这里通过pb.NewGreeterClient()传入一个conn创建一个client，然后直接调用client上面对应的服务器的接口
+
+	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
+接口，返回*HelloReply 对象。
+
+先运行服务器，在运行客户端，可以看到。
+
+	./greeter_server &
+
+	./greeter_client
+	2016/03/10 21:42:19 Greeting: Hello world
