@@ -1,4 +1,10 @@
-# 使用Ono读取XML文件
+title: 使用Ono读取XML文件
+tags: Ono xml
+category: iOS
+date: 2016-03-04
+---
+
+
 在做App的过程中，读取XML文件是最常见的功能之一。并且在iOS的发展过程中涌现出了多种XML的解决方案。如Apple自家提供的NSXMLParser和libxml2(C接口).另外还有大量第三方库工具如TBXML、TouchXML、KissXML、TinyXML。在[raywenderlich上面有个详细的对比](https://www.raywenderlich.com/553/xml-tutorial-for-ios-how-to-choose-the-best-xml-parser-for-your-iphone-project)，他的对比结论是：
 
 * 如果仅仅是解析比较小的XML数据，可以考虑NSXMLParser、TouchXML、KissXML或者GDataXML ，理由是简单好用
