@@ -400,6 +400,7 @@
 				F027D1001C929E8D004F1B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F027D1011C929E8D004F1B11 /* Build configuration list for PBXNativeTarget "testnsurlsessionTests" */ = {
 			isa = XCConfigurationList;
@@ -408,6 +409,7 @@
 				F027D1031C929E8D004F1B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
