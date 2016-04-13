@@ -14,6 +14,7 @@
 		F094E0E81CBE7196005D3A1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F094E0E71CBE7196005D3A1A /* Assets.xcassets */; };
 		F094E0EB1CBE7196005D3A1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F094E0E91CBE7196005D3A1A /* LaunchScreen.storyboard */; };
 		F094E0F61CBE7196005D3A1A /* avaudioplayerdemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F094E0F51CBE7196005D3A1A /* avaudioplayerdemoTests.m */; };
+		F094E1011CBE7A7D005D3A1A /* xiao_xing_yun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F094E1001CBE7A7D005D3A1A /* xiao_xing_yun.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		F094E0F11CBE7196005D3A1A /* avaudioplayerdemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = avaudioplayerdemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F094E0F51CBE7196005D3A1A /* avaudioplayerdemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = avaudioplayerdemoTests.m; sourceTree = "<group>"; };
 		F094E0F71CBE7196005D3A1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F094E1001CBE7A7D005D3A1A /* xiao_xing_yun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = xiao_xing_yun.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		F094E0DA1CBE7196005D3A1A /* avaudioplayerdemo */ = {
 			isa = PBXGroup;
 			children = (
+				F094E1001CBE7A7D005D3A1A /* xiao_xing_yun.mp3 */,
 				F094E0DE1CBE7196005D3A1A /* AppDelegate.h */,
 				F094E0DF1CBE7196005D3A1A /* AppDelegate.m */,
 				F094E0E11CBE7196005D3A1A /* ViewController.h */,
@@ -191,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F094E1011CBE7A7D005D3A1A /* xiao_xing_yun.mp3 in Resources */,
 				F094E0EB1CBE7196005D3A1A /* LaunchScreen.storyboard in Resources */,
 				F094E0E81CBE7196005D3A1A /* Assets.xcassets in Resources */,
 				F094E0E61CBE7196005D3A1A /* Main.storyboard in Resources */,
