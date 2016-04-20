@@ -77,6 +77,7 @@ static void aqo_callback( void * __nullable inUserData, AudioQueueRef inAQ, Audi
     NSURL   *fileURL = [NSURL URLWithString:filePath];
     CFURLRef cfFile = (__bridge CFURLRef) fileURL;
     status = AudioFileOpenURL(cfFile, kAudioFileReadPermission, kAudioFileMP3Type, &playStat.fd);
+    //status = AudioFileOpenURL(cfFile, kAudioFileReadPermission, kAudioFileCAFType, &playStat.fd);
     if (0 != status) {
         NSLog(@"OpenURL Error!");
         return ;

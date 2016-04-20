@@ -1,21 +1,21 @@
 //
 //  ViewController.m
-//  audioqueueu
+//  avfoundation
 //
-//  Created by apollo on 16/4/14.
+//  Created by apollo on 16/4/20.
 //  Copyright © 2016年 projm. All rights reserved.
 //
 
+#import "AVFPlayer.h"
+#import "AVFRecorder.h"
 #import "ViewController.h"
-#import "AQPlayer.h"
-#import "AQRecorder.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *playMP3Btn;
+@property (weak, nonatomic) IBOutlet UIButton *recordingBtn;
 @property (weak, nonatomic) IBOutlet UIButton *playBtn;
-@property (weak, nonatomic) IBOutlet UIButton *recrodingBtn;
 @property (nonatomic, strong) NSString *xxyPath;
 @property (nonatomic, strong) NSString *recordingPath;
-@property (weak, nonatomic) IBOutlet UIButton *playRecordingBtn;
 @end
 
 @implementation ViewController
@@ -27,23 +27,27 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
     _recordingPath = [NSString stringWithFormat:@"%@/recording.caf", docDir];
+    
+    [[AVFPlayer sharedInstance] initPlayer: _xxyPath];
+    [[AVFRecorder sharedInstance] initRecorder: _recordingPath];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)onPlay:(id)sender {
-    
+
+- (IBAction)onPlayMP3:(id)sender {
     static BOOL clicked = NO;
     if (!clicked) {
         clicked = YES;
-        [_playBtn setTitle:@"Pause" forState: UIControlStateNormal];
-        [[AQPlayer sharedInstance] playback:_xxyPath];
+        [_playMP3Btn setTitle:@"pause" forState:UIControlStateNormal];
+        [[AVFPlayer sharedInstance] play];
     } else {
-        [_playBtn setTitle:@"Play" forState:UIControlStateNormal];
+        [_playMP3Btn setTitle:@"PlayMP3" forState:UIControlStateNormal];
         clicked = NO;
-        [[AQPlayer sharedInstance] pause];
+        [[AVFPlayer sharedInstance] pause];
     }
 }
 
@@ -51,25 +55,26 @@
     static BOOL clicked = NO;
     if (!clicked) {
         clicked = YES;
-        [_recrodingBtn setTitle:@"Stop" forState: UIControlStateNormal];
-        [[AQRecorder sharedInstance] startRecording: _recordingPath];
+        [_recordingBtn setTitle:@"stop" forState:UIControlStateNormal];
+        [[AVFRecorder sharedInstance] recording];
     } else {
-        [_recrodingBtn setTitle:@"Recording" forState:UIControlStateNormal];
         clicked = NO;
-        [[AQRecorder sharedInstance] stopRecording];
+        [_recordingBtn setTitle:@"Recording" forState:UIControlStateNormal];
+        [[AVFRecorder sharedInstance] stopRecording];
     }
 }
 
-- (IBAction)onPlayRecoding:(id)sender {
+- (IBAction)onPlay:(id)sender {
     static BOOL clicked = NO;
     if (!clicked) {
         clicked = YES;
-        [_playRecordingBtn setTitle:@"Stop" forState: UIControlStateNormal];
-        [[AQRecorder sharedInstance] startPlay: _recordingPath];
+        [_playBtn setTitle:@"stop" forState:UIControlStateNormal];
+        [[AVFRecorder sharedInstance] play];
     } else {
-        [_playRecordingBtn setTitle:@"PlayRecording" forState:UIControlStateNormal];
         clicked = NO;
-        [[AQRecorder sharedInstance] stopPlay];
+        [_playBtn setTitle:@"Play" forState:UIControlStateNormal];
+        [[AVFRecorder sharedInstance] stopPlay];
     }
 }
+
 @end
