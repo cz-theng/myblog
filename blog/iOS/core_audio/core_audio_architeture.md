@@ -51,7 +51,14 @@ OpenAL是Apple提供的在iOS/OS X(macOS)上对OpenAL的实现，在iOS上是基
 
 ## 总结
 
+* 如果一般的播放文件内容，或者一段内存的编码内容，优先考虑AVAudioPlayer
+* 如果是播放来自网络流的数据，或者是拼接的内存数据，优先考虑AudioToolBox里面的AudioQueueService
+* 如果是为了C++层兼容接口或者熟悉OpenAL，则可以用OpenAL接口
+* 如果是VoIP或者其他实时语音聊天场景，则考虑底层的AudioUnit接口。
+
 总的来说，iOS上可以通过AVFoundation、AudioQueueService、AudioUnit以及OpenAL来进行音频录制和播放。除此之外还可以通过MediaPlayer中的MPMusicPlayerController播放iPhone里面的iPod音乐。播放系统警告音则需要用到AudioToolBox里面的SystemSound。
+
+
 
 ##参考文档
 1. [Core Audio Overview](https://developer.apple.com/library/mac/documentation/MusicAudio/Conceptual/CoreAudioOverview/Introduction/Introduction.html)
