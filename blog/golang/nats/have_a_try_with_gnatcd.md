@@ -105,10 +105,10 @@ NATS作为一个既老（2012年就有Ruby版本）又新（2013年的Golang版�
 
 另一个是[bravenewgeek](http://bravenewgeek.com/tag/gnatsd/)做的一个Golang MQ对比,结果如下：
 
-![bravenewgeek](./images/bravenewgeek_benchmark.png)
+![bravenewgeek](http://images.libcz.com:8000/images/blog/golang/nats/images/bravenewgeek_benchmark.png)
 
 另外他还做了一个和其他产品之间的[对比](http://bravenewgeek.com/dissecting-message-queues/),结果如下：
 
-![bravenewgeek2](./images/bravenewgeek_benchmark2.png)
+![bravenewgeek2](http://images.libcz.com:8000/images/blog/golang/nats/images/bravenewgeek_benchmark2.png)
 
 总的来说gnats的性能还是毋庸置疑的，主要可能还是要看他的使用场景。
