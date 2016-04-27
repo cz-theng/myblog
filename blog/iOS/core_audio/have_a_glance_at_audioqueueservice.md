@@ -11,7 +11,7 @@ Auido Queue是iOS上用来录音和播放的软件对象，也就是通过它我
 
 所以AudioQueue还是做了蛮多事情。这里我们看下AudioQueue在系统中的结构。
 
-![audio_toolbox_system_layer](./audio_toolbox_system_layer.png)
+![audio_toolbox_system_layer](./images/audio_toolbox_system_layer.png)
 
 其位于AudioUnit之上，较为上层的接口。之前的[CoreAudio基本结构]()也介绍了，如果是播放网络流或者片段的内存音频数据，可以考虑用这里的AudioQueue.
 
@@ -20,8 +20,8 @@ AudioQueue主要分成用于录制功能的InputQueue由`AudioQueueNewInput`生�
 
 这里为什么是Buffer队列呢？来看个图
 
-![playback_audio_queue](./playback_audio_queue.png)
-![recording_audio_queue](./recording_audio_queue.png)
+![playback_audio_queue](./images/playback_audio_queue.png)
+![recording_audio_queue](./images/recording_audio_queue.png)
 
 对于录音的时候，当一个buffer被录音的数据填满了，就交给回调去处理，这个时候再来的数据就会放到后面的buffer中，当回调处理完后，在调用AudioQueueEnqueueBuffer将该buffer放回到队列中重复利用。所以一般这个队列的大小大于2即可，比如3个buffer。
 
