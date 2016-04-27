@@ -7,10 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
+#import <CoreFoundation/CoreFoundation.h>
+
 
 
 @interface AUDPlayer : NSObject
 
 + (AUDPlayer *)sharedInstance;
 
+
+- (void) playFile:(NSString *) filepath;
+- (void) pause;
+- (void) stop;
 @end

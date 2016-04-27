@@ -16,6 +16,10 @@
 		F094E2911CC8B927005D3A1A /* audiounitdemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F094E2901CC8B927005D3A1A /* audiounitdemoTests.m */; };
 		F094E29C1CC8BA49005D3A1A /* xiao_xing_yun.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F094E29B1CC8BA49005D3A1A /* xiao_xing_yun.mp3 */; };
 		F094E29F1CC8BA69005D3A1A /* AUDPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F094E29E1CC8BA69005D3A1A /* AUDPlayer.m */; };
+		F094E3981CCF5946005D3A1A /* AUDRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = F094E3971CCF5946005D3A1A /* AUDRecorder.m */; };
+		F094E39A1CCF5AB9005D3A1A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F094E3991CCF5AB9005D3A1A /* AudioToolbox.framework */; };
+		F094E39C1CCF5ABE005D3A1A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F094E39B1CCF5ABE005D3A1A /* AVFoundation.framework */; };
+		F094E39E1CCF61B4005D3A1A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F094E39D1CCF61B4005D3A1A /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,11 @@
 		F094E29B1CC8BA49005D3A1A /* xiao_xing_yun.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = xiao_xing_yun.mp3; sourceTree = "<group>"; };
 		F094E29D1CC8BA69005D3A1A /* AUDPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUDPlayer.h; sourceTree = "<group>"; };
 		F094E29E1CC8BA69005D3A1A /* AUDPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUDPlayer.m; sourceTree = "<group>"; };
+		F094E3961CCF5946005D3A1A /* AUDRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUDRecorder.h; sourceTree = "<group>"; };
+		F094E3971CCF5946005D3A1A /* AUDRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AUDRecorder.m; sourceTree = "<group>"; };
+		F094E3991CCF5AB9005D3A1A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F094E39B1CCF5ABE005D3A1A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F094E39D1CCF61B4005D3A1A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F094E39E1CCF61B4005D3A1A /* CoreFoundation.framework in Frameworks */,
+				F094E39C1CCF5ABE005D3A1A /* AVFoundation.framework in Frameworks */,
+				F094E39A1CCF5AB9005D3A1A /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +80,9 @@
 		F094E26A1CC8B927005D3A1A = {
 			isa = PBXGroup;
 			children = (
+				F094E39D1CCF61B4005D3A1A /* CoreFoundation.framework */,
+				F094E39B1CCF5ABE005D3A1A /* AVFoundation.framework */,
+				F094E3991CCF5AB9005D3A1A /* AudioToolbox.framework */,
 				F094E2751CC8B927005D3A1A /* audiounitdemo */,
 				F094E28F1CC8B927005D3A1A /* audiounitdemoTests */,
 				F094E2741CC8B927005D3A1A /* Products */,
@@ -88,6 +103,8 @@
 			children = (
 				F094E29D1CC8BA69005D3A1A /* AUDPlayer.h */,
 				F094E29E1CC8BA69005D3A1A /* AUDPlayer.m */,
+				F094E3961CCF5946005D3A1A /* AUDRecorder.h */,
+				F094E3971CCF5946005D3A1A /* AUDRecorder.m */,
 				F094E29B1CC8BA49005D3A1A /* xiao_xing_yun.mp3 */,
 				F094E2791CC8B927005D3A1A /* AppDelegate.h */,
 				F094E27A1CC8B927005D3A1A /* AppDelegate.m */,
@@ -221,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F094E27E1CC8B927005D3A1A /* ViewController.m in Sources */,
+				F094E3981CCF5946005D3A1A /* AUDRecorder.m in Sources */,
 				F094E29F1CC8BA69005D3A1A /* AUDPlayer.m in Sources */,
 				F094E27B1CC8B927005D3A1A /* AppDelegate.m in Sources */,
 				F094E2781CC8B927005D3A1A /* main.m in Sources */,
@@ -412,6 +430,7 @@
 				F094E2971CC8B927005D3A1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F094E2981CC8B927005D3A1A /* Build configuration list for PBXNativeTarget "audiounitdemoTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +439,7 @@
 				F094E29A1CC8B927005D3A1A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -6,7 +6,7 @@ date: 2016-04-10
 
 
 现在Message Queue有多种选择，比如Java的Kafaka/ActiveMQ、Erlang的RabbitMQ、Golang的NSQ以及这里要说的gnatcd。
-##1. NATS与gnatcd
+## 1. NATS与gnatcd
 > NATS is Open Source. Performant. Simple. Scalable.A central nervous system for modern, reliable and scalable cloud and distributed systems.
  												--http://nats.io/
  												
@@ -22,7 +22,9 @@ date: 2016-04-10
 											
 gnatcd根据NATS说法，会由Apcera维护，并提供源码、二进制文件以及Docker镜像文件。
 
-##2. NATS组成以及支持的内容
+<!-- more -->
+
+## 2. NATS组成以及支持的内容
 NATS主要由Golang写的服务器“gnatsd”和一系列的客户端SDK组成，客户端有官方维护`Golang`、`Node.js`、`Ruby`、`Java`、`C`、`C#`以及`Nginx C`版本，除此之外还有社区贡献的`Spring`、`Lua`、`PHP`、`Python`、`Scala`、`Haskell`版本，基本覆盖了主流语言。
 
 客户端和服务器之间通过一套本文协议进行通讯（想想Redis也是文本协议），因此可以和Redis一样可以通过Telnet进行调试，也因此只要按照文档中的描述，来
@@ -51,7 +53,7 @@ NATS实现了三种模式
 
 也就是MessageQueue常见的“发布订阅模式”、“请求响应模式”以及“消息队列模式”。
 
-##3. gnatcd安装与使用
+## 3. gnatcd安装与使用
 了解了NATS后，我们来看怎么进行简单的使用。gnatcd是用Golang写的，因此可以很方便的用`go get github.com/nats-io/gnatsd`进行安装。如果没有Golang环境，也可以在[下载界面](http://nats.io/download/)下载MacOS/Linux二进制文件，甚至Docker镜像。客户端SDK也可以在这里找到下载。
 
 在用"go get”安装的时候，需要注意的是，gnatcd依赖“golang.org/x/crypto/bcrypt”，但是这个地址已经被移动到Github上了，所以上面的地址"get"不
@@ -105,7 +107,7 @@ NATS实现了三种模式
 
 这样也就完成了一次消息的发布和订阅了。	
 
-##4. bechmark
+## 4. bechmark
 
 NATS作为一个既老（2012年就有Ruby版本）又新（2013年的Golang版本）的MessageQueue，和其他同类产品（Kafaka/ActiveMQ/NSQ/RabbitMQ）又有什么优势呢？来看两个benchmar，第一个是官方的[benchmark](http://nats.io/documentation/tutorials/nats-benchmarking/)
 

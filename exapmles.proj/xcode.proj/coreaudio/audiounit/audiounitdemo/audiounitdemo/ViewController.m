@@ -7,10 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "AUDPlayer.h"
+#import "AUDRecorder.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *playMP3Btn;
-
+@property (nonatomic, strong) NSString *xxyPath;
+@property (nonatomic, strong) NSString *recordingPath;
 @end
 
 @implementation ViewController
@@ -18,6 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    // Do any additional setup after loading the view, typically from a nib.
+    _xxyPath = [[NSBundle mainBundle] pathForResource:@"xiao_xing_yun2" ofType:@"mp3"];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDir = [paths objectAtIndex:0];
+    _recordingPath = [NSString stringWithFormat:@"%@/recording.caf", docDir];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,10 +40,12 @@
     if (!clicked) {
         clicked = YES;
         [_playMP3Btn setTitle:@"Pause" forState: UIControlStateNormal];
+        [[AUDPlayer sharedInstance] playFile: _xxyPath];
 
     } else {
         [_playMP3Btn setTitle:@"PlayMP3" forState:UIControlStateNormal];
         clicked = NO;
+        [[AUDPlayer sharedInstance] stop];
     }
     
 }
