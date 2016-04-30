@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // Do any additional setup after loading the view, typically from a nib.
-    _xxyPath = [[NSBundle mainBundle] pathForResource:@"xiao_xing_yun2" ofType:@"mp3"];
+    _xxyPath = [[NSBundle mainBundle] pathForResource:@"xiao_xing_yun" ofType:@"mp3"];
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDir = [paths objectAtIndex:0];
     _recordingPath = [NSString stringWithFormat:@"%@/recording.caf", docDir];

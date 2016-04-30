@@ -19,6 +19,8 @@
     AUGraph processingGraph;
     AUNode   ioNode;
     AUNode   fmtNode;
+    AudioUnit ioUnit;
+    AudioUnit fmtUnit;
 }
 
 @end
@@ -86,6 +88,22 @@
     stts = AUGraphOpen(processingGraph);
     WEAHTER_RETURN_VOID(stts, @"AUGraphOpen error");
     
+    stts = AUGraphNodeInfo(processingGraph, fmtNode, &fmtUnitDesc, &fmtUnit);
+    WEAHTER_RETURN_VOID(stts, @"AUGraphNodeInfo fmtUnit Error");
+    
+    stts = AUGraphNodeInfo(processingGraph, ioNode, &iOUnitDesc, &ioUnit);
+    WEAHTER_RETURN_VOID(stts, @"AUGraphNodeInfo fmtUnit Error");
+    
+    stts = AUGraphConnectNodeInput(processingGraph, fmtNode, 1, ioNode, 1);
+    WEAHTER_RETURN_VOID(stts, @"AUGraphConnectNodeInput error");
+    CAShow(processingGraph);
+    
+    // start node
+    stts = AUGraphInitialize(processingGraph);
+    WEAHTER_RETURN_VOID(stts, @"AUGraphInitialize");
+    
+    stts = AUGraphStart(processingGraph);
+    WEAHTER_RETURN_VOID(stts, @"AUGraphStart");
 }
 
 - (void) initAudioSession {
