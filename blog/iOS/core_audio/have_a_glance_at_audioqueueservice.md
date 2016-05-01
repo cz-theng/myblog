@@ -1,6 +1,6 @@
 #iOS CoreAudio : AudioQueue简介
 
->> An audio queue is a software object you use for recording or playing audio in iOS 
+> An audio queue is a software object you use for recording or playing audio in iOS 
 												-- 《Audio Queue Services Programming Guide》  
 Auido Queue是iOS上用来录音和播放的软件对象，也就是通过它我们就可以完成用iPhone硬件进行录音和播放的功能
 了。其作用包括
