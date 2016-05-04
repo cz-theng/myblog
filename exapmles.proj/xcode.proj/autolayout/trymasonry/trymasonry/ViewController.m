@@ -42,10 +42,8 @@
     }];
 
     [_topRight mas_makeConstraints:^(MASConstraintMaker *make) {
-        //make.width.equalTo(_topLeft);
         make.top.equalTo(self.view.mas_top).offset(20);
         make.right.equalTo(self.view.mas_right).offset(-10);
-        //make.left.equalTo(_topLeft.mas_left).offset(10);
         make.bottom.equalTo(_bottom.mas_top).offset(-10);
     }];
     
