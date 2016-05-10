@@ -21,6 +21,7 @@ date: 2016-04-10
 											-- http://nats.io/documentation/
 											
 gnatcd根据NATS说法，会由Apcera维护，并提供源码、二进制文件以及Docker镜像文件。
+<!-- more -->
 
 ##2. NATS组成以及支持的内容
 NATS主要由Golang写的服务器“gnatsd”和一系列的客户端SDK组成，客户端有官方维护`Golang`、`Node.js`、`Ruby`、`Java`、`C`、`C#`以及`Nginx C`版本，除此之外还有社区贡献的`Spring`、`Lua`、`PHP`、`Python`、`Scala`、`Haskell`版本，基本覆盖了主流语言。
