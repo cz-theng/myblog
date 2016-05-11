@@ -76,7 +76,7 @@ Masonry支持CocoaPods安装（废话，这么Popular的项目怎么能不支持
 
 运行后效果如下：
 
-![first_blood](./images/first_blood.png)
+![first_blood](http://images.libcz.com:8000/images/blog/iOS/autolayout/masonry/images/first_blood.png)
 
 ## 2.使用Masonry进行布局
 看上面的代码，会发现和以往的frame+center布局的不同的是，这里不在使用`initWithFrame`，然后多出来一个函数调用，有且只有这一个函数调用：
