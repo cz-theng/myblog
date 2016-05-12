@@ -5,11 +5,11 @@
 
 当在Xcode里面点击"File"->"New" -> "Project"的时候，首先得到工程模板的选择，这里我自定义了一个自己的“Application”模板
 
-![proj_tpl_choice](./images/proj_tpl_choice.png)
+![proj_tpl_choice](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/proj_tpl_choice.png)
 
 也就是这里的“CZ's Application”，里面有两个模板工程，一个是OC的一个是Swift的，这里我们看选择一个OC工程模板后的结果。
 
-![proj_tpl_rst](./images/proj_tpl_rst.png)
+![proj_tpl_rst](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/proj_tpl_rst.png)
 
 这里我们可以和最常用“Signal View Application”做个对比，首先没有“Main.storyboard”了，也没有了那个特定"View"的“ViewController”，取而代之的我自己规划的 
 
@@ -21,11 +21,11 @@
 
 再在目录上点击右键，然后选择“New File”看文件选择界面
 
-![file_tpl_choice](./images/file_tpl_choice.png)
+![file_tpl_choice](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/file_tpl_choice.png)
 
 这里看到多了一个“CZ's Source”，在里面有常见文件类型可以选择。这里选择.h文件，新建文件如下：
 
-![file_tpl_rst](./images/file_tpl_rst.png)
+![file_tpl_rst](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/file_tpl_rst.png)
 
 可以看到这里和"//"注释的默认模板不同的地方。头文件的ifndef也改成了google的C++风格了。
 
@@ -143,7 +143,7 @@ Xcode的模板文件和vim/emacs等编辑器一样有两个位置，一个系统
 ### 工程模板定制
 工程模板里面除了logo标签，最主要的就是要修改工程的结构，比如一些预定的Group，一些实现编写好的文件：
 
-![proj_directory](./images/proj_directory.png)
+![proj_directory](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/proj_directory.png)
 
 首先要修改下“Identifier”字段，以防冲突。
 
@@ -175,7 +175,7 @@ Xcode模板是支持继承的，或者叫做Import，这里“Ancestors”字段
 
 这里介绍下plist里面copy文件的目录：
 
-![cpp_file_directory](./images/cpp_file_directory.png)
+![cpp_file_directory](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/cpp_file_directory.png)
 
 这里以C++举例，因为Xcode7之后新建的带有头文件的C++文件，其头文件是“abc.hpp”的格式，非常恶心。所以我们可以根据这个规则找到“WithHeader”目录，然后把里面文件改成.h和cpp里面的"include .h"形式。
 
