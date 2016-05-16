@@ -10,7 +10,7 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 ## 1. 最简单的一横和一竖
 说了这么，到底要怎么使用呢？先来看个例子，文中Demo都可以在[Github](https://github.com/cz-it/myblog/tree/master/exapmles.proj/xcode.proj/ui/stackview)找到：
 
-![signal_demo](./images/signal_demo.png)
+![signal_demo](./images/signal_demo.png) ![signal_demo_plan](./images/signal_demo_plan.png)
 
 在上面的例子中，包含两个StackView布局（两个浅蓝色框）:一个上面的横向的，一个下面竖向的。
 
@@ -63,7 +63,7 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 
 可以将其分解成各种横竖的组合，从而得到如下的一个效果图
 
-![nested_effect](./images/nested_effect.png)
+![nested_demo](./images/nested_demo.png) ![nested_effect](./images/nested_effect.png)
 
 在IB中可以很容易的拖拽实现StackView的嵌套，这里仅仅对最外层的StackView做了大小和位置设置，其他子View均是由StackView来自动控制的。
 
@@ -81,7 +81,7 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 
 - (void)insertArrangedSubview:(UIView *)view
                       atIndex:(NSUInteger)stackIndex
-                      
+                        
 如果不想显示一个子view要怎么操作呢？当然调用子View的“removeFromSuperview”,但是这样就够了么？上面说了两步，这个remove只对应了其中的显示，但是并没有消除其布局的影响，所以还要调用StackView的：
 
 	- (void)removeArrangedSubview:(UIView *)view
@@ -90,7 +90,7 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 
 最后看个例子，点击“赞”会增加星星，点击“贬”会减少星星数目：
 
-![dynamic_demo](./images/dynamic_demo.png) 
+![dynamic_demo](./images/dynamic_demo.png)
 
 布局很简单，主要是操作StackView的增减子view:
 
