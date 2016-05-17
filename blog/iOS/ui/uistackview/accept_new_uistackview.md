@@ -1,14 +1,14 @@
 #接受新时代的UIStackView
-距离iOS9发布已经接近一年了，我们即将引来新的iOS 10,为何在这个时候来介绍iOS9中新引入的一个布局组件呢？犹如当年的AutoLayout刚推出来一样，一来文档少、而来操作繁琐，最重要的要兼容之前的系统，用新技术撸一边等于是多做工。如今在LinkdedIn已经要求从iOS8开始的时代（QQ/微信/微博/淘宝均要求>=iOS7），可以预见未来iOS9也即将成为最低要求，其带来的一些高效率工具（比如这里要介绍的UIStackView）也必将成为主流。
+距离iOS9发布已经接近一年了，我们即将引来新的iOS 10,为何在这个时候来介绍iOS9中新引入的一个布局组件呢？犹如当年的AutoLayout刚推出来一样，一来文档少、二来操作繁琐，最重要的要是兼容之前的系统，用新技术撸一边等于是多做工。如今在LinkdedIn已经要求从iOS8开始的时代（QQ/微信/微博/淘宝均要求>=iOS7），可以预见iOS10发布后不久的将来iOS9也将成为最低要求，其带来的一些高效率工具（比如这里要介绍的UIStackView）也必将成为主流。
 
 如果有Android相关开发经验，或者从Android开发转到iOS开发，会发现Android4就引入的可以解决多屏幕适配Linerlayout/RelativeLayout在iOS中找不到对应的工具，而在iOS9中，Apple就为我们添加了这样的一个工具，它就是UIStackView。首先不要被名字所迷惑，以为是和UICollectionView、UITableView一样一般作为最外层的容器View，虽然他也确实就是个容器View。其实用一句话就可以概况它的本质：“自动对一组横向或竖向view集布局的容器view”。如果熟悉HTML的话，可以类比"<div />" 不带block熟悉的就是横向布局，带block组合的就是竖向布局。
 
-UIStackView内部是为其托管的子View添加Autolayout来实现其自动布局的，所以要能更熟练的使用UIStackView，最好能对AutoLayout有一定的理解，当然，如果对AutoLayout还不太熟悉，也没有关系，UIStackView的目的就是为使用者封装这些复制的约束关系而存在的，只要看下面文章，相信也能将UIStackView这一高效率组件运用到自己的工程中。
+UIStackView内部是为其托管的子View添加Autolayout来实现其自动布局的，所以要想更熟练的使用UIStackView，最好能对AutoLayout有一定的理解，当然，如果对AutoLayout还不太熟悉，也没有关系，UIStackView的目的就是为使用者封装这些复制的约束关系而存在的，只要看下面文章，相信也能将UIStackView这一高效率组件运用到自己的工程中。
 
 和UICollectionView、UITableView不一样的是，UIStackView没有继承与UIScrollview而是直接继承与UIView，所以对于超出屏幕的内容，还需要自己用UIScrollView进行交互布局。虽然UIStackView是继承与UIView，但是却没有继承UIView的渲染功能，所以UIStackView是没有UI的，也就是不显示本身的。所以类似“backgroundColor”的界面属性就无效了，同时重写 `layerClass`, `drawRect:`甚至`drawLayer:inContext:`都是无效的。UIStackView是一个纯粹的容器View。
 
 ## 1. 最简单的一横和一竖
-说了这么，到底要怎么使用呢？先来看个例子，文中Demo都可以在[Github](https://github.com/cz-it/myblog/tree/master/exapmles.proj/xcode.proj/ui/stackview)找到：
+说了这么多，到底要怎么使用呢？先来看个例子，文中Demo都可以在[Github](https://github.com/cz-it/myblog/tree/master/exapmles.proj/xcode.proj/ui/stackview)找到：
 
 ![signal_demo](./images/signal_demo.png) ![signal_demo_plan](./images/signal_demo_plan.png)
 
