@@ -64,24 +64,24 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 ### Alignment
 Alignment| 意义| 效果
 ---|---|---
-UIStackViewAlignmentFill||
-UIStackViewAlignmentLeading||
-UIStackViewAlignmentTop|等效UIStackViewAlignmentLeading只是用于竖向Stackview|
-UIStackViewAlignmentFirstBaseline| Valid for horizontal axis only |
-UIStackViewAlignmentCenter||
-UIStackViewAlignmentTrailing||
-UIStackViewAlignmentBottom|等效UIStackViewAlignmentTrailing只是用于竖向Stackview|
-UIStackViewAlignmentLastBaseline|Valid for horizontal axis only |
+UIStackViewAlignmentFill|在StackView垂直方向上拉伸所有子view，使得填充完StackView| ![align_fill](./images/alignment/align_fill.png)
+UIStackViewAlignmentLeading|在StackView垂直方向上按照子view的leading edge对齐|![align_leading](./images/alignment/align_leading.png)
+UIStackViewAlignmentTop|等效UIStackViewAlignmentLeading,用于竖向Stackview|![align_top](./images/alignment/align_top.png)
+UIStackViewAlignmentFirstBaseline| 在StackView垂直方向上按照子view 的first baseline对其，仅适用于水平方向StackView |![align_first_baseline](./images/alignment/align_first_baseline.png)
+UIStackViewAlignmentCenter| 在StackView垂直方向上按照子View的中心线对其|![align_center](./images/alignment/align_center.png)
+UIStackViewAlignmentTrailing| 在StackView垂直方向上按照子View的trailing edge对齐|![align_trailing](./images/alignment/align_trailing.png)
+UIStackViewAlignmentBottom|等效UIStackViewAlignmentTrailing,用于竖向Stackview|![align_bottom](./images/alignment/align_bottom.png)
+UIStackViewAlignmentLastBaseline|在StackView垂直方向上按照子view 的last baseline对齐，仅适用于水平方向StackView|![align_last_baseline](./images/alignment/align_last_baseline.png)
 
 ### Distribution
 
 Distribution| 意义 |效果
 ---|---|---
-UIStackViewDistributionFill |在StackView方向上缩放子View使得子View能填充完StackView，子View的缩放顺序依赖于其hugging优先级，如果相等的话，则按照index顺序|
-UIStackViewDistributionFillEqually|在StackView延伸方向上将每个子View都拉伸成一样长|
-UIStackViewDistributionFillProportionally|在StackView延伸方向上将根据子View的内容进行缩放|
-UIStackViewDistributionEqualSpacing|在StackView延伸方向上将子View中间隔相等的空白进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|
-UIStackViewDistributionEqualCentering|在StackView延伸方向上将子View的中线线，等距进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|
+UIStackViewDistributionFill |在StackView延伸方向上缩放子View使得子View能填充完StackView，子View的缩放顺序依赖于其hugging优先级，如果相等的话，则按照index顺序|![dist_fill](./images/distribution/dist_fill.png)
+UIStackViewDistributionFillEqually|在StackView延伸方向上将每个子View都拉伸成一样长|![dist_fill_equally](./images/distribution/dist_fill_equally.png)
+UIStackViewDistributionFillProportionally|在StackView延伸方向上将根据子View的内容进行缩放|![dist_fill_proportionally](./images/distribution/dist_fill_proportionally.png)
+UIStackViewDistributionEqualSpacing|在StackView延伸方向上将子View中间隔相等的空白进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|![dist_equal_spacing](./images/distribution/dist_equal_spacing.png)
+UIStackViewDistributionEqualCentering|在StackView延伸方向上将子View的中线线，等距进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|![dist_equal_centering](./images/distribution/dist_equal_centering.png) 
 
 虽然上面罗列出来各个属性的作用，但是可能还是不够具体，这个还需要结合Demo或者自己在实际代码中进行设置来体验
 
