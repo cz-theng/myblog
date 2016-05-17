@@ -55,6 +55,36 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 
 这里第一排按钮是Alignment，第二排按钮是Distribution。可以运行Demo并体会不同。
 
+这里Alignment主要控制垂直于StackView方向上的对其属性，二Distribution则是控制在StackView延展方向的填充属性：
+
+![attr](./images/attr.png)
+
+下面看看总共都有哪些Alignment和Distribution。
+
+### Alignment
+Alignment| 意义| 效果
+---|---|---
+UIStackViewAlignmentFill||
+UIStackViewAlignmentLeading||
+UIStackViewAlignmentTop|等效UIStackViewAlignmentLeading只是用于竖向Stackview|
+UIStackViewAlignmentFirstBaseline| Valid for horizontal axis only |
+UIStackViewAlignmentCenter||
+UIStackViewAlignmentTrailing||
+UIStackViewAlignmentBottom|等效UIStackViewAlignmentTrailing只是用于竖向Stackview|
+UIStackViewAlignmentLastBaseline|Valid for horizontal axis only |
+
+### Distribution
+
+Distribution| 意义 |效果
+---|---|---
+UIStackViewDistributionFill |在StackView方向上缩放子View使得子View能填充完StackView，子View的缩放顺序依赖于其hugging优先级，如果相等的话，则按照index顺序|
+UIStackViewDistributionFillEqually|在StackView延伸方向上将每个子View都拉伸成一样长|
+UIStackViewDistributionFillProportionally|在StackView延伸方向上将根据子View的内容进行缩放|
+UIStackViewDistributionEqualSpacing|在StackView延伸方向上将子View中间隔相等的空白进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|
+UIStackViewDistributionEqualCentering|在StackView延伸方向上将子View的中线线，等距进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|
+
+虽然上面罗列出来各个属性的作用，但是可能还是不够具体，这个还需要结合Demo或者自己在实际代码中进行设置来体验
+
 ## 3. 嵌套布局
 
 上面的一横一竖的例子，在使用的时候，其实不用StackView也是非常容易用AutoLayout布局的，那么怎么样来提现StackView的优势呢？如果把一横一竖进行各种组合，这样就能像网页设计中的"<div />"一样进行丰富的布局了，假设一个这样的布局：
