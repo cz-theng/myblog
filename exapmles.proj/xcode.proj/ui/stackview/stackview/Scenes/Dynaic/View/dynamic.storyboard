@@ -91,9 +91,9 @@
                         <constraints>
                             <constraint firstItem="jum-RP-dih" firstAttribute="leading" secondItem="a4U-Vj-ZAF" secondAttribute="leadingMargin" constant="30" id="1XU-P8-0Cs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ys7-Uw-eYP" secondAttribute="trailing" constant="50" id="BHc-6d-SrN"/>
+                            <constraint firstItem="Ys7-Uw-eYP" firstAttribute="top" secondItem="d8p-34-x7M" secondAttribute="bottom" constant="30" id="cmB-k1-4I8"/>
+                            <constraint firstItem="9vc-dc-aVy" firstAttribute="top" secondItem="d8p-34-x7M" secondAttribute="bottom" constant="30" id="mys-XR-YW5"/>
                             <constraint firstItem="jum-RP-dih" firstAttribute="top" secondItem="a4U-Vj-ZAF" secondAttribute="topMargin" constant="177" id="ufy-qt-8FC"/>
-                            <constraint firstItem="9vc-dc-aVy" firstAttribute="top" secondItem="d8p-34-x7M" secondAttribute="bottom" constant="30" id="vFp-5w-nlh"/>
-                            <constraint firstItem="Ys7-Uw-eYP" firstAttribute="top" secondItem="d8p-34-x7M" secondAttribute="bottom" constant="30" id="wvL-nl-jM7"/>
                             <constraint firstItem="9vc-dc-aVy" firstAttribute="leading" secondItem="a4U-Vj-ZAF" secondAttribute="leadingMargin" constant="50" id="zMb-lP-trN"/>
                         </constraints>
                         <variation key="default">

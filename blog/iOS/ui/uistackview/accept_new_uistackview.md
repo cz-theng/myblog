@@ -10,7 +10,7 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 ## 1. 最简单的一横和一竖
 说了这么多，到底要怎么使用呢？先来看个例子，文中Demo都可以在[Github](https://github.com/cz-it/myblog/tree/master/exapmles.proj/xcode.proj/ui/stackview)找到：
 
-![signal_demo](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/signal_demo.png) ![signal_demo_plan](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/signal_demo_plan.png)
+![signal_demo](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/signal_demo.png) ![signal_demo_plan](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/signal_demo_plan.png)
 
 在上面的例子中，包含两个StackView布局（两个浅蓝色框）:一个上面的横向的，一个下面竖向的。
 
@@ -20,12 +20,12 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 
 会发现，三个图片的位置被改动了，紧贴在一起，并且在IB中，看到三个图片被一个新的“Stack View”包含了：
 
-![ib_signal_layer](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/ib_signal_layer.png)
+![ib_signal_layer](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/ib_signal_layer.png)
 
 其实到这里就完成了一半需求了：有个容器View来管理一排子view。 现在在把目光放到IB的属性界面，来完成另一半
 需求:
 
-![ib_signal_attr](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/ib_signal_attr.png)
+![ib_signal_attr](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/ib_signal_attr.png)
 
 设置这样的属性，Aligent为“Fill”，Distribution为“Equal Spacing”，Space为“8”。表示： 所有的子视图竖直
 方向填充满StackView，也就是子view可能被拉伸到和StackView等高，每个子View之间等距间隔8 point。有了这样两个约束也就能固定子View的布局了，从而实现对子View的AutoLayout。
@@ -51,37 +51,37 @@ UIStackView内部是为其托管的子View添加Autolayout来实现其自动布�
 ## 2. 修改属性定制StackView
 在上面的IB属性栏中，可以看到，StackView的属性其实少的可怜，图中就四个可以设置（其实也确实就这四个加上个子view的数组）。这里的"Axis"比较好理解，就是控制是一横还是一竖，容器的方向。同样的"Spacing"也比较好理解，就是垒在一起的子view之间的距离。但是这个"Alignment"和"Distribution"又是什么呢？我们来通过例子中的"Attr" Tab中的按钮选项来看：
 
-![attr_demo_1](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/attr_demo_1.png) ![attr_demo_2](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/attr_demo_2.png)
+![attr_demo_1](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/attr_demo_1.png) ![attr_demo_2](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/attr_demo_2.png)
 
 这里第一排按钮是Alignment，第二排按钮是Distribution。可以运行Demo并体会不同。
 
 这里Alignment主要控制垂直于StackView方向上的对其属性，二Distribution则是控制在StackView延展方向的填充属性：
 
-![attr](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/attr.png)
+![attr](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/attr.png)
 
 下面看看总共都有哪些Alignment和Distribution。
 
 ### Alignment
 Alignment| 意义| 效果
 ---|---|---
-UIStackViewAlignmentFill|在StackView垂直方向上拉伸所有子view，使得填充完StackView| ![align_fill](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/alignment/align_fill.png)
-UIStackViewAlignmentLeading|在StackView垂直方向上按照子view的leading edge对齐|![align_leading](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/alignment/align_leading.png)
-UIStackViewAlignmentTop|等效UIStackViewAlignmentLeading,用于竖向Stackview|![align_top](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/alignment/align_top.png)
-UIStackViewAlignmentFirstBaseline| 在StackView垂直方向上按照子view 的first baseline对其，仅适用于水平方向StackView |![align_first_baseline](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/alignment/align_first_baseline.png)
-UIStackViewAlignmentCenter| 在StackView垂直方向上按照子View的中心线对其|![align_center](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/alignment/align_center.png)
-UIStackViewAlignmentTrailing| 在StackView垂直方向上按照子View的trailing edge对齐|![align_trailing](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/alignment/align_trailing.png)
-UIStackViewAlignmentBottom|等效UIStackViewAlignmentTrailing,用于竖向Stackview|![align_bottom](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/alignment/align_bottom.png)
-UIStackViewAlignmentLastBaseline|在StackView垂直方向上按照子view 的last baseline对齐，仅适用于水平方向StackView|![align_last_baseline](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/alignment/align_last_baseline.png)
+UIStackViewAlignmentFill|在StackView垂直方向上拉伸所有子view，使得填充完StackView| ![align_fill](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/alignment/align_fill.png)
+UIStackViewAlignmentLeading|在StackView垂直方向上按照子view的leading edge对齐|![align_leading](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/alignment/align_leading.png)
+UIStackViewAlignmentTop|等效UIStackViewAlignmentLeading,用于竖向Stackview|![align_top](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/alignment/align_top.png)
+UIStackViewAlignmentFirstBaseline| 在StackView垂直方向上按照子view 的first baseline对其，仅适用于水平方向StackView |![align_first_baseline](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/alignment/align_first_baseline.png)
+UIStackViewAlignmentCenter| 在StackView垂直方向上按照子View的中心线对其|![align_center](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/alignment/align_center.png)
+UIStackViewAlignmentTrailing| 在StackView垂直方向上按照子View的trailing edge对齐|![align_trailing](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/alignment/align_trailing.png)
+UIStackViewAlignmentBottom|等效UIStackViewAlignmentTrailing,用于竖向Stackview|![align_bottom](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/alignment/align_bottom.png)
+UIStackViewAlignmentLastBaseline|在StackView垂直方向上按照子view 的last baseline对齐，仅适用于水平方向StackView|![align_last_baseline](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/alignment/align_last_baseline.png)
 
 ### Distribution
 
 Distribution| 意义 |效果
 ---|---|---
-UIStackViewDistributionFill |在StackView延伸方向上缩放子View使得子View能填充完StackView，子View的缩放顺序依赖于其hugging优先级，如果相等的话，则按照index顺序|![dist_fill](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template//images/distribution/dist_fill.png)
-UIStackViewDistributionFillEqually|在StackView延伸方向上将每个子View都拉伸成一样长|![dist_fill_equally](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template//images/distribution/dist_fill_equally.png)
-UIStackViewDistributionFillProportionally|在StackView延伸方向上将根据子View的内容进行缩放|![dist_fill_proportionally](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template//images/distribution/dist_fill_proportionally.png)
-UIStackViewDistributionEqualSpacing|在StackView延伸方向上将子View中间隔相等的空白进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|![dist_equal_spacing](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/distribution/dist_equal_spacing.png)
-UIStackViewDistributionEqualCentering|在StackView延伸方向上将子View的中线线，等距进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|![dist_equal_centering](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/distribution/dist_equal_centering.png) 
+UIStackViewDistributionFill |在StackView延伸方向上缩放子View使得子View能填充完StackView，子View的缩放顺序依赖于其hugging优先级，如果相等的话，则按照index顺序|![dist_fill](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview//images/distribution/dist_fill.png)
+UIStackViewDistributionFillEqually|在StackView延伸方向上将每个子View都拉伸成一样长|![dist_fill_equally](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview//images/distribution/dist_fill_equally.png)
+UIStackViewDistributionFillProportionally|在StackView延伸方向上将根据子View的内容进行缩放|![dist_fill_proportionally](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview//images/distribution/dist_fill_proportionally.png)
+UIStackViewDistributionEqualSpacing|在StackView延伸方向上将子View中间隔相等的空白进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|![dist_equal_spacing](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/distribution/dist_equal_spacing.png)
+UIStackViewDistributionEqualCentering|在StackView延伸方向上将子View的中线线，等距进行缩放，如果子View不够大，则用空白填充开始部分，如果子View过大，则根据hugging顺序缩放，如果相等的话，则按照index顺序|![dist_equal_centering](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/distribution/dist_equal_centering.png) 
 
 虽然上面罗列出来各个属性的作用，但是可能还是不够具体，这个还需要结合Demo或者自己在实际代码中进行设置来体验
 
@@ -89,11 +89,11 @@ UIStackViewDistributionEqualCentering|在StackView延伸方向上将子View的�
 
 上面的一横一竖的例子，在使用的时候，其实不用StackView也是非常容易用AutoLayout布局的，那么怎么样来提现StackView的优势呢？如果把一横一竖进行各种组合，这样就能像网页设计中的"<div />"一样进行丰富的布局了，假设一个这样的布局：
 
-![nested_design](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/nested_design.png)
+![nested_design](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/nested_design.png)
 
 可以将其分解成各种横竖的组合，从而得到如下的一个效果图
 
-![nested_demo](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/nested_demo.png) ![nested_effect](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/nested_effect.png)
+![nested_demo](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/nested_demo.png) ![nested_effect](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/nested_effect.png)
 
 在IB中可以很容易的拖拽实现StackView的嵌套，这里仅仅对最外层的StackView做了大小和位置设置，其他子View均是由StackView来自动控制的。
 
@@ -120,7 +120,7 @@ UIStackViewDistributionEqualCentering|在StackView延伸方向上将子View的�
 
 最后看个例子，点击“赞”会增加星星，点击“贬”会减少星星数目：
 
-![dynamic_demo](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/dynamic_demo.png)
+![dynamic_demo](http://images.libcz.com:8000/images/blog/iOS/ui/uistackview/images/dynamic_demo.png)
 
 布局很简单，主要是操作StackView的增减子view:
 

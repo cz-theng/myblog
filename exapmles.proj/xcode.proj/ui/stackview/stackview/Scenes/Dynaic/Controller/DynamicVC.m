@@ -36,6 +36,7 @@
     UIImageView *star = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dynamic_start"]];
     star.contentMode = UIViewContentModeScaleToFill;
     [self.starStackView addArrangedSubview:star];
+
     [UIView animateWithDuration:1.0 animations:^{
         [self.starStackView layoutIfNeeded];
     }];

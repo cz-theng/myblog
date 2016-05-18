@@ -16,7 +16,7 @@
                     <view key="view" contentMode="scaleToFill" id="7zu-qZ-RuW">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="T2k-cg-0et">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="T2k-cg-0et">
                                 <rect key="frame" x="0.0" y="10" width="377" height="167"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="signal_col_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="m9C-7A-rss">
