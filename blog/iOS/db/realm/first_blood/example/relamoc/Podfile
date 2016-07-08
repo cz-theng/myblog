@@ -1,4 +1,0 @@
- 
-target 'relamoc' do 
-    pod 'Realm'
-end

@@ -73,7 +73,7 @@ Realm是一个专注于移动平台、提供多种操作接口（Java/Objective-
 ## 2. Realm提供的快刀
 Realm为了体现他的友好和简介，除了提供了SDK以外，还为开发者提供了一个可以浏览数据内容的App（MacOS），想想PHPMyAdmin或者MySQLWorkbench的可视化，极大的方便了开发调试查看。可以在AppStore上下载这个[Realm Browser](https://itunes.apple.com/app/realm-browser/id1007457278):
 	
-![appstore_realm_browser](./images/appstore_realm_browser.png)
+![appstore_realm_browser](http://images.libcz.com:8000/images/blog/iOS/db/realm/first_blood/images/appstore_realm_browser.png)
 
 下载安装成功后，点击打开找到要浏览的.realm 的db文件就可以了。或者直接双击打开.realm文件，会默认用RealmBrowser打开。
 
@@ -81,16 +81,16 @@ Realm为了体现他的友好和简介，除了提供了SDK以外，还为开发
 
 插件的安装可以使用[Alcatraz](http://alcatraz.io/)，直接搜索"Realm Plugin"就可以了：
 
-![realm_plugin](./images/realm_plugin.png)
+![realm_plugin](http://images.libcz.com:8000/images/blog/iOS/db/realm/first_blood/images/realm_plugin.png)
 
 安装好之后，当新建文件的时候，就会有个"realm"的选项：
 
-![new_file_with_realm](./images/new_file_with_realm.png)
+![new_file_with_realm](http://images.libcz.com:8000/images/blog/iOS/db/realm/first_blood/images/new_file_with_realm.png)
 
 点击后会生成文件模板：
 
-![realm_file_h](./images/realm_file_h.png) 
-![realm_file_m](./images/realm_file_m.png)
+![realm_file_h](http://images.libcz.com:8000/images/blog/iOS/db/realm/first_blood/images/realm_file_h.png) 
+![realm_file_m](http://images.libcz.com:8000/images/blog/iOS/db/realm/first_blood/images/realm_file_m.png)
 
 ## 3. 来个例子
 现在来个例子提提神，这里创建了一个MacOS下的Objective-C的命令行工具工程，用上面的RealmPlugin插件新建了两个文件“Studen.h”和"Student.m"。然后在main.m中填写主要逻辑：
@@ -141,7 +141,7 @@ Realm存储对象Student包含两个成员，表示名字的name和年龄的age�
 	}
 运行后的结果：
 
-![exe_log](./images/exe_log.png)
+![exe_log](http://images.libcz.com:8000/images/blog/iOS/db/realm/first_blood/images/exe_log.png)
 
 主要逻辑中用了一段JSON数据 jsonData来表示从网络或者从文件中读取的原始数据。进行反序列化后得到表示学生的数组数据。然后依次生成一个个“Student”对象（想象一下如果用SQLite，这里可能就需要自己弄一个Model，然后再各种封装，是何等的麻烦）。
 
@@ -153,7 +153,7 @@ Realm存储对象Student包含两个成员，表示名字的name和年龄的age�
     
 将对象添加数据库中，先不管这个古怪的语法，先体验吧。添加完成后，就可以用Realm Browser来看出数据了，这里吧默认的db文件.realm文件的路径打印出来了，可以看到：
 
-![realm_browser_db](./images/realm_browser_db.png)
+![realm_browser_db](http://images.libcz.com:8000/images/blog/iOS/db/realm/first_blood/images/realm_browser_db.png)
 
 这里添加了两条数据"wangmeimei"和"lilei"。
 
@@ -212,7 +212,7 @@ Realm存储对象Student包含两个成员，表示名字的name和年龄的age�
 	(lldb)
 需要在Build Phases里面添加下文件拷贝：
 
-![realm_framework](./images/realm_framework.png)
+![realm_framework](http://images.libcz.com:8000/images/blog/iOS/db/realm/first_blood/images/realm_framework.png)
 
 ## 4. 总结
 Realm作为一款专注于移动平台的数据库工具，提供了方便、简介、高效、快速的操作数据的接口，完全可以用来代替SQLite和CoreData。同时其接口的便利性还带有一定的Model层性质，可以减少或者不用其他第三方Model层工具。为了用户方便使用Realm甚至提供了一个Mac上的工具用来查看数据库文件（想想PHPMyAdmin或者MySQLWorkbench的可视化），以及一个XCode插件来帮助新建文件内容填充，实在是太程序猿友好了。

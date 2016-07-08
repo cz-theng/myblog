@@ -1,0 +1,510 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F07B451F1D2FC88A001E1EF5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B451E1D2FC88A001E1EF5 /* main.m */; };
+		F07B45221D2FC88A001E1EF5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B45211D2FC88A001E1EF5 /* AppDelegate.m */; };
+		F07B45251D2FC88A001E1EF5 /* BootLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B45241D2FC88A001E1EF5 /* BootLoader.m */; };
+		F07B45301D2FC88A001E1EF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F07B452F1D2FC88A001E1EF5 /* Assets.xcassets */; };
+		F07B45331D2FC88A001E1EF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07B45311D2FC88A001E1EF5 /* LaunchScreen.storyboard */; };
+		F07B453E1D2FC88A001E1EF5 /* realmcrudTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B453D1D2FC88A001E1EF5 /* realmcrudTests.m */; };
+		F07B454F1D2FC953001E1EF5 /* CrudVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B454E1D2FC953001E1EF5 /* CrudVC.m */; };
+		F07B45511D2FC974001E1EF5 /* crud.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07B45501D2FC974001E1EF5 /* crud.storyboard */; };
+		F07B45541D2FCF88001E1EF5 /* ModifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B45531D2FCF88001E1EF5 /* ModifyVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F07B453A1D2FC88A001E1EF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F07B45121D2FC88A001E1EF5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F07B45191D2FC88A001E1EF5;
+			remoteInfo = realmcrud;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F07B451A1D2FC88A001E1EF5 /* realmcrud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = realmcrud.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F07B451E1D2FC88A001E1EF5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F07B45201D2FC88A001E1EF5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F07B45211D2FC88A001E1EF5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F07B45241D2FC88A001E1EF5 /* BootLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BootLoader.m; path = BootLoader/BootLoader.m; sourceTree = "<group>"; };
+		F07B45261D2FC88A001E1EF5 /* BootLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BootLoader.h; path = BootLoader/BootLoader.h; sourceTree = "<group>"; };
+		F07B45281D2FC88A001E1EF5 /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = readme.h; path = ThirdPart/readme.h; sourceTree = "<group>"; };
+		F07B452A1D2FC88A001E1EF5 /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = readme.h; path = Utils/readme.h; sourceTree = "<group>"; };
+		F07B452C1D2FC88A001E1EF5 /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = readme.h; path = Scenes/readme.h; sourceTree = "<group>"; };
+		F07B452E1D2FC88A001E1EF5 /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = readme.h; path = Services/readme.h; sourceTree = "<group>"; };
+		F07B452F1D2FC88A001E1EF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F07B45321D2FC88A001E1EF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F07B45341D2FC88A001E1EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F07B45391D2FC88A001E1EF5 /* realmcrudTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = realmcrudTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F07B453D1D2FC88A001E1EF5 /* realmcrudTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = realmcrudTests.m; sourceTree = "<group>"; };
+		F07B453F1D2FC88A001E1EF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F07B454D1D2FC953001E1EF5 /* CrudVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrudVC.h; sourceTree = "<group>"; };
+		F07B454E1D2FC953001E1EF5 /* CrudVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrudVC.m; sourceTree = "<group>"; };
+		F07B45501D2FC974001E1EF5 /* crud.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = crud.storyboard; sourceTree = "<group>"; };
+		F07B45521D2FCF88001E1EF5 /* ModifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyVC.h; sourceTree = "<group>"; };
+		F07B45531D2FCF88001E1EF5 /* ModifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyVC.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F07B45171D2FC88A001E1EF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F07B45361D2FC88A001E1EF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F07B45111D2FC88A001E1EF5 = {
+			isa = PBXGroup;
+			children = (
+				F07B451C1D2FC88A001E1EF5 /* realmcrud */,
+				F07B453C1D2FC88A001E1EF5 /* realmcrudTests */,
+				F07B451B1D2FC88A001E1EF5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F07B451B1D2FC88A001E1EF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F07B451A1D2FC88A001E1EF5 /* realmcrud.app */,
+				F07B45391D2FC88A001E1EF5 /* realmcrudTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F07B451C1D2FC88A001E1EF5 /* realmcrud */ = {
+			isa = PBXGroup;
+			children = (
+				F07B45201D2FC88A001E1EF5 /* AppDelegate.h */,
+				F07B45211D2FC88A001E1EF5 /* AppDelegate.m */,
+				F07B452F1D2FC88A001E1EF5 /* Assets.xcassets */,
+				F07B45311D2FC88A001E1EF5 /* LaunchScreen.storyboard */,
+				F07B45341D2FC88A001E1EF5 /* Info.plist */,
+				F07B45231D2FC88A001E1EF5 /* BootLoader */,
+				F07B45271D2FC88A001E1EF5 /* ThirdPart */,
+				F07B45291D2FC88A001E1EF5 /* Utils */,
+				F07B452B1D2FC88A001E1EF5 /* Scenes */,
+				F07B452D1D2FC88A001E1EF5 /* Services */,
+				F07B451D1D2FC88A001E1EF5 /* Supporting Files */,
+			);
+			path = realmcrud;
+			sourceTree = "<group>";
+		};
+		F07B451D1D2FC88A001E1EF5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F07B451E1D2FC88A001E1EF5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F07B45231D2FC88A001E1EF5 /* BootLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F07B45241D2FC88A001E1EF5 /* BootLoader.m */,
+				F07B45261D2FC88A001E1EF5 /* BootLoader.h */,
+			);
+			name = BootLoader;
+			sourceTree = "<group>";
+		};
+		F07B45271D2FC88A001E1EF5 /* ThirdPart */ = {
+			isa = PBXGroup;
+			children = (
+				F07B45281D2FC88A001E1EF5 /* readme.h */,
+			);
+			name = ThirdPart;
+			sourceTree = "<group>";
+		};
+		F07B45291D2FC88A001E1EF5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F07B452A1D2FC88A001E1EF5 /* readme.h */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		F07B452B1D2FC88A001E1EF5 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F07B45481D2FC908001E1EF5 /* CRUD */,
+				F07B452C1D2FC88A001E1EF5 /* readme.h */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		F07B452D1D2FC88A001E1EF5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F07B452E1D2FC88A001E1EF5 /* readme.h */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		F07B453C1D2FC88A001E1EF5 /* realmcrudTests */ = {
+			isa = PBXGroup;
+			children = (
+				F07B453D1D2FC88A001E1EF5 /* realmcrudTests.m */,
+				F07B453F1D2FC88A001E1EF5 /* Info.plist */,
+			);
+			path = realmcrudTests;
+			sourceTree = "<group>";
+		};
+		F07B45481D2FC908001E1EF5 /* CRUD */ = {
+			isa = PBXGroup;
+			children = (
+				F07B45491D2FC908001E1EF5 /* Controller */,
+				F07B454A1D2FC908001E1EF5 /* Model */,
+				F07B454B1D2FC908001E1EF5 /* Resource */,
+				F07B454C1D2FC908001E1EF5 /* View */,
+			);
+			name = CRUD;
+			path = Scenes/CRUD;
+			sourceTree = "<group>";
+		};
+		F07B45491D2FC908001E1EF5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F07B454D1D2FC953001E1EF5 /* CrudVC.h */,
+				F07B454E1D2FC953001E1EF5 /* CrudVC.m */,
+				F07B45521D2FCF88001E1EF5 /* ModifyVC.h */,
+				F07B45531D2FCF88001E1EF5 /* ModifyVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F07B454A1D2FC908001E1EF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F07B454B1D2FC908001E1EF5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F07B454C1D2FC908001E1EF5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F07B45501D2FC974001E1EF5 /* crud.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F07B45191D2FC88A001E1EF5 /* realmcrud */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F07B45421D2FC88A001E1EF5 /* Build configuration list for PBXNativeTarget "realmcrud" */;
+			buildPhases = (
+				F07B45161D2FC88A001E1EF5 /* Sources */,
+				F07B45171D2FC88A001E1EF5 /* Frameworks */,
+				F07B45181D2FC88A001E1EF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = realmcrud;
+			productName = realmcrud;
+			productReference = F07B451A1D2FC88A001E1EF5 /* realmcrud.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F07B45381D2FC88A001E1EF5 /* realmcrudTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F07B45451D2FC88A001E1EF5 /* Build configuration list for PBXNativeTarget "realmcrudTests" */;
+			buildPhases = (
+				F07B45351D2FC88A001E1EF5 /* Sources */,
+				F07B45361D2FC88A001E1EF5 /* Frameworks */,
+				F07B45371D2FC88A001E1EF5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F07B453B1D2FC88A001E1EF5 /* PBXTargetDependency */,
+			);
+			name = realmcrudTests;
+			productName = realmcrudTests;
+			productReference = F07B45391D2FC88A001E1EF5 /* realmcrudTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F07B45121D2FC88A001E1EF5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = projm;
+				TargetAttributes = {
+					F07B45191D2FC88A001E1EF5 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					F07B45381D2FC88A001E1EF5 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = F07B45191D2FC88A001E1EF5;
+					};
+				};
+			};
+			buildConfigurationList = F07B45151D2FC88A001E1EF5 /* Build configuration list for PBXProject "realmcrud" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F07B45111D2FC88A001E1EF5;
+			productRefGroup = F07B451B1D2FC88A001E1EF5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F07B45191D2FC88A001E1EF5 /* realmcrud */,
+				F07B45381D2FC88A001E1EF5 /* realmcrudTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F07B45181D2FC88A001E1EF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F07B45301D2FC88A001E1EF5 /* Assets.xcassets in Resources */,
+				F07B45511D2FC974001E1EF5 /* crud.storyboard in Resources */,
+				F07B45331D2FC88A001E1EF5 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F07B45371D2FC88A001E1EF5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F07B45161D2FC88A001E1EF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F07B45221D2FC88A001E1EF5 /* AppDelegate.m in Sources */,
+				F07B45541D2FCF88001E1EF5 /* ModifyVC.m in Sources */,
+				F07B451F1D2FC88A001E1EF5 /* main.m in Sources */,
+				F07B454F1D2FC953001E1EF5 /* CrudVC.m in Sources */,
+				F07B45251D2FC88A001E1EF5 /* BootLoader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F07B45351D2FC88A001E1EF5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F07B453E1D2FC88A001E1EF5 /* realmcrudTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F07B453B1D2FC88A001E1EF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F07B45191D2FC88A001E1EF5 /* realmcrud */;
+			targetProxy = F07B453A1D2FC88A001E1EF5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F07B45311D2FC88A001E1EF5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F07B45321D2FC88A001E1EF5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F07B45401D2FC88A001E1EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F07B45411D2FC88A001E1EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F07B45431D2FC88A001E1EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = realmcrud/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.realmcrud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F07B45441D2FC88A001E1EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = realmcrud/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.realmcrud;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F07B45461D2FC88A001E1EF5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = realmcrudTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.realmcrudTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/realmcrud.app/realmcrud";
+			};
+			name = Debug;
+		};
+		F07B45471D2FC88A001E1EF5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = realmcrudTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.realmcrudTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/realmcrud.app/realmcrud";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F07B45151D2FC88A001E1EF5 /* Build configuration list for PBXProject "realmcrud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F07B45401D2FC88A001E1EF5 /* Debug */,
+				F07B45411D2FC88A001E1EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F07B45421D2FC88A001E1EF5 /* Build configuration list for PBXNativeTarget "realmcrud" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F07B45431D2FC88A001E1EF5 /* Debug */,
+				F07B45441D2FC88A001E1EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F07B45451D2FC88A001E1EF5 /* Build configuration list for PBXNativeTarget "realmcrudTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F07B45461D2FC88A001E1EF5 /* Debug */,
+				F07B45471D2FC88A001E1EF5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F07B45121D2FC88A001E1EF5 /* Project object */;
+}
