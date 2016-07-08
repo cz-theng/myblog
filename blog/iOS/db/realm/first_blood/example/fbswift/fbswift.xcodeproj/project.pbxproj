@@ -1,0 +1,279 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F0375C3F1D2F967100E0A90D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0375C3E1D2F967100E0A90D /* main.swift */; };
+		F0375C471D2F96AE00E0A90D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0375C451D2F96AE00E0A90D /* Realm.framework */; };
+		F0375C481D2F96AE00E0A90D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0375C461D2F96AE00E0A90D /* RealmSwift.framework */; };
+		F0375C4A1D2F96B400E0A90D /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0375C491D2F96B400E0A90D /* Student.swift */; };
+		F0375C4B1D2F96C800E0A90D /* Realm.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F0375C451D2F96AE00E0A90D /* Realm.framework */; };
+		F0375C4C1D2F96C800E0A90D /* RealmSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F0375C461D2F96AE00E0A90D /* RealmSwift.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F0375C391D2F967100E0A90D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				F0375C4B1D2F96C800E0A90D /* Realm.framework in CopyFiles */,
+				F0375C4C1D2F96C800E0A90D /* RealmSwift.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F0375C3B1D2F967100E0A90D /* fbswift */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fbswift; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0375C3E1D2F967100E0A90D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		F0375C451D2F96AE00E0A90D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = fbswift/Realm.framework; sourceTree = "<group>"; };
+		F0375C461D2F96AE00E0A90D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = fbswift/RealmSwift.framework; sourceTree = "<group>"; };
+		F0375C491D2F96B400E0A90D /* Student.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F0375C381D2F967100E0A90D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0375C481D2F96AE00E0A90D /* RealmSwift.framework in Frameworks */,
+				F0375C471D2F96AE00E0A90D /* Realm.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F0375C321D2F967100E0A90D = {
+			isa = PBXGroup;
+			children = (
+				F0375C451D2F96AE00E0A90D /* Realm.framework */,
+				F0375C461D2F96AE00E0A90D /* RealmSwift.framework */,
+				F0375C3D1D2F967100E0A90D /* fbswift */,
+				F0375C3C1D2F967100E0A90D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F0375C3C1D2F967100E0A90D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F0375C3B1D2F967100E0A90D /* fbswift */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F0375C3D1D2F967100E0A90D /* fbswift */ = {
+			isa = PBXGroup;
+			children = (
+				F0375C491D2F96B400E0A90D /* Student.swift */,
+				F0375C3E1D2F967100E0A90D /* main.swift */,
+			);
+			path = fbswift;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F0375C3A1D2F967100E0A90D /* fbswift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0375C421D2F967100E0A90D /* Build configuration list for PBXNativeTarget "fbswift" */;
+			buildPhases = (
+				F0375C371D2F967100E0A90D /* Sources */,
+				F0375C381D2F967100E0A90D /* Frameworks */,
+				F0375C391D2F967100E0A90D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = fbswift;
+			productName = fbswift;
+			productReference = F0375C3B1D2F967100E0A90D /* fbswift */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F0375C331D2F967100E0A90D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = projm;
+				TargetAttributes = {
+					F0375C3A1D2F967100E0A90D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = F0375C361D2F967100E0A90D /* Build configuration list for PBXProject "fbswift" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F0375C321D2F967100E0A90D;
+			productRefGroup = F0375C3C1D2F967100E0A90D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F0375C3A1D2F967100E0A90D /* fbswift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F0375C371D2F967100E0A90D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0375C3F1D2F967100E0A90D /* main.swift in Sources */,
+				F0375C4A1D2F96B400E0A90D /* Student.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F0375C401D2F967100E0A90D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F0375C411D2F967100E0A90D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F0375C431D2F967100E0A90D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/fbswift",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F0375C441D2F967100E0A90D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/fbswift",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F0375C361D2F967100E0A90D /* Build configuration list for PBXProject "fbswift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0375C401D2F967100E0A90D /* Debug */,
+				F0375C411D2F967100E0A90D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0375C421D2F967100E0A90D /* Build configuration list for PBXNativeTarget "fbswift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0375C431D2F967100E0A90D /* Debug */,
+				F0375C441D2F967100E0A90D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F0375C331D2F967100E0A90D /* Project object */;
+}

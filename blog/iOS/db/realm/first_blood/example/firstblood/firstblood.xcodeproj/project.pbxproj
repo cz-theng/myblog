@@ -1,0 +1,314 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DFC08D0C60778018EC61FB7C /* libPods-firstblood.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C7D7A83C02A996C0E2729C /* libPods-firstblood.a */; };
+		F00B66A81D2F3D30000B6BE5 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = F00B66A71D2F3D30000B6BE5 /* Student.m */; };
+		F09A5EEE1D2E986F00B50310 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F09A5EED1D2E986F00B50310 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F09A5EE81D2E986F00B50310 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		28E287CB2856508B26217366 /* Pods-firstblood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstblood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firstblood/Pods-firstblood.debug.xcconfig"; sourceTree = "<group>"; };
+		B39BDC5E3B893808147D7399 /* Pods-firstblood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstblood.release.xcconfig"; path = "Pods/Target Support Files/Pods-firstblood/Pods-firstblood.release.xcconfig"; sourceTree = "<group>"; };
+		F00B66A61D2F3D30000B6BE5 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		F00B66A71D2F3D30000B6BE5 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		F09A5EEA1D2E986F00B50310 /* firstblood */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = firstblood; sourceTree = BUILT_PRODUCTS_DIR; };
+		F09A5EED1D2E986F00B50310 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F1C7D7A83C02A996C0E2729C /* libPods-firstblood.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-firstblood.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F09A5EE71D2E986F00B50310 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFC08D0C60778018EC61FB7C /* libPods-firstblood.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		129C414A391365226E9A6539 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28E287CB2856508B26217366 /* Pods-firstblood.debug.xcconfig */,
+				B39BDC5E3B893808147D7399 /* Pods-firstblood.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2F6CF380F84A13BE81286376 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1C7D7A83C02A996C0E2729C /* libPods-firstblood.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F09A5EE11D2E986F00B50310 = {
+			isa = PBXGroup;
+			children = (
+				F09A5EEC1D2E986F00B50310 /* firstblood */,
+				F09A5EEB1D2E986F00B50310 /* Products */,
+				129C414A391365226E9A6539 /* Pods */,
+				2F6CF380F84A13BE81286376 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F09A5EEB1D2E986F00B50310 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F09A5EEA1D2E986F00B50310 /* firstblood */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F09A5EEC1D2E986F00B50310 /* firstblood */ = {
+			isa = PBXGroup;
+			children = (
+				F09A5EED1D2E986F00B50310 /* main.m */,
+				F00B66A61D2F3D30000B6BE5 /* Student.h */,
+				F00B66A71D2F3D30000B6BE5 /* Student.m */,
+			);
+			path = firstblood;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F09A5EE91D2E986F00B50310 /* firstblood */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F09A5EF11D2E986F00B50310 /* Build configuration list for PBXNativeTarget "firstblood" */;
+			buildPhases = (
+				C8874CF599D154EC8D0139A6 /* [CP] Check Pods Manifest.lock */,
+				F09A5EE61D2E986F00B50310 /* Sources */,
+				F09A5EE71D2E986F00B50310 /* Frameworks */,
+				F09A5EE81D2E986F00B50310 /* CopyFiles */,
+				B972AFDE8F9767FA8B3F57A4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = firstblood;
+			productName = firstblood;
+			productReference = F09A5EEA1D2E986F00B50310 /* firstblood */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F09A5EE21D2E986F00B50310 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = projm;
+				TargetAttributes = {
+					F09A5EE91D2E986F00B50310 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = F09A5EE51D2E986F00B50310 /* Build configuration list for PBXProject "firstblood" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F09A5EE11D2E986F00B50310;
+			productRefGroup = F09A5EEB1D2E986F00B50310 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F09A5EE91D2E986F00B50310 /* firstblood */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B972AFDE8F9767FA8B3F57A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-firstblood/Pods-firstblood-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8874CF599D154EC8D0139A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F09A5EE61D2E986F00B50310 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F09A5EEE1D2E986F00B50310 /* main.m in Sources */,
+				F00B66A81D2F3D30000B6BE5 /* Student.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F09A5EEF1D2E986F00B50310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F09A5EF01D2E986F00B50310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F09A5EF21D2E986F00B50310 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28E287CB2856508B26217366 /* Pods-firstblood.debug.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F09A5EF31D2E986F00B50310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B39BDC5E3B893808147D7399 /* Pods-firstblood.release.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F09A5EE51D2E986F00B50310 /* Build configuration list for PBXProject "firstblood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F09A5EEF1D2E986F00B50310 /* Debug */,
+				F09A5EF01D2E986F00B50310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F09A5EF11D2E986F00B50310 /* Build configuration list for PBXNativeTarget "firstblood" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F09A5EF21D2E986F00B50310 /* Debug */,
+				F09A5EF31D2E986F00B50310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F09A5EE21D2E986F00B50310 /* Project object */;
+}

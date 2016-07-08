@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01E1DFF5C6BAE3661FA19855 /* libPods-relamoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3597244E0471424EACC63D04 /* libPods-relamoc.a */; };
+		F078E58B1D2E71960003BD27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F078E58A1D2E71960003BD27 /* main.m */; };
+		F078E58E1D2E71960003BD27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F078E58D1D2E71960003BD27 /* AppDelegate.m */; };
+		F078E5911D2E71960003BD27 /* BootLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F078E5901D2E71960003BD27 /* BootLoader.m */; };
+		F078E59C1D2E71960003BD27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F078E59B1D2E71960003BD27 /* Assets.xcassets */; };
+		F078E59F1D2E71960003BD27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F078E59D1D2E71960003BD27 /* LaunchScreen.storyboard */; };
+		F078E5AA1D2E71960003BD27 /* relamocTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F078E5A91D2E71960003BD27 /* relamocTests.m */; };
+		F078E5BB1D2E72C60003BD27 /* FirstBloodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F078E5BA1D2E72C60003BD27 /* FirstBloodVC.m */; };
+		F078E5BD1D2E72D80003BD27 /* first_blood.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F078E5BC1D2E72D80003BD27 /* first_blood.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F078E5A61D2E71960003BD27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F078E57E1D2E71960003BD27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F078E5851D2E71960003BD27;
+			remoteInfo = relamoc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3597244E0471424EACC63D04 /* libPods-relamoc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-relamoc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		417016DA2CAAB889FA3D8752 /* Pods-relamoc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-relamoc.release.xcconfig"; path = "Pods/Target Support Files/Pods-relamoc/Pods-relamoc.release.xcconfig"; sourceTree = "<group>"; };
+		51532E3BCAAF3DF4D2E9CD73 /* Pods-relamoc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-relamoc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-relamoc/Pods-relamoc.debug.xcconfig"; sourceTree = "<group>"; };
+		F078E5861D2E71960003BD27 /* relamoc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = relamoc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F078E58A1D2E71960003BD27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F078E58C1D2E71960003BD27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F078E58D1D2E71960003BD27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F078E5901D2E71960003BD27 /* BootLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BootLoader.m; path = BootLoader/BootLoader.m; sourceTree = "<group>"; };
+		F078E5921D2E71960003BD27 /* BootLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BootLoader.h; path = BootLoader/BootLoader.h; sourceTree = "<group>"; };
+		F078E5941D2E71960003BD27 /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = readme.h; path = ThirdPart/readme.h; sourceTree = "<group>"; };
+		F078E5961D2E71960003BD27 /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = readme.h; path = Utils/readme.h; sourceTree = "<group>"; };
+		F078E5981D2E71960003BD27 /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = readme.h; path = Scenes/readme.h; sourceTree = "<group>"; };
+		F078E59A1D2E71960003BD27 /* readme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = readme.h; path = Services/readme.h; sourceTree = "<group>"; };
+		F078E59B1D2E71960003BD27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F078E59E1D2E71960003BD27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F078E5A01D2E71960003BD27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F078E5A51D2E71960003BD27 /* relamocTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = relamocTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F078E5A91D2E71960003BD27 /* relamocTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = relamocTests.m; sourceTree = "<group>"; };
+		F078E5AB1D2E71960003BD27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F078E5B91D2E72C60003BD27 /* FirstBloodVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstBloodVC.h; sourceTree = "<group>"; };
+		F078E5BA1D2E72C60003BD27 /* FirstBloodVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstBloodVC.m; sourceTree = "<group>"; };
+		F078E5BC1D2E72D80003BD27 /* first_blood.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = first_blood.storyboard; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F078E5831D2E71960003BD27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01E1DFF5C6BAE3661FA19855 /* libPods-relamoc.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F078E5A21D2E71960003BD27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3DA9A1FE946FD095AE4E5515 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3597244E0471424EACC63D04 /* libPods-relamoc.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3E1AF077D5CDB0F779CF1C30 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51532E3BCAAF3DF4D2E9CD73 /* Pods-relamoc.debug.xcconfig */,
+				417016DA2CAAB889FA3D8752 /* Pods-relamoc.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F078E57D1D2E71960003BD27 = {
+			isa = PBXGroup;
+			children = (
+				F078E5881D2E71960003BD27 /* relamoc */,
+				F078E5A81D2E71960003BD27 /* relamocTests */,
+				F078E5871D2E71960003BD27 /* Products */,
+				3E1AF077D5CDB0F779CF1C30 /* Pods */,
+				3DA9A1FE946FD095AE4E5515 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F078E5871D2E71960003BD27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5861D2E71960003BD27 /* relamoc.app */,
+				F078E5A51D2E71960003BD27 /* relamocTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F078E5881D2E71960003BD27 /* relamoc */ = {
+			isa = PBXGroup;
+			children = (
+				F078E58C1D2E71960003BD27 /* AppDelegate.h */,
+				F078E58D1D2E71960003BD27 /* AppDelegate.m */,
+				F078E59B1D2E71960003BD27 /* Assets.xcassets */,
+				F078E59D1D2E71960003BD27 /* LaunchScreen.storyboard */,
+				F078E5A01D2E71960003BD27 /* Info.plist */,
+				F078E58F1D2E71960003BD27 /* BootLoader */,
+				F078E5931D2E71960003BD27 /* ThirdPart */,
+				F078E5951D2E71960003BD27 /* Utils */,
+				F078E5971D2E71960003BD27 /* Scenes */,
+				F078E5991D2E71960003BD27 /* Services */,
+				F078E5891D2E71960003BD27 /* Supporting Files */,
+			);
+			path = relamoc;
+			sourceTree = "<group>";
+		};
+		F078E5891D2E71960003BD27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F078E58A1D2E71960003BD27 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F078E58F1D2E71960003BD27 /* BootLoader */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5901D2E71960003BD27 /* BootLoader.m */,
+				F078E5921D2E71960003BD27 /* BootLoader.h */,
+			);
+			name = BootLoader;
+			sourceTree = "<group>";
+		};
+		F078E5931D2E71960003BD27 /* ThirdPart */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5941D2E71960003BD27 /* readme.h */,
+			);
+			name = ThirdPart;
+			sourceTree = "<group>";
+		};
+		F078E5951D2E71960003BD27 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5961D2E71960003BD27 /* readme.h */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		F078E5971D2E71960003BD27 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5B41D2E72B00003BD27 /* FirstBlood */,
+				F078E5981D2E71960003BD27 /* readme.h */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		F078E5991D2E71960003BD27 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F078E59A1D2E71960003BD27 /* readme.h */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		F078E5A81D2E71960003BD27 /* relamocTests */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5A91D2E71960003BD27 /* relamocTests.m */,
+				F078E5AB1D2E71960003BD27 /* Info.plist */,
+			);
+			path = relamocTests;
+			sourceTree = "<group>";
+		};
+		F078E5B41D2E72B00003BD27 /* FirstBlood */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5B51D2E72B00003BD27 /* Controller */,
+				F078E5B61D2E72B00003BD27 /* Model */,
+				F078E5B71D2E72B00003BD27 /* Resource */,
+				F078E5B81D2E72B00003BD27 /* View */,
+			);
+			name = FirstBlood;
+			path = Scenes/FirstBlood;
+			sourceTree = "<group>";
+		};
+		F078E5B51D2E72B00003BD27 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5B91D2E72C60003BD27 /* FirstBloodVC.h */,
+				F078E5BA1D2E72C60003BD27 /* FirstBloodVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F078E5B61D2E72B00003BD27 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F078E5B71D2E72B00003BD27 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F078E5B81D2E72B00003BD27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F078E5BC1D2E72D80003BD27 /* first_blood.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F078E5851D2E71960003BD27 /* relamoc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F078E5AE1D2E71960003BD27 /* Build configuration list for PBXNativeTarget "relamoc" */;
+			buildPhases = (
+				48C4B45B7D44EAA710AB2480 /* [CP] Check Pods Manifest.lock */,
+				F078E5821D2E71960003BD27 /* Sources */,
+				F078E5831D2E71960003BD27 /* Frameworks */,
+				F078E5841D2E71960003BD27 /* Resources */,
+				5B7E544AE7A50D0D94E21C0A /* [CP] Embed Pods Frameworks */,
+				4C10A0FE40155DBB7AF97F01 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = relamoc;
+			productName = relamoc;
+			productReference = F078E5861D2E71960003BD27 /* relamoc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F078E5A41D2E71960003BD27 /* relamocTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F078E5B11D2E71960003BD27 /* Build configuration list for PBXNativeTarget "relamocTests" */;
+			buildPhases = (
+				F078E5A11D2E71960003BD27 /* Sources */,
+				F078E5A21D2E71960003BD27 /* Frameworks */,
+				F078E5A31D2E71960003BD27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F078E5A71D2E71960003BD27 /* PBXTargetDependency */,
+			);
+			name = relamocTests;
+			productName = relamocTests;
+			productReference = F078E5A51D2E71960003BD27 /* relamocTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F078E57E1D2E71960003BD27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = projm;
+				TargetAttributes = {
+					F078E5851D2E71960003BD27 = {
+						CreatedOnToolsVersion = 7.3;
+					};
+					F078E5A41D2E71960003BD27 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = F078E5851D2E71960003BD27;
+					};
+				};
+			};
+			buildConfigurationList = F078E5811D2E71960003BD27 /* Build configuration list for PBXProject "relamoc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F078E57D1D2E71960003BD27;
+			productRefGroup = F078E5871D2E71960003BD27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F078E5851D2E71960003BD27 /* relamoc */,
+				F078E5A41D2E71960003BD27 /* relamocTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F078E5841D2E71960003BD27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F078E59C1D2E71960003BD27 /* Assets.xcassets in Resources */,
+				F078E59F1D2E71960003BD27 /* LaunchScreen.storyboard in Resources */,
+				F078E5BD1D2E72D80003BD27 /* first_blood.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F078E5A31D2E71960003BD27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48C4B45B7D44EAA710AB2480 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4C10A0FE40155DBB7AF97F01 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-relamoc/Pods-relamoc-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B7E544AE7A50D0D94E21C0A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-relamoc/Pods-relamoc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F078E5821D2E71960003BD27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F078E58E1D2E71960003BD27 /* AppDelegate.m in Sources */,
+				F078E58B1D2E71960003BD27 /* main.m in Sources */,
+				F078E5BB1D2E72C60003BD27 /* FirstBloodVC.m in Sources */,
+				F078E5911D2E71960003BD27 /* BootLoader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F078E5A11D2E71960003BD27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F078E5AA1D2E71960003BD27 /* relamocTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F078E5A71D2E71960003BD27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F078E5851D2E71960003BD27 /* relamoc */;
+			targetProxy = F078E5A61D2E71960003BD27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F078E59D1D2E71960003BD27 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F078E59E1D2E71960003BD27 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F078E5AC1D2E71960003BD27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F078E5AD1D2E71960003BD27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F078E5AF1D2E71960003BD27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51532E3BCAAF3DF4D2E9CD73 /* Pods-relamoc.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = relamoc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.relamoc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F078E5B01D2E71960003BD27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 417016DA2CAAB889FA3D8752 /* Pods-relamoc.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = relamoc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.relamoc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		F078E5B21D2E71960003BD27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = relamocTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.relamocTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/relamoc.app/relamoc";
+			};
+			name = Debug;
+		};
+		F078E5B31D2E71960003BD27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = relamocTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.relamocTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/relamoc.app/relamoc";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F078E5811D2E71960003BD27 /* Build configuration list for PBXProject "relamoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F078E5AC1D2E71960003BD27 /* Debug */,
+				F078E5AD1D2E71960003BD27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F078E5AE1D2E71960003BD27 /* Build configuration list for PBXNativeTarget "relamoc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F078E5AF1D2E71960003BD27 /* Debug */,
+				F078E5B01D2E71960003BD27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F078E5B11D2E71960003BD27 /* Build configuration list for PBXNativeTarget "relamocTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F078E5B21D2E71960003BD27 /* Debug */,
+				F078E5B31D2E71960003BD27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F078E57E1D2E71960003BD27 /* Project object */;
+}
