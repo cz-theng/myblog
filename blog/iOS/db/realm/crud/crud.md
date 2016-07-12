@@ -1,10 +1,10 @@
 # Realm的CRUD
-在一篇文章[尝鲜Realm](http://www.jianshu.com/p/6a58b8a6229a),我们了解到Realm标榜其为专注于移动平台的数据库，那既然是数据库，我们当然要看最基本的CRUD(Create/Read/Update/Delete)操作。当然在做这些基本的操作之前还是需要学习下Realm的基本知识。
+在前一篇文章[《尝鲜Realm》](http://www.jianshu.com/p/6a58b8a6229a),我们了解到Realm标榜其为专注于移动平台的数据库，那既然是数据库，我们当然要看最基本的CRUD(Create/Read/Update/Delete)操作。当然在做这些基本的操作之前还是需要学习下Realm的基本知识。
 
 ## 0. Realm与我们熟悉的SQL
 当使用SQL（SQLite）时，首先我们会设计关系数据库的结构，比如设计几个表，每个表里面哪些是主键、对哪些键做索引、默认值是什么等等，并将这些用SQL表示好，然后调用函数执行创建表的SQL语句或者通过一些ORM工具如：FMDB的函数创建表格，然后还要对应的创建一个class/struct来表示这个数据结构。而Realm抛弃了这繁琐的中间语言，而采用目标语言（比如Objective-C/Swift/Java）本身作为DSL(domain-specific language)来描述同样的类似表格的数据结构，由于是目标语言，其自身就能表达一个数据结构，因此带有了一些Model层属性，比如SQL很难描述某列的属性是另一个结构，需要自己定义数据结构来表示，而Realm的DSL则自动包含了这层定义。
 
-比如我们来看个例子，描述省与城市的天气：省有其天气属性，同时还有其包含的城市；而城市也有天气属性。用SQL的话，我们可能会设计如下三个表：
+我们来看个例子，描述省与城市的天气：省有其天气属性，同时还有其包含的城市；而城市也有天气属性。用SQL的话，我们可能会设计如下三个表：
 
 	// table t_province
 	CREATE TABLE t_provience (
@@ -47,9 +47,9 @@
 
 这里定义了两个结构（Model）：Provience和City。首先他们都需要继承Realm的RLMObject。City定义了name和id属性；Province除了定义了name和id还定义了了一个cities成员，而且其定义十分诡异：
 
-* RLMArray: 表示一个RLMArray对象，可以认为是一个NSArray对象
-* <City *>: 可以认为是每个Array成员的类型.
-* <City>: 序列化的结构，按照找个类定义的成员和相关辅助函数来做序列化操作.
+* `RLMArray`: 表示一个RLMArray对象，可以认为是一个NSArray对象
+* `<City *>`: 可以认为是每个Array成员的类型.
+* `<City>`: 序列化的结构，按照找个类定义的成员和相关辅助函数来做序列化操作.
 
 所以上面就是定义了： 一个按照结构City进行存储的City *的数组的指针。
 
@@ -127,8 +127,54 @@ realm的操作均由一个`RLMRealm`来管理，*我们称之为realm，可以�
 将记录添加到数据库中存储。"beginWriteTransaction"和“commitWriteTransaction”可以认为和SQLite中的commit类似，用来表示一次存储事务，当commit后，相关数据就表示已经落地了。
 
 ## 4. Read
+不论是使用CoreData也好，用FMDB封装的SQLite也好，Query总是最复杂的操作，要构建查询条件，又要解析查询结果，实在是烦。如果这时候你看一眼Realm的文档，发现Query部分只有一段话，而且没有子主题，这个时候是不是应该窃喜呢？
+
+哈哈，其实也不是，是查询就逃不了先查询再解析结果的过程。而Realm的结果统一是一个RLMResults对象。其实质和那个恶心的数组一样是一个容器对象，所以也需要指定其内部存储的是什么类型的值：
+
+	RLMResults<RLMObject *> *result
+	
+需要给定一个继承自RLMObject的对象来表示其结果内存放的是这个数据类型，其实也就是你要查询的表啦。查询有两种方式：
+
+1. select * from
+	从表中查询到所有结果：
+	
+		//+ (nonnull RLMResults *)allObjects will operate on default realm
+		RLMResults<Student *> *allStudents = [Student allObjectsInRealm:_realm];
+	通过调用RLMObject的类方法`+ (nonnull RLMResults *)allObjectsInRealm:(nonnull RLMRealm *)realm;`在指定的数据库Realm中查询表中的结果，而`+ (nonnull RLMResults *)allObjects;`则是在默认的Realm中查询。这里很显然，得到的结果就是这里指定的RLMObject结果，这里是Student。
+
+2. select * from table where ""
+	如果要查询符合条件的结果，则使用：
+		
+		// + (nonnull RLMResults *)objectsWhere:(nonnull NSString *)predicateFormat, ...; will operate on default realm
+		NSString *filter = [NSString stringWithFormat:@"age > %d", [_filterTF.text intValue ]];
+		RLMResults<Student *>  *allStudents = [Student objectsInRealm:_realm where:filter];
+	通过调用RLMObject的类方法`+ (nonnull RLMResults *)objectsInRealm:(nonnull RLMRealm *)realm where:(nonnull NSString *)predicateFormat, ...;` 提供一个过滤条件得到和上面一样的“RLMResults<Student *> ”结果。同样也有一个操作默认Realm的`+ (nonnull RLMResults *)objectsWhere:(nonnull NSString *)predicateFormat, ...;`。
+	
+	这里过滤条件比较贴近于自然语言，直接用成员名加上">"、“<”等类C的关系描述符就可以了。
+	
+在查询中构建的查询条件可以使用一些限定词来构建：
+
+* 造作对象必须是RLMObject的一个属性
+* 对 int, long, long long, float, double, 以及 NSDate属性支持 ==, <=, <, >=, >, !=, 和 BETWEEN操作，比如：age == 45
+* 对象的判等（这个厉害，直接比较对象，SQL只能望其项背）。==和!=。 比如 [Employee objectsWhere:@"company == %@", company]
+* 对于BOOL类型支持 ==和！= 判等操作
+* 对于字符串（NSString）类型,支持==, !=, BEGINSWITH, CONTAINS, 以及 ENDSWITH操作，比如： name CONTAINS ‘Ja’。是不是比SQL更智能
+* CONTAINS操作是区分大小写的
+* 短路表达式也是支持的，用“AND”, “OR”, 和 “NOT”分别表示&&、|| 、！
+* Realm提供了一个"IN" 操作来判断元素是否在列表中,比如：name IN {‘Lisa’, ‘Spike’, ‘Hachi’}
+* Realm提供了“ANY”关键字来组合条件语句，比如： ANY student.age < 21
+* 类似Limit，Realm提供了@count, @min, @max, @sum 和 @avg来表示结果的数目，对结果求最大、最小、和以及平均，比如：[Company objectsWhere:@"employees.@count > 5"]等同于"Limit 5"
+
 
 ## 5. Update
+既然上面一直在宣导Realm直接用目标语言DSL来描述数据结构，而不是用SQL，不用再构造数据结构然后设计SQL语句，这里我们从Update中再来体味其深意。
+
+假设我们要更新某个Student对象的age属性，只要通过上面的“Read”先查询出目标Stduent对象，然后执行：
+
+	[_realm beginWriteTransaction];
+	_student.age = _ageTF.text.intValue;
+	[_realm commitWriteTransaction];
+即可修改该Student对象的age为输入值。"commitWriteTransaction"会保证落体的物理数据被修改。
 
 ## 6. Delete
 对上面的操作都了解了的话，删除操作其实非常简单：
@@ -137,14 +183,14 @@ realm的操作均由一个`RLMRealm`来管理，*我们称之为realm，可以�
     [_realm deleteObject:s];
     [_realm commitWriteTransaction];
     
-首先获得要删除的Student对象，当然这里说的是Demo，在具体应用中就是继承了RLMObject的对象。然后在事务提交中调用 ：
+首先获得要删除的Student对象，这个过程就相当于SQL里面删除时候的where限制。当然这里说的Student是Demo中的，在具体应用中就是继承了RLMObject的对象。然后在事务提交中调用 ：
 
 	- (void)deleteObject:(nonnull RLMObject *)object;
 
 即可影响到具体物理文件里面的记录，是不是很简单，其实删除操作本来也没有特殊的地方。
 
 ## 7. 总结
-通过一个demo例子中展示的Realm的CRUD操作，我们会发现，首先不能完全用SQL的经验来设计Realm，比如他是可以直接通过对象来表示两组数据之间的"1 to n"、“1 to 1”等关系的，另外操作直接针对一个RLMObject对象来进行的，再不用SQL来构造语义了。但同时SQL的经验有可以运用到对Realm的使用中。这里只介绍了基本的Realm的API来实现CRUD操作，Reaml还提供了诸如通知、动态更新、调试等高级功能，我们再下一篇继续学习。
+通过一个demo例子中展示的Realm的CRUD操作，我们会发现，首先不能完全用SQL的经验来设计Realm，比如他是可以直接通过对象来表示两组数据之间的"1 to n"、“1 to 1”等关系的，另外操作直接针对一个RLMObject对象来进行的，再不用SQL来构造语义了,其扩展的对象的判等、BEGINSWITH、 CONTAINS字符串操作等特性更是牛逼的不行。但同时SQL的经验有可以运用到对Realm的使用中。这里只介绍了基本的Realm的API来实现CRUD操作，Reaml还提供了诸如通知、动态更新、调试等高级功能，我们再下一篇继续学习。
 ## 参考
 1. [Realm Objective-C](https://realm.io/docs/objc/latest/)
 2. [Realm Reference](https://realm.io/docs/objc/latest/api/)
