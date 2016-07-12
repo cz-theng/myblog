@@ -7,7 +7,9 @@
 
 
 #import <UIKit/UIKit.h>
+#import "Student.h"
+#import <Realm/Realm.h>
 
 @interface ModifyVC : UIViewController
-
+-(void) setReal: (RLMRealm *) realm student:(Student *) student;
 @end

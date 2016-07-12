@@ -16,6 +16,10 @@
 		F07B454F1D2FC953001E1EF5 /* CrudVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B454E1D2FC953001E1EF5 /* CrudVC.m */; };
 		F07B45511D2FC974001E1EF5 /* crud.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F07B45501D2FC974001E1EF5 /* crud.storyboard */; };
 		F07B45541D2FCF88001E1EF5 /* ModifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B45531D2FCF88001E1EF5 /* ModifyVC.m */; };
+		F07B45781D334E09001E1EF5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F07B45771D334E09001E1EF5 /* Realm.framework */; };
+		F07B457B1D3382A5001E1EF5 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = F07B457A1D3382A5001E1EF5 /* Student.m */; };
+		F07B457D1D3386E9001E1EF5 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F07B457C1D3386E9001E1EF5 /* libstdc++.6.0.9.tbd */; };
+		F07B457F1D33870A001E1EF5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F07B457E1D33870A001E1EF5 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +54,11 @@
 		F07B45501D2FC974001E1EF5 /* crud.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = crud.storyboard; sourceTree = "<group>"; };
 		F07B45521D2FCF88001E1EF5 /* ModifyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyVC.h; sourceTree = "<group>"; };
 		F07B45531D2FCF88001E1EF5 /* ModifyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyVC.m; sourceTree = "<group>"; };
+		F07B45771D334E09001E1EF5 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		F07B45791D3382A5001E1EF5 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
+		F07B457A1D3382A5001E1EF5 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
+		F07B457C1D3386E9001E1EF5 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		F07B457E1D33870A001E1EF5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +66,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07B457F1D33870A001E1EF5 /* libc++.tbd in Frameworks */,
+				F07B457D1D3386E9001E1EF5 /* libstdc++.6.0.9.tbd in Frameworks */,
+				F07B45781D334E09001E1EF5 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +85,8 @@
 		F07B45111D2FC88A001E1EF5 = {
 			isa = PBXGroup;
 			children = (
+				F07B457E1D33870A001E1EF5 /* libc++.tbd */,
+				F07B457C1D3386E9001E1EF5 /* libstdc++.6.0.9.tbd */,
 				F07B451C1D2FC88A001E1EF5 /* realmcrud */,
 				F07B453C1D2FC88A001E1EF5 /* realmcrudTests */,
 				F07B451B1D2FC88A001E1EF5 /* Products */,
@@ -126,6 +140,7 @@
 		F07B45271D2FC88A001E1EF5 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				F07B45761D334E09001E1EF5 /* Realm */,
 				F07B45281D2FC88A001E1EF5 /* readme.h */,
 			);
 			name = ThirdPart;
@@ -191,6 +206,8 @@
 		F07B454A1D2FC908001E1EF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F07B45791D3382A5001E1EF5 /* Student.h */,
+				F07B457A1D3382A5001E1EF5 /* Student.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -208,6 +225,15 @@
 				F07B45501D2FC974001E1EF5 /* crud.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F07B45761D334E09001E1EF5 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				F07B45771D334E09001E1EF5 /* Realm.framework */,
+			);
+			name = Realm;
+			path = ThirdPart/Realm;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +339,7 @@
 				F07B45221D2FC88A001E1EF5 /* AppDelegate.m in Sources */,
 				F07B45541D2FCF88001E1EF5 /* ModifyVC.m in Sources */,
 				F07B451F1D2FC88A001E1EF5 /* main.m in Sources */,
+				F07B457B1D3382A5001E1EF5 /* Student.m in Sources */,
 				F07B454F1D2FC953001E1EF5 /* CrudVC.m in Sources */,
 				F07B45251D2FC88A001E1EF5 /* BootLoader.m in Sources */,
 			);
@@ -434,6 +461,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/realmcrud/ThirdPart/Realm",
+				);
 				INFOPLIST_FILE = realmcrud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.realmcrud;
@@ -445,6 +476,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/realmcrud/ThirdPart/Realm",
+				);
 				INFOPLIST_FILE = realmcrud/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = club.projm.cz.realmcrud;

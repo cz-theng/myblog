@@ -85,6 +85,9 @@
                                         <include reference="kza-HF-hCF"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onAdd:" destination="zvg-Jd-1qW" eventType="touchUpInside" id="1QX-7a-Z5H"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wC-xX-JBe">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
@@ -98,6 +101,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="205" y="158" width="155" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="onQuery:" destination="zvg-Jd-1qW" eventType="touchUpInside" id="nYm-lo-E9w"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4e6-qZ-zS9">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -127,10 +133,10 @@
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="2wC-xX-JBe" secondAttribute="trailing" constant="40" id="JzO-ox-g3G"/>
                             <constraint firstItem="X1E-fe-t4e" firstAttribute="leading" secondItem="jZs-bo-1yu" secondAttribute="leading" constant="42" id="KV0-oe-Q3h"/>
-                            <constraint firstItem="YJA-14-fUA" firstAttribute="top" secondItem="4e6-qZ-zS9" secondAttribute="bottom" constant="30" id="L1j-sz-Cyo"/>
+                            <constraint firstItem="pyK-zb-wvp" firstAttribute="top" secondItem="BQj-Mu-4vj" secondAttribute="bottom" constant="8" id="Mlw-KK-2zR"/>
                             <constraint firstItem="OSj-kw-xxg" firstAttribute="leading" secondItem="5Xq-GZ-eQi" secondAttribute="trailing" constant="8" id="Nkk-B4-Ori"/>
                             <constraint firstItem="OSj-kw-xxg" firstAttribute="top" secondItem="pyK-zb-wvp" secondAttribute="bottom" constant="24" id="Rif-7A-kqW"/>
-                            <constraint firstItem="pyK-zb-wvp" firstAttribute="top" secondItem="BQj-Mu-4vj" secondAttribute="bottom" constant="8" id="TKb-s8-iMX"/>
+                            <constraint firstItem="YJA-14-fUA" firstAttribute="top" secondItem="4e6-qZ-zS9" secondAttribute="bottom" constant="30" id="W8M-We-igD"/>
                             <constraint firstItem="ihE-pq-wNi" firstAttribute="width" secondItem="2wC-xX-JBe" secondAttribute="width" id="YAj-1M-9Km"/>
                             <constraint firstItem="5Xq-GZ-eQi" firstAttribute="top" secondItem="pyK-zb-wvp" secondAttribute="bottom" constant="24" id="Yqg-sy-dS6"/>
                             <constraint firstItem="5Xq-GZ-eQi" firstAttribute="leading" secondItem="jZs-bo-1yu" secondAttribute="leading" constant="42" id="Yu0-Jv-upQ"/>
@@ -292,6 +298,9 @@
                                         <include reference="87g-Y5-RTQ"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="onModify:" destination="Ywb-7w-nYI" eventType="touchUpInside" id="oIE-li-DRX"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VV2-QN-FKq">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
