@@ -1,1 +1,2 @@
 # Mantle让Realm更完整
+Realm得益于其目标语言的DSL描述，本身就已经和一个通常的Model很类似了，在简单的场景下完全可以当做Model定义来用。但是其毕竟没有过多的封装，有些Model框架的便利性还是没有，这时候我们可以用Mantle来配合Realm，听说iOS开发Realm和Mantle更配哦。

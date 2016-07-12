@@ -62,7 +62,7 @@
 
 这里我准备了一个学生信息管理界面（实际上就一个学生名和年纪），可以添加、查询、搜索以及删除学生:
 
-![app](./images/app.gif)
+![app](http://images.libcz.com:8000/images/blog/iOS/db/realm/crud/images/app.gif)
 
 代码主要是由OC来实现的（下面的接口也是以OC为例讲解），具体的demo可以在[github](https://github.com/cz-it/myblog/tree/master/blog/iOS/db/realm/crud/example/realmcrud)进行下载。
 
