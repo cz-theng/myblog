@@ -1,9 +1,45 @@
 # 进阶Realm
-在前面的篇章[《Realm的CRUD》](http://www.jianshu.com/p/8a9fb7a74ff1)介绍了怎么最简单的吧Realm给用起来，并通过一个Demo演示了CRUD的操作。除此之外Realm还提供了诸如消息通知、调试、数据加密等功能，我们一一来看。
+在前面的篇章[《Realm的CRUD》](http://www.jianshu.com/p/8a9fb7a74ff1)介绍了怎么最简单的把Realm给用起来，并通过一个Demo演示了CRUD的操作。除此之外Realm还提供了诸如消息通知、调试、数据加密等功能，我们一一来看。
 
 
 ## 0. 数据库realm设置
-## 0. 数据定义
+使用Realm首当其冲的就是要创建一个realm数据库对象（后面泛指Realm的时候R大写，而指一个Realm数据库对象的时候则用realm小写的r）。最简单的方法就是获取默认的Realm对象：
+
+	+ (nonnull instancetype)defaultRealm;
+后面调用RLMObject的`+ (nonnull RLMResults *)allObjects;`以及`+ (nonnull RLMResults *)objectsWhere:(nonnull NSString *)predicateFormat, ...;`就都是对这个默认的数据库对象realm的操作。其文件存储位置也是固定的。
+
+当然在生成环境用这个默认的对象肯定是不靠谱的，至少我们也要给他一个固定的位置和名字嘛，是不是。那这个默认对象除了学习的时候可以用下，还有哪些用处呢？
+
+想想我们做单元测试的时候，是不是一定到要重新创建个对象或者操作正式的数据库呢？这个是否可以作为测试时用呢？
+
+当做一些测试时他就是很好的选择。
+
+那要如何构建非默认Realm对象呢？答案是RLMRealmConfiguration，通过调用：
+
+	+ (nullable instancetype) realmWithConfiguration:(nonnull RLMRealmConfiguration *)configuration  error:(NSError *_Nullable *_Nullable)error;
+	
+可以构造一个用configuration配置过后的Realm对象，其主要可配置项有:
+
+
+成员| 意义
+---|---|
+fileURL | 数据库文件位置
+inMemoryIdentifier | 如果设置的话，数据将存放在内存中并以此为标记
+readOnly | 是否只读
+encryptionKey | 如果设置的会用其作为key对数据做AES加密
+schemaVersion | 数据库内容的版本号
+migrationBlock | 如果做版本兼容的话，如果转换的逻辑block
+deleteRealmIfMigrationNeeded | 当数据库内容版本不兼容时是否重新创建
+
+前三个比较好容易理解，后几个在下面的章节会介绍。比如我们吧数据存在内存中：
+
+	RLMRealmConfiguration *config = [RLMRealmConfiguration defaultConfiguration];
+	config.inMemoryIdentifier = @"MyInMemoryRealm";
+	RLMRealm *realm = [RLMRealm realmWithConfiguration:config error:nil];
+	
+这样我们可以在不同的线程里面创建多个Reaml对象来共享数据，从而实现IPC。
+
+## 1. 数据定义
 
 ### 成员结构
 基本的数据结构定义很简单，就和普通的NSObject定义一样：
@@ -103,7 +139,7 @@
 这样我们还可以自定义ageLevel的setter和getter，因为不用Realm托管，所以也就需要自己加上strong/weak等修饰了。
 
 
-## 1. 创建与写入
+## 2. 创建与写入
 有了表格对象的定义了后，要如何创建对象呢？最简单的方法就是和前面的Demo中描述的和NSObject一样逐个成员的去赋值，Realm还提供了两种个灵活的方法：
 来看第一种，也就是传统的alloc+initXxx的方法
 	
@@ -197,7 +233,9 @@ Realm中则用：
 * 类似Limit，Realm提供了@count, @min, @max, @sum 和 @avg来表示结果的数目，对结果求最大、最小、和以及平均，比如：[Company objectsWhere:@"employees.@count > 5"]等同于"Limit 5"
 
 ## 3. 消息通知
-在使用OC的过程中，大家肯定对KVO影响深刻甚至于ReactiveCocoa正是基于这样的特性来做了响应式编程。Realm对RLMRealm, RLMResults, RLMArray 和 RLMLinkingObjects也提供了这样的响应式支持，通过addNotificationBlock来添加一个回调block当有相关改动时就会通过回调通知过来。
+在使用OC的过程中，大家肯定对KVO影响深刻甚至于ReactiveCocoa正是基于这样的特性来做了响应式编程。而在做基于Model现实UI时，这种特性更是常被需要，比如工作线程从网络获得一个更新数据来更新了Model，这个时候通知UI线程去及时的更新UI显示。
+
+Realm对RLMRealm, RLMResults, RLMArray 和 RLMLinkingObjects也提供了这样的响应式支持，通过addNotificationBlock来添加一个回调block当有相关改动时就会通过回调通知过来。
 ### realm通知
 假设这样的一个场景，当数据改变时我们需要更新UI，那怎样才知道有数据改动了呢？而且更新UI的操作又需要在主线线程中，而一般DB操作我们会单独启一个IO线程，那该如何是好呢？
 
@@ -208,12 +246,43 @@ block的定义如下：
 
 	typedef void(^RLMNotificationBlock)(NSString *notification, RLMRealm *realm);
 
+这里block里面的notification表示消息的名称，realm是发送消息的realm对象说白了也就是那个数据库对象realm被更新了。
 
-### 容器类型通知
+需要注意但是要storage的存储下addNotificationBlock返回的RLMNotificationToken对象，否则就不会回调了。另外如果不想监听了，只要调用这个token的stop就可以了，比如这个例子：
 
-### 触发通知
+	// Observe Realm Notifications
+	token = [realm addNotificationBlock:^(NSString *notification, RLMRealm * realm) {
+	    [myViewController updateUI];
+	}];
+	
+	// later
+	[token stop]; 
+	// no more notifications
 
-## 6. 版本兼容
+
+### 容器对象通知
+上面的消息是对应一整个数据的修改操作，另外还可以对一些暂存的数据对象进行监控，这里虽然说是数据对象，实际是是Realm提供的容器类型，比如：RLMResult、RLMArray、RLMLinkingObjectes。这些对象可以发生插入、修改、删除等动作。通过在这些对象上调用:
+
+	- (nonnull RLMNotificationToken *)addNotificationBlock: (nonnull void (^)(RLMResults<RLMObjectType> *_Nullable, RLMCollectionChange *_Nullable, NSError *_Nullable))block;
+	
+这里的blog较为复杂，首先回调里面是被修改的`RLMResults<RLMObjectType>  *`容器对象，然后是具体的修改`RLMCollectionChange`。
+
+同样，这里的token需要进行storage存储，否则收不到消息，同样的可以调用其stop函数。当通知触发时RLMCollectionChange的三个属性：
+
+* deletions ： 被删除的section
+* insertions : 新增加的section
+* modifications ： 被修改的secion
+
+然后再依次调用 
+* `- (nonnull NSArray<NSIndexPath *> *)deletionsInSection:(NSUInteger)section;` 
+* `- (nonnull NSArray<NSIndexPath *> *)insertionsInSection:(NSUInteger)section;`
+* `- (nonnull NSArray<NSIndexPath *> *)modificationsInSection:(NSUInteger)section;`
+
+传入上的数值，最终可以得到哪些Index是别删除了、增加了以及修改了。这样假设从网络上获取的数据引起了这些Model变更了，我们就依次来更新UI了。
+
+
+
+## 4. 版本兼容
 做过生产环境的App都知道，策划和产品永远是不会放过程序的，之前定义的Model结构是永远不够用的，代码是肯定要改的，版本是肯定要升级的。这样我们就会遇到再之前的App1.0.1版本中，Student的定义是这样的：
 
 	@interface Student : RLMObject
@@ -257,7 +326,14 @@ block的定义如下：
 	[RLMRealmConfiguration setDefaultConfiguration:config];
 这里为	RLMRealmConfiguration的migrationBlock属性给定一个转换的block，将老数据的name转换成"firstName"，而lastName则置为"None"。然后在用这个RLMRealmConfiguration创建realm就可以了。
 
-## 7. 数据加密
+当然除了这种数据转换，其实也包含了数据项的增减这样最常见的情况外，还有改名的情况（基本上就是空降一个大大，然后各种重构），Realm也提供了支持：
+
+	- (void)renamePropertyForClass:(nonnull NSString *)className
+                       oldName:(nonnull NSString *)oldName
+                       newName:(nonnull NSString *)newName;
+在上面的block中调用RLMMigration的rename方法，将名为className重的oldName属性改名为newName，是不是X的不行。                   
+
+## 5. 数据加密
 不论是用SQL时候还是Realm，只要有了数据库文件，就可以用浏览工具打开查看，但是有的时候我们是不希望其他人拿到我们的数据库文件就可以直接读的，比如个人信息的存储。这个时候自然就想到了最直接的方法--加密。Realm提供了AES-256加密算法并用SHA2进行密文校验，使用起来也非常简单，只要生成一个256bit的秘钥（当然你要保护好这个秘钥，比如从安全的服务器信道传下来），然后将其给到RLMRealmConfiguration，在用这个RLMRealmConfiguration创建realm就可以了:
 
     uint8_t buffer[64];
@@ -270,7 +346,7 @@ block的定义如下：
     
 这里用了Security.framework里面的SecRandomCopyBytes得到一串随机数，作为秘钥，然后用这个秘钥给到RLMRealmConfiguration创建realm在行使用，这样数据存储时就会被加密了。
 
-## 总结
+## 6.总结
 Realm的消息通知、数据加密、JSON支持等特性让Realm直接区别于SQLite和CoreData。也为我们切换到Realm提供了理由支持。在性能上面根据[Realm的测试](https://realm.io/news/introducing-realm/)其高于SQLite两倍多，甩CoreData更不止一个数量级：
 
 ![realm_benchmark_counts](./images/benchmark_counts.png) ![realm_benchmark_query](./images/benchmark_query.png) ![realm_benchmark_insert](./images/benchmark_insert.png)
