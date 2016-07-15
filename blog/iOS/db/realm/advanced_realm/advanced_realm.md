@@ -349,7 +349,7 @@ block的定义如下：
 ## 6.总结
 Realm的消息通知、数据加密、JSON支持等特性让Realm直接区别于SQLite和CoreData。也为我们切换到Realm提供了理由支持。在性能上面根据[Realm的测试](https://realm.io/news/introducing-realm/)其高于SQLite两倍多，甩CoreData更不止一个数量级：
 
-![realm_benchmark_counts](./images/benchmark_counts.png) ![realm_benchmark_query](./images/benchmark_query.png) ![realm_benchmark_insert](./images/benchmark_insert.png)
+![realm_benchmark_counts](http://images.libcz.com:8000/images/blog/iOS/db/realm/advanced_realm/images/benchmark_counts.png) ![realm_benchmark_query](http://images.libcz.com:8000/images/blog/iOS/db/realm/advanced_realm/images/benchmark_query.png) ![realm_benchmark_insert](http://images.libcz.com:8000/images/blog/iOS/db/realm/advanced_realm/images/benchmark_insert.png)
 
 唯一没有经过验证的就是他的崩溃率了，在使用SQLite的过程中，崩溃还是比较常见的，不知道Realm这方面的表现如何，这个需要真实的App去验证，比如接入腾讯的Bugly来看。
 ## 参考
