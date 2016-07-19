@@ -23,11 +23,11 @@ Cocoapods是用Ruby写的，Mac下一般Ruby环境以及默认安装好了，如
 
 	sudo gem install cocoapods
 	
-即可。由于ruby镜像被ZF的大墙挡住，因此可以选择配置国内的Ruby镜像，比如配置TaoBao的镜像：
+即可。由于ruby镜像被ZF的大墙挡住，因此可以选择配置国内的Ruby镜像，比如配置TaoBao的镜像(注意以前的http（http://ruby.taobao.org/非https已经停用了，现在都是https）：
 
 	$ gem sources --remove https://rubygems.org/
 	
-	$ gem sources -a http://ruby.taobao.org/
+	$ gem sources -a https://ruby.taobao.org/
 
 安装好了以后，我们可以运行：
 	
@@ -36,44 +36,60 @@ Cocoapods是用Ruby写的，Mac下一般Ruby环境以及默认安装好了，如
 来查看Cocoapods的版本，从而确认完成安装。至此就完成了对Cocoapods的安装了，是不是太简单？
 	
 ## 二、安装第三方库
-Cocoapods通过使用一个配置文件来管理工程中依赖的第三方库文件。在XCode工程的工程目录下，也就是xxx.xcodeproj 的同级目录创建一个Podfile文件。Cocoapods官方文档是用
+CocoaPods(下文中CocoaPods表示CocoaPods工具，而cocoapods表示示例的工程名)通过使用一个配置文件来管理工程中依赖的第三方库文件。在XCode工程的工程目录下，也就是xxx.xcodeproj 的同级目录创建一个Podfile文件。Cocoapods官方文档是用
 touch命令生成 `touch Podfile`。这里我们以最常用到的AFNetworking库为例，创建一个Podfile文件，然后写上内容：
 
-	pod 'AFNetworking', '~> 0.2'  
-	
-表示选择AFNetworking0.2的版本前最近的版本，也就是0.1.x不包含0.2。此时目录结构如下：
-
 	// 这里假设工程名叫做Cocoapods
-	Podfile			Cocoapods.xcodeproj
-	Cocoapods		CocoapodsTests
+	target 'cocoapods' do
+	  pod 'AFNetworking', '~> 3.0'
+	  pod 'FBSDKCoreKit', '~> 4.9'
+	end
+	
+表示选择AFNetworking3.0的版本前最近的版本，而不是2.0老版本。此时目录结构如下：
+
+	// 这里假设工程名叫做cocoapods
+	Podfile			cocoapods.xcodeproj
+	cocoapods		cocoapodsTests
 	
 然后再Podfile同级目录下运行:
 
 	pod install 
 	
 	// 提示：
+	czs-iMac:cocopods apollo$ pod install
+	Re-creating CocoaPods due to major version update.
 	Analyzing dependencies
 	Downloading dependencies
-	Using AFNetworking (0.10.1)
+	Installing AFNetworking (3.1.0)
+	Installing Bolts (1.7.0)
+	Installing FBSDKCoreKit (4.11.0)
 	Generating Pods project
 	Integrating client project
+	Sending stats
+	Pod installation complete! There are 2 dependencies from the Podfile and 3 total pods installed.
 
 
-说明此时已经安装好AFNetworking 2.0前最近版本的库。此时我们再看目录结构为：
+说明此时已经安装好AFNetworking 3.1.0以及FBSDKCoreKit4.11.0版本的库。
 
-	Podfile			Pods			Cocoapods.xcodeproj  CocoapodsTests
-	Podfile.lock		Cocoapods		Cocoapods.xcworkspace
+这个时候仔细看上面提示“There are 2 dependencies from the Podfile and 3 total pods”会发现我们虽然只指定了两个库，但是CocoaPods非常智能的帮我们推导出FBSDKCoreKit依赖Bolts并自动帮我们下载并安装上。这个就是CocoaPods这类包管理系统最强大的地方了。
+
+此时我们再看目录结构为：
+
+	Podfile			Pods			cocoapods.xcodeproj  cocoapodsTests
+	Podfile.lock		cocoapods		cocoapods.xcworkspace
+	
+
 	
 这里我们发现多了3个文件：
 
 	Podfile.lock
 	Pods
-	Cocoapods.xcworkspace
+	cocoapods.xcworkspace
 
-Podfile.lock 记录了一些Meta信息，如Cocoapods的版本、依赖库的版本等，可以认为是类似依赖信息的数据库文件。Pods目录里面存放了依赖库的库文件，如这里的AFnetworking。
-Cocoapods.xcworkspace是一个类似XCode工程文件Cocoapods.xcodeproj文件的工程文件。
+Podfile.lock 记录了一些Meta信息，如cocoapods的版本、依赖库的版本等，可以认为是类似依赖信息的数据库文件。Pods目录里面存放了依赖库的库文件，如这里的AFnetworking/FBSDKCoreKit。
+cocoapods.xcworkspace是一个类似XCode工程文件Cocoapods.xcodeproj文件的工程文件。
 
-使用了Cocoapods以后，就可以忽略Cocoapods.xcodeproj了，并且不能用改文件打开工程，要使用Cocoapods生成的这个xcworkspace。这里可以直接用XCode打开：
+使用了cocoapods以后，就可以忽略cocoapods.xcodeproj了，并且不能用改文件打开工程，要使用cocoapods生成的这个xcworkspace。这里可以直接用XCode打开：
 
 ![xcworkspace](./xcworkspace.png)
 
@@ -87,15 +103,18 @@ Cocoapods.xcworkspace是一个类似XCode工程文件Cocoapods.xcodeproj文件�
 
 ## 三、Repo的Hint
 
-在上面使用Cocoapods的过程中，使用pod工具生成了三个文件夹，那么在我们的Repo中，该如何对待这些文件呢？其实对于XCode工程，最好是在创建工程的那一刻就创建好.gitignore
+在上面使用CocoaPods的过程中，使用pod工具生成了三个文件夹，那么在我们的Repo中，该如何对待这些文件呢？其实对于XCode工程，最好是在创建工程的那一刻就创建好.gitignore
 文件，因为XCode会自己进行Add操作，当然这个是没有使用XCode的代码管理工具的情况下。在.gitigore中，我们把和Cocoapods相关的四个文件中仅“Podfile”放入git托管，二把其他三个生成的文件均写入.gitignore里面。这样多人之间仅共享配置文件，通过pod进行实时生成。
 
 ## 四、Podfile自定义
 
 ### 指定库的名称和版本
-在上面的Podfile文件中，只写了一句话：
+在上面的Podfile文件中，首先指定了一个Xcode工程的Targe然后写上需要依赖的库文件：
 
-	pod 'AFNetworking', '~> 2.0'
+	target 'cocoapods' do
+	  pod 'AFNetworking', '~> 3.0'
+	  pod 'FBSDKCoreKit', '~> 4.9'
+	end
 	
 Podfile是基于Ruby的，就如同Scons使用Python，Gradle使用Groovy一样，内容使用Ruby的语法。上面这个语句指定了依赖的库以及对应的版本。用pod关键字，加上单引号括上的库的名字和版本信息，中间用逗号分隔,版本信息规则如下：
 
@@ -129,6 +148,8 @@ Podfile通过Target
 
 
 每个Podfile有一个默认的Target,Cocoapods选择Podfile同级目录下的xcodeproj文件为默认工程，这也是上面为什么说要吧Podfile放在xcodeproj文件同级目录的原因。因此原来XCode工程文件中的第一个Target。所以上面的那一句话，其实是为我们的默认Target定义了一条依赖AFNetworking的规则。
+
+*注意，在1.0版本以前的CocoaPods支持不写Target的默认目标，在1.0之后就不可以了*
 
 target的定义符合Ruby的语法，用end结束：
 
