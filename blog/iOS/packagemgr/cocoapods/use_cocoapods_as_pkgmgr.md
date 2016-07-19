@@ -1,4 +1,4 @@
-#用Cocoapods管理包依赖
+#中心化的包管理器：CocoaPods
 在安装Linux软件时，我们是不是经常会遇到这样的问题：好不容下载了automake的源码包，结果./configure 时候提示先装autoconf，然后下载了个autoconf的源码，安装好后
 发现automake的configure提示说autoconf的版本不对。
 
