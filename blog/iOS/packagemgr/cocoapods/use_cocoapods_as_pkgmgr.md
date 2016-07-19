@@ -91,7 +91,7 @@ cocoapods.xcworkspace是一个类似XCode工程文件Cocoapods.xcodeproj文件�
 
 使用了cocoapods以后，就可以忽略cocoapods.xcodeproj了，并且不能用改文件打开工程，要使用cocoapods生成的这个xcworkspace。这里可以直接用XCode打开：
 
-![xcworkspace](./xcworkspace.png)
+![xcworkspace](http://images.libcz.com:8000/images/blog/iOS/packagemgr/cocoapods/images/xcworkspace.png)
 
 此时，直接“Command+B”就可以直接编译工程。和一个普通的XCode工程是一样的。
 
@@ -144,7 +144,7 @@ Podfile是基于Ruby的，就如同Scons使用Python，Gradle使用Groovy一样�
 Podfile通过Target
 来组织依赖关系，Target就是我们普通XCode工程中的Target，每个Target产出一个Prouduct，因此只要设置好这个Target依赖的库文件，也就达到目的了。
 
-![target](./target.png)
+![target](http://images.libcz.com:8000/images/blog/iOS/packagemgr/cocoapods/images/target.png)
 
 
 每个Podfile有一个默认的Target,Cocoapods选择Podfile同级目录下的xcodeproj文件为默认工程，这也是上面为什么说要吧Podfile放在xcodeproj文件同级目录的原因。因此原来XCode工程文件中的第一个Target。所以上面的那一句话，其实是为我们的默认Target定义了一条依赖AFNetworking的规则。
