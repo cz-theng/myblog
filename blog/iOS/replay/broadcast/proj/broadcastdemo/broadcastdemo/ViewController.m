@@ -31,6 +31,11 @@
 
 - (IBAction)onPopBroadcastServices:(id)sender {
     [RPBroadcastActivityViewController loadBroadcastActivityViewControllerWithHandler:^(RPBroadcastActivityViewController * _Nullable broadcastActivityViewController, NSError * _Nullable error) {
+        if (nil != error) {
+            NSLog(@"loadBroadcastActivityViewControllerWithHandler with error %@", error.domain);
+            return ;
+        }
+        
         broadcastActivityViewController.delegate = self;
         [self presentViewController:broadcastActivityViewController animated:YES completion:^{
             //
