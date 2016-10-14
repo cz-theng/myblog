@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="65J-Zi-WzH">
+                                <state key="normal" title="PopBroadcastServices"/>
+                                <connections>
+                                    <action selector="onPopBroadcastServices:" destination="BYZ-38-t0r" eventType="touchUpInside" id="91I-N6-lf2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKa-dY-RpA">
+                                <state key="normal" title="StartBroadcast"/>
+                                <connections>
+                                    <action selector="onStartBroadcast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qlp-g6-ZuV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxZ-XE-rE5">
+                                <state key="normal" title="PauseBroadcast"/>
+                                <connections>
+                                    <action selector="onPauseBroadcast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bp7-Uf-rKg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9I4-y4-RYe">
+                                <state key="normal" title="EnableCamera"/>
+                                <connections>
+                                    <action selector="EnableCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N4Z-BA-W1p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ps7-K9-tYi">
+                                <state key="normal" title="EnableMicrophone"/>
+                                <connections>
+                                    <action selector="onEnableMichpone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x9e-oZ-wNt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="65J-Zi-WzH" secondAttribute="trailing" constant="20" id="0j6-wr-RIU"/>
+                            <constraint firstItem="lxZ-XE-rE5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="2hr-IM-nVc"/>
+                            <constraint firstAttribute="trailing" secondItem="lxZ-XE-rE5" secondAttribute="trailing" constant="20" id="3AU-ts-BOi"/>
+                            <constraint firstItem="ps7-K9-tYi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="GfS-87-VNg"/>
+                            <constraint firstItem="9I4-y4-RYe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Gux-2E-HpU"/>
+                            <constraint firstAttribute="trailing" secondItem="KKa-dY-RpA" secondAttribute="trailing" constant="20" id="VCt-EX-0Fr"/>
+                            <constraint firstAttribute="trailing" secondItem="ps7-K9-tYi" secondAttribute="trailing" constant="20" id="Z5q-hn-7Ke"/>
+                            <constraint firstItem="65J-Zi-WzH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="42" id="Zda-RI-kvX"/>
+                            <constraint firstItem="9I4-y4-RYe" firstAttribute="top" secondItem="lxZ-XE-rE5" secondAttribute="bottom" constant="20" id="cHR-pV-RT0"/>
+                            <constraint firstItem="lxZ-XE-rE5" firstAttribute="top" secondItem="KKa-dY-RpA" secondAttribute="bottom" constant="20" id="l15-WC-V9l"/>
+                            <constraint firstItem="ps7-K9-tYi" firstAttribute="top" secondItem="9I4-y4-RYe" secondAttribute="bottom" constant="20" id="nyq-GN-yup"/>
+                            <constraint firstAttribute="trailing" secondItem="9I4-y4-RYe" secondAttribute="trailing" constant="20" id="tBs-6o-I6q"/>
+                            <constraint firstItem="65J-Zi-WzH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="wNM-jp-UgH"/>
+                            <constraint firstItem="KKa-dY-RpA" firstAttribute="top" secondItem="65J-Zi-WzH" secondAttribute="bottom" constant="20" id="yPw-3O-TbU"/>
+                            <constraint firstItem="KKa-dY-RpA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="zns-My-3WF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="enableCameraBtn" destination="9I4-y4-RYe" id="OJj-AZ-Zxx"/>
+                        <outlet property="enableMicrophoneBtn" destination="ps7-K9-tYi" id="iqP-0y-uvX"/>
+                        <outlet property="startBroadcastBtn" destination="KKa-dY-RpA" id="jRc-oT-fmd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
