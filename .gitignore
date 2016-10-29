@@ -10,3 +10,5 @@ hexo.proj/package.json
 hexo.proj/scaffolds/
 hexo.proj/public/
 hexo.proj/source/_posts/hello-world.md
+hexo.proj/.npmignore
+hexo.proj/themes/landscape/
