@@ -15,7 +15,11 @@ date: 2016-05-12
 
 也就是这里的“CZ's Application”，里面有两个模板工程，一个是OC的一个是Swift的，这里我们看选择一个OC工程模板后的结果。
 
+<!-- more -->
+
 ![proj_tpl_rst](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/proj_tpl_rst.png)
+
+
 
 这里我们可以和最常用“Signal View Application”做个对比，首先没有“Main.storyboard”了，也没有了那个特定"View"的“ViewController”，取而代之的我自己规划的 
 
@@ -34,7 +38,7 @@ date: 2016-05-12
 ![file_tpl_rst](http://images.libcz.com:8000/images/blog/iOS/xcode/custom_template/images/file_tpl_rst.png)
 
 可以看到这里和"//"注释的默认模板不同的地方。头文件的ifndef也改成了google的C++风格了。
-<!-- more -->
+
 
 ## 1. Xcode模板文件结构
 
