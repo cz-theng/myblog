@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>双能卫|(CZ)</title>
+
+		<link rel="stylesheet" href="css/style.css">
+
+		<meta name="viewport" content="width=device-width">
+
+		
+	</head>
+	<body>
+		<a href="http://www.libcz.com"><img id="logo" src="http://images.libcz.com:8000/images/logo.png" alt="Unslider logo" width="80" height="80"></a>
+
+		<div class="features">
+			<ul class="wrap">
+				<li class="browser brief">
+					<b><a href="#blogs">一二三博客</a></b>
+					<p>一篇篇文章，记录一次次尝试，装载一条条总结! <br />[<a href="/blog">传送门-》博客 </a>]</p>
+				</li>
+
+				<li class="keyboard brief">
+					<b><a href="#banner">App作品</a></b>
+					<p>后台程序猿，半路写起了App，Focus在iOS，也看Android，关注跨平台方案！</p>
+				</li>
+
+				<li class="height brief">
+					<b><a href="#proj">开源项目</a></b>
+					<p>在工作之余，学习自己感兴趣的，写点学习的产出，开源出来大家一起学习！</p>
+				</li>
+
+				<li class="responsive brief">
+					<b><a href="./about.html">这个小站</a></b>
+					<p>一个小站，记录点滴的总结，展现App的实现，陈列开源的小作！</p>
+				</li>
+			</ul>
+		</div>
+
+		<div id="proj" class="projs wrap">
+			<h2>这个小站</h2>
+			<p>
+afsfsafsa
+			</p>
+			
+		</div>
+
+		
+
+		<div id="download" class="wrap footer">
+			<p><a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nd/4.0/88x31.png" /></a><br />本站采用<a rel="license" href="http://creativecommons.org/licenses/by-nd/4.0/">知识共享Attribution-NoDerivatives 4.0 国际许可协议</a>进行许可。</p>
+		</div>
+
+
+		<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+
+		<script src="./jquery.event.move.js"></script>
+		<script src="./jquery.event.swipe.js"></script>
+
+		<script src="./unslider.min.js"></script>
+		<script>
+			if(window.chrome) {
+				$('.banner li').css('background-size', '100% 100%');
+			}
+
+			$('.banner').unslider({
+				arrows: true,
+				fluid: true,
+				dots: true
+			});
+
+			//  Find any element starting with a # in the URL
+			//  And listen to any click events it fires
+			$('a[href^="#"]').click(function() {
+				//  Find the target element
+				var target = $($(this).attr('href'));
+
+				//  And get its position
+				var pos = target.offset(); // fallback to scrolling to top || {left: 0, top: 0};
+
+				//  jQuery will return false if there's no element
+				//  and your code will throw errors if it tries to do .offset().left;
+				if(pos) {
+					//  Scroll the page
+					$('html, body').animate({
+						scrollTop: pos.top,
+						scrollLeft: pos.left
+					}, 1000);
+				}
+
+				//  Don't let them visit the url, we'll scroll you there
+				return false;
+			});
+
+			
+		</script>
+	</body>
+</html>
