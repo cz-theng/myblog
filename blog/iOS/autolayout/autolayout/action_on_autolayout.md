@@ -1,4 +1,4 @@
-#跟上潮流的Autolayout之心法篇
+#跟上潮流的Autolayout之招式篇
 
 > There are two basic steps: First you need to understand the logic behind constraint-based layouts, and then you need to learn the API. 
 >   ---《Auto Layout Guide》
