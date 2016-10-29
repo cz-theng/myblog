@@ -6,3 +6,7 @@
 /libtask/*.dia~
 
 exapmles.proj.bkp
+hexo.proj/package.json
+hexo.proj/scaffolds/
+hexo.proj/public/
+hexo.proj/source/_posts/hello-world.md
