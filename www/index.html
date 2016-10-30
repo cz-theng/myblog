@@ -12,28 +12,31 @@
 		
 	</head>
 	<body>
-		<a href="http://www.libcz.com"><img id="logo" src="http://images.libcz.com:8000/images/logo.png" alt="Unslider logo" width="80" height="80"></a>	
+		<div id="logo">
+			<p><a href="http://www.libcz.com"><img src="http://images.libcz.com:8000/images/logo.png" alt="Unslider logo" width="80" height="80"></a></p>
+			<p><a href="./about.html" class="btn">About</a></p>
+		</div>
 
 		<div class="features">
 			<ul class="wrap">
 				<li class="browser brief">
-					<b><a href="#blogs">一二三博客</a></b>
-					<p>一篇篇文章，记录一次次尝试，装载一条条总结! <br />[<a href="/blog">传送门-》博客 </a>]</p>
+					<b><a href="./blog">一二三博客</a></b>
+					<p>一篇篇文章，记录一次次尝试，装载一条条总结! </a>]</p>
 				</li>
 
 				<li class="keyboard brief">
-					<b><a href="#banner">App作品</a></b>
+					<b><a href="./apps.html">App作品</a></b>
 					<p>后台程序猿，半路写起了App，Focus在iOS，也看Android，关注跨平台方案！</p>
 				</li>
 
 				<li class="height brief">
-					<b><a href="#proj">开源项目</a></b>
+					<b><a href="./index.html#proj">开源项目</a></b>
 					<p>在工作之余，学习自己感兴趣的，写点学习的产出，开源出来大家一起学习！</p>
 				</li>
 
 				<li class="responsive brief">
-					<b><a href="./about.html">这个小站</a></b>
-					<p>一个小站，记录点滴的总结，展现App的实现，陈列开源的小作！</p>
+					<b><a href="./index.html#ebook">小结电子书</a></b>
+					<p>将Blog分类总结，再作梳理，形成一个个小册子！</p>
 				</li>
 			</ul>
 		</div>
@@ -41,91 +44,80 @@
 		<div id="banner" class="banner">
 			<ul>
 				<li style="background-image: url('http://images.libcz.com:8000/images/bg_blog.jpg');">
+					<!--
 					<div class="inner">
-						<h1>藏经于卷 理理于文</h1>
-						<p>将经验藏于书卷之中，将理论总结书写于博文之上</p>
-
-						<a class="btn" href="/blog">博客</a>
+						<a class="btn" href="https://github.com/cz-it/magline">GitHub</a>
 					</div>
+					-->
 				</li>
 
 				<li style="background-image: url('http://images.libcz.com:8000/images/wood.jpg');">
-					<div class="inner">
-						<h1>A Handbook for Prescription And Dictionary.</h1>
-						<p>一个用于记录方剂歌曲、生词笔记的小工具.</p>
 
-						<a class="btn" href="/">SHOW</a>
-					</div>
 				</li>
 
 				<li style="background-image: url('http://images.libcz.com:8000/images/subway.jpg');">
-					<div class="inner">
-						<h1>小圈子</h1>
-						<p>一个在地图上面显示圈子中人员位置，并可以众筹活动的APP。</p>
 
-						<a class="btn" href="/">SHOW</a>
-					</div>
 				</li>
 
 				<li style="background-image: url('http://images.libcz.com:8000/images/shop.jpg');">
-					<div class="inner">
-						<h1>赞同么？</h1>
-						<p>不同于传统微博类，没有评论，只有对我这个想法是否赞同。</p>
 
-						<a class="btn" href="/">SHOW</a>
-					</div>
 				</li>
 			</ul>
 		</div>
 
 
-
 		<div id="proj" class="projs wrap">
-			<h2>自己的开源项目</h2>
-
+			<h1>自己的开源项目：</h1>
+			<br />
 			<ol>
+				<!--  a project -->
 				<li>
 					<div>
-						<h3>Ridge:A RESTFul Web Frame Work </h3>
-						<p>Golang实现的一个RESTFull框架。提供了Get/Post/Put/Delete等基本方法的路由器，自动路由到对应Aciton。提供Session工具，JSON、XML等序列化方法。提供Cache工具以及常见ORM的绑定。</p>
-					</div>
-
-					<pre> 
-GITHUB: https://github.com/cz-it/ridge
-Download: https://github.com/cz-it/ridge
-					</pre>
-				</li>
-				<li>
-					<div>
-						<h3>MagLine: A TCP/UDP Connection Layer</h3>
+						<h3>MagLine: A TCP/UDP Connection Layer.</h3>
 						<p>使用Golang实现后台连接服务器，包括了鉴权、加密通道、断线重连等连接层功能。使用c实现客户端接口，并Bind了其他语言接口如C#、Objectiv-C、Java等。为网络应用提供一个连接层解决方案</p>
 					</div>
 
 					<pre>
-GITHUB:https://github.com/cz-it/magline
-Download:https://github.com/cz-it/magline
+
+MagLine:https://github.com/cz-it/magline
+MagNode:https://github.com/cz-it/magnode
 					</pre>
 				</li>
+
+				<!--  a project -->				
+				<li>
+					<div>
+						<h3>IAPC: In-App Procedure Call. </h3>
+						<p>在App中提供一套各个组件互相提供服务器的方案，有点类似OpenURL来调用其他App。不同的是IAPC聚焦于一个App内各个组件之间通过类似RPC的方式实现服务共享，如个人页面从登陆组件获得头像信息</p>
+					</div>
+
+					<pre> 
+GITHUB: https://github.com/cz-it/iapc
+					</pre>
+				</li>
+
+
 			</ol>
 		</div>
 
-		<div id="blogs" class="apps">
+		<div id="ebook" class="ebook">
 					<div class="wrap">
-						<h2>Golang 使用</h2>
-						<p>从Golang发布到许大大的极力推荐到beego的红火到大家Golang，在使用Golang中的一些经验分享</p>
-						<pre><a href="http://www.libcz.com/blog/2015/03/05/golang/standard_library/flag/golang实现命令行菜单cli效果/">Golang实现命令行菜单CLI效果</a></pre>
-						<br />			
-						<h2 id="touch">iOS开发</h2>			
-						<p>后台程序猿学习iOS App开发，都是坑印啊！！！！</p>
-						<pre><a href="http://www.libcz.com/blog/2015/05/11/iOS/后台程序员学习swift开发app/Navigation/通过navigation创建一张大众脸的app/">通过Navigation创建一张大众脸的App</a> | <a href="http://www.libcz.com/blog/2015/05/17/iOS/后台程序员学习swift开发app/TabBar/创建另一张TabBar大众脸的app/">另一张TabBar大众脸的App</a></pre>
-						<br/>
-						<h2 id="touch">Swift学习</h2>
-						<p>苹果开发新生代语言，2.0的发布使得Swift即将取代Objective-C，在学习Swift过程中的一些总结</p>
-						<pre><a href="http://www.libcz.com/blog/2015/04/04/swift/swift_继承中构造函数/继承中的构造函数/">Swift语法：继承中的构造函数</a></pre>
+						<h1>总结的小册子：</h1>
 						<br />
-						<h2 id="touch">后端开发</h2>
-						<p>后台程序猿本质工作，追随分布式、大数据、云平台等概念，也落地基本的http后台、tcp服务器开发</p>
-						<pre><a href="http://www.libcz.com/blog/2015/05/15/backend/vmstat_初体验/">VMStat初体验</a></pre>						
+						<h2>《Play and Record with CoreAudio》</h2>
+						<p>在移动设备上音频处理，首要的就是输入和输出，iOS通过CoreAudio系列提供了多种播放和录制甚至是格式转换功能。</p>
+							<pre><a href="">GitBook</a> | <a href="">PDF</a> | <a href="">EPub</a></pre>
+						<br />	
+
+						<h2 id="touch">《Step in Runtime》</h2>			
+						<p>runtime作为OC的基础，有可以直接使用的API，同时其源码也是对基础学习的完美资料，如何"step"去了解代码？</p>
+						<pre><a href="">GitBook</a> | <a href="">PDF</a> | <a href="">EPub</a></pre>
+						<br/>
+
+						<h2 id="touch">《iOS Animations by Tutorials》</h2>
+						<p>《iOS Animations by Tutorials》是最近一个从简入繁的介绍动画的书，采用Swift作为表达语言，在学习的过程中将其翻译成中文版本</p>
+						<pre><a href="">GitBook</a> | <a href="">PDF</a> | <a href="">EPub</a></pre>
+						<br />				
 					</div>
 		</div>
 

@@ -41,24 +41,28 @@
 			</ul>
 		</div>
 
-		<div id="proj" class="projs wrap">
-			<h1>LibCZ</h1>
-			</br>
-			<ol>
-				<!--  a project -->
-				<ul>
-					<div>
-						<h3>CZ:</h3>
-						<p>以后台开发身份加入南部某鹅场，却被活活被胁迫成移动开发，过程不易，却开阔了视野。</p>
+		<div id="apps" class="apps">
+			<ul>
+				<li style="background-image: url('http://images.libcz.com:8000/images/bg_blog.jpg');">
+					<!--
+					<div class="inner">
+						<a class="btn" href="https://github.com/cz-it/magline">GitHub</a>
 					</div>
+					-->
+				</li>
 
-					<pre>
-Email: cz.devnet@gmail.com
-Github:https://github.com/cz-it
-					</pre>
-				</ul>
-			</ol>
-			
+				<li style="background-image: url('http://images.libcz.com:8000/images/wood.jpg');">
+
+				</li>
+
+				<li style="background-image: url('http://images.libcz.com:8000/images/subway.jpg');">
+
+				</li>
+
+				<li style="background-image: url('http://images.libcz.com:8000/images/shop.jpg');">
+
+				</li>
+			</ul>
 		</div>
 
 		
@@ -76,11 +80,12 @@ Github:https://github.com/cz-it
 		<script src="./unslider.min.js"></script>
 		<script>
 			if(window.chrome) {
-				$('.banner li').css('background-size', '100% 100%');
+				$('.apps li').css('background-size', '100% 100%');
 			}
 
-			$('.banner').unslider({
-				arrows: true,
+			$('.apps').unslider({
+				animation: 'vertical'
+				autoplay: false,
 				fluid: true,
 				dots: true
 			});

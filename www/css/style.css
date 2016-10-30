@@ -39,8 +39,20 @@ h1, h2, h3, h4, b {
 	left: 80px;
 	top: 40px;
 	z-index: 2;
-
+	text-align:center;
 	margin-left: -17px;
+}
+
+#logo a {
+	margin: 0 4px;
+
+	color: #79654e;
+	text-decoration: none;
+	border-bottom: 1px solid #ddd2c6;
+}
+#logo a:hover {
+	color: #665139;
+	border-color: #d1bfa9;
 }
 
 .banner {
@@ -198,13 +210,13 @@ h1, h2, h3, h4, b {
 			text-decoration: none;
 			border-bottom: 1px solid #ddd2c6;
 		}
-			.brief a:hover {
-				color: #665139;
-				border-color: #d1bfa9;
-			}
-			.features li.browser:before { background-position: 0 -44px; }
-			.features li.height:before { background-position: 0 -22px; }
-			.features li.responsive:before { background-position: 0 -66px; }
+		.brief a:hover {
+			color: #665139;
+			border-color: #d1bfa9;
+		}
+		.features li.browser:before { background-position: 0 -44px; }
+		.features li.height:before { background-position: 0 -22px; }
+		.features li.responsive:before { background-position: 0 -66px; }
 	.features b {
 		display: block;
 		padding-bottom: 6px;
@@ -229,6 +241,13 @@ h1, h2, h3, h4, b {
 		margin: 0 0 40px 15px;
 		padding-left: 10px;
 	}
+	.projs  ul {
+		position: relative;
+		width: 375px;
+		margin: 0 0 40px 15px;
+		padding-left: 10px;
+	}
+
 	.projs  pre {
 		position: absolute;
 		left: 450px;
@@ -250,36 +269,37 @@ h1, h2, h3, h4, b {
 		padding-bottom: 15px;
 	}
 
-.apps {
-	padding: 60px 0;
+	.ebook {
+		padding: 60px 0;
 
-	background: #39342d;
-	color: #7b7368;
+		background: #39342d;
+		color: #7b7368;
 
-	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
-	text-shadow: 0 1px 1px rgba(0,0,0,.2);
-}
-	.apps a {
+		box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+		text-shadow: 0 1px 1px rgba(0,0,0,.2);
+	}
+
+	.ebook a {
 		opacity: .7;
 		color: #fff;
 		border-bottom: 1px solid rgba(255,255,255,.2);
 		text-decoration: none;
 	}
-		.apps a:hover {
+		.ebook a:hover {
 			opacity: 1;
 			border-bottom-color: rgba(255,255,255,.3);
 		}
-	.apps p {
+	.ebook p {
 		font-size: 16px;
 		line-height: 25px;
 
 		padding-bottom: 20px;
 	}
-	.apps h2 {
+	.ebook h2 {
 		color: #fff;
 		padding-bottom: 15px;
 	}
-	.apps pre {
+	.ebook pre {
 		padding: 20px 25px;
 
 		background: #342f29;
@@ -291,7 +311,7 @@ h1, h2, h3, h4, b {
 		box-shadow: inset 0 2px 2px rgba(0,0,0,.15), inset 0 0 1px rgba(0,0,0,.1);
 		border-radius: 5px;
 	}
-		.apps pre span {
+		.ebook pre span {
 			color: #706657;
 		}
 
