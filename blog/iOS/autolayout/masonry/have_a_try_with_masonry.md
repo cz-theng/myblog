@@ -91,7 +91,7 @@ Masonry支持CocoaPods安装（废话，这么Popular的项目怎么能不支持
 	
 正常来说，基本情况下使用这个一个函数就够了。Masonry还提供了另外两个`- (NSArray *)mas_updateConstraints:(void(^)(MASConstraintMaker *make))block;`和`- (NSArray *)mas_remakeConstraints:(void(^)(MASConstraintMaker *make))block;` 描述布局DSL作为补充，三者的原理是一样的，只是不同函数用在不同的上下文，所以只要了解上面这个函数的时候，基本上就掌握了Masonry的DSL了。
 
-** 这里有个需要注意的点，`mas_makeConstraints`调用中影响的view必须是以及被`addSubview`，也就是必须有parentView **
+**这里有个需要注意的点，`mas_makeConstraints`调用中影响的view必须是已经被`addSubview`，也就是必须有parentView**
 
 先来看这个函数原型，就只有一个block参数，block内容会被及时的回调，所以这个函数其实也就是为了调用这个block而准备的，而block里面通过`MASConstraintMaker`作为载体来执行我们上面说的“链式”DSL，进行布局动作。所以可以认为上面的：
 
@@ -151,7 +151,9 @@ height|NSLayoutAttributeHeight|高度
 
 下面为了符合调用时表现，将Block写成不带返回值的C函数原型的形式,而影响的属性也替换成上表中表示的属性的Blcok名。
 
-###设置偏移
+
+### 设置偏移
+
 调用方式|参数|效果
 ---|---|---
 insets(MASEdgeInsets insets)|MASEdgeInsets|设置view的四边缩小大小，等于缩放效果
@@ -168,7 +170,8 @@ offset(CGFloat offset)|CGFloat|所指属性相对于参考量的偏移大小
 
 另外计算偏移的时候是按照iPhone的屏幕坐标的，也就是往下为Y增长方向，往右为X增长方向，所以上面的例子中（-10）表示靠近右边框往左10个点或者靠近下边框网上10个点。
 
-###设置优先级
+### 设置优先级
+
 调用方式|参数|效果
 ---|---|---
 priority|MASLayoutPriority|其实就是float的UILayoutPriority，设置属性的优先级
