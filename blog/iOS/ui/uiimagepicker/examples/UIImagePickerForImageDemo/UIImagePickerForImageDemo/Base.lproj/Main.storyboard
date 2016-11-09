@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIImagePickerForImageDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="A9T-jF-O0R"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whv-ib-zhU">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yGS-gx-GU5"/>
+                                </constraints>
+                                <state key="normal" title="TestWeatherFrontEndCameraIsAvailable"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTestFrontendCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PqI-z7-Xe2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ve-TQ-xwi">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JUo-z8-9Db"/>
+                                </constraints>
+                                <state key="normal" title="TestWeatherBackEndCameraIsAvailable"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTestBackendCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hH4-WB-hvr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5ve-TQ-xwi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Cnj-Ki-vli"/>
+                            <constraint firstItem="A9T-jF-O0R" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="NlQ-q9-TSR"/>
+                            <constraint firstAttribute="trailing" secondItem="A9T-jF-O0R" secondAttribute="trailing" id="QoO-yK-tSG"/>
+                            <constraint firstItem="whv-ib-zhU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Sc7-cA-ubw"/>
+                            <constraint firstItem="whv-ib-zhU" firstAttribute="top" secondItem="5ve-TQ-xwi" secondAttribute="bottom" constant="20" id="WeE-T1-EQU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5ve-TQ-xwi" secondAttribute="trailing" constant="30" id="Xa6-4M-c0Y"/>
+                            <constraint firstItem="A9T-jF-O0R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZoY-ej-BDH"/>
+                            <constraint firstItem="5ve-TQ-xwi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="68" id="kdr-I6-aMG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="A9T-jF-O0R" secondAttribute="bottom" id="oa5-Xt-wNw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="whv-ib-zhU" secondAttribute="trailing" constant="30" id="yV8-Vg-En9"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background.png" width="750" height="1334"/>
+    </resources>
+</document>
