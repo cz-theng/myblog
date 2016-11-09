@@ -34,16 +34,70 @@
                                     <action selector="onAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="X0u-lF-Q6R"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xH-e8-LF5">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eNp-Pt-N4A"/>
+                                </constraints>
+                                <state key="normal" title="PopAlertView"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onPopAlertView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fpU-AF-jFn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JHk-v9-kmk">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="t8S-xE-ZSs"/>
+                                </constraints>
+                                <state key="normal" title="PopActionSheet"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onPopActionSheet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l4I-mi-8Xt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CXf-50-Qgq">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="baf-gT-8CK"/>
+                                </constraints>
+                                <state key="normal" title="PopMoreAlertView"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onPopMoreAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Yz-J8-Bhx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="9xH-e8-LF5" firstAttribute="top" secondItem="C4O-TL-PDU" secondAttribute="bottom" constant="20" id="5rR-Dr-p3a"/>
+                            <constraint firstItem="CXf-50-Qgq" firstAttribute="top" secondItem="JHk-v9-kmk" secondAttribute="bottom" constant="10" id="B7S-WQ-VKY"/>
+                            <constraint firstAttribute="trailing" secondItem="JHk-v9-kmk" secondAttribute="trailing" constant="30" id="DJV-RW-1zn"/>
+                            <constraint firstItem="JHk-v9-kmk" firstAttribute="top" secondItem="9xH-e8-LF5" secondAttribute="bottom" constant="10" id="DWe-iL-vr7"/>
+                            <constraint firstItem="CXf-50-Qgq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="Hsv-BG-KVQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="saa-Tk-cdP" secondAttribute="bottom" id="L39-Ml-WDS"/>
                             <constraint firstItem="saa-Tk-cdP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Mf4-BQ-fPq"/>
+                            <constraint firstAttribute="trailing" secondItem="CXf-50-Qgq" secondAttribute="trailing" constant="30" id="Mp2-sc-BV7"/>
                             <constraint firstAttribute="trailing" secondItem="saa-Tk-cdP" secondAttribute="trailing" id="Xxl-Qg-fBm"/>
                             <constraint firstAttribute="trailing" secondItem="C4O-TL-PDU" secondAttribute="trailing" constant="30" id="YWS-GR-0vB"/>
                             <constraint firstItem="C4O-TL-PDU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="Yoi-qO-UBZ"/>
+                            <constraint firstAttribute="trailing" secondItem="9xH-e8-LF5" secondAttribute="trailing" constant="30" id="c3T-tb-4OZ"/>
                             <constraint firstItem="C4O-TL-PDU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="68" id="fBP-il-2d8"/>
                             <constraint firstItem="saa-Tk-cdP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q5m-eS-xhe"/>
+                            <constraint firstItem="9xH-e8-LF5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="tUz-Zv-nhq"/>
+                            <constraint firstItem="JHk-v9-kmk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="30" id="wE3-Cu-bpQ"/>
                         </constraints>
                     </view>
                 </viewController>
