@@ -1,7 +1,7 @@
 #庖丁UIKit之UIAlertController
 做UI时，弹框消息基本是个必选项。无论是提示用户Warning消息，还是为用户提供一个交互选择，都是非常不错的选择。在iOS上UIKit肯定也是提供了相关功能的，在iOS8以前，UIKit提供了两种弹框： UIActionSheet 和 UIAlertView 。一个是从底部弹出，通常用于选择；一个是在界面中间弹出，一般用于提示。二者效果如下：
 
-![uiactionsheet](./images/uiactionsheet.png) ![uialertview](./images/uialertview.png)
+![uiactionsheet](http://images.libcz.com:8000/images/blog/iOS/ui/uialert/images/uiactionsheet.png) ![uialertview](http://images.libcz.com:8000/images/blog/iOS/ui/uialert/images/uialertview.png)
 
 而在iOS8(包含iOS8)以后，UIKit通过UIAlertController将二者进行了统一，并提供了选项单元UIAlertAction，用于自定义弹框内容，显的更加灵活。
 
@@ -18,7 +18,7 @@
     
 在看效果图：
 
-![hello_world](./images/hello_world.png)
+![hello_world](http://images.libcz.com:8000/images/blog/iOS/ui/uialert/images/hello_world.png)
 
 代码逻辑很简单，就是在需要的地方，又按钮触发上面的逻辑，先创建一个UIAlertController然后`present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (@escaping () -> Swift.Void)`这个ViewController，就可以了。
 
@@ -42,7 +42,7 @@
 
 效果如下：
 
-![alertview](./images/alertview.png)
+![alertview](http://images.libcz.com:8000/images/blog/iOS/ui/uialert/images/alertview.png)
     
 要显示Alert，首先需要创建一个UIViewController，其构造函数为 
 
@@ -81,7 +81,7 @@
 ## 2. 在界面底部弹出选择提示
 这次不上代码了，先上一个效果图：
 
-![actionsheet](./images/actionsheet.png)
+![actionsheet](http://images.libcz.com:8000/images/blog/iOS/ui/uialert/images/actionsheet.png)
 
 只要把上面的`preferredStyle `改成`actionSheet `就可以实现图中的效果了。
 
@@ -99,7 +99,7 @@ UIAlertController提供了两个属性：
     
 可以在创建完之后再对标题和消息内容进行设置。另外他还提供了一个可以增加输入框的功能，可以实现用于提示用户输入信息的功能。比如如下效果：
 
-![edit](./images/edit.png)
+![edit](http://images.libcz.com:8000/images/blog/iOS/ui/uialert/images/edit.png)
 
 通过`func addTextField(configurationHandler: ((UITextField) -> Void)? = nil)`可以增加一个输入框到UIAlertController上，其显示在按钮的上方。在block中可以对UITextField属性进行设置，比如“placehold”文字。
 
