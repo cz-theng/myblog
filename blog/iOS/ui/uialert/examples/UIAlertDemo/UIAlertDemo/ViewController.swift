@@ -20,6 +20,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func onAlert(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "HelloWorld", message: "你好，UIAlertController", preferredStyle: .alert)
+        self.present(alert, animated: true) { 
+            print("Show Alert!")
+        }
+        
+    }
 
 }
 

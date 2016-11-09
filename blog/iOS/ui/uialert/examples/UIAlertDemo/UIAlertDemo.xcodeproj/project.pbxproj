@@ -14,6 +14,7 @@
 		F02685A61DD2EAAE00ACC668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F02685A41DD2EAAE00ACC668 /* LaunchScreen.storyboard */; };
 		F02685B11DD2EAAE00ACC668 /* UIAlertDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02685B01DD2EAAE00ACC668 /* UIAlertDemoTests.swift */; };
 		F02685BC1DD2EAAE00ACC668 /* UIAlertDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02685BB1DD2EAAE00ACC668 /* UIAlertDemoUITests.swift */; };
+		F02685CA1DD3005500ACC668 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F02685C91DD3005500ACC668 /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		F02685B71DD2EAAE00ACC668 /* UIAlertDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIAlertDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02685BB1DD2EAAE00ACC668 /* UIAlertDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertDemoUITests.swift; sourceTree = "<group>"; };
 		F02685BD1DD2EAAE00ACC668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F02685C91DD3005500ACC668 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		F026859A1DD2EAAE00ACC668 /* UIAlertDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F02685C91DD3005500ACC668 /* background.png */,
 				F026859B1DD2EAAE00ACC668 /* AppDelegate.swift */,
 				F026859D1DD2EAAE00ACC668 /* ViewController.swift */,
 				F026859F1DD2EAAE00ACC668 /* Main.storyboard */,
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F02685A61DD2EAAE00ACC668 /* LaunchScreen.storyboard in Resources */,
+				F02685CA1DD3005500ACC668 /* background.png in Resources */,
 				F02685A31DD2EAAE00ACC668 /* Assets.xcassets in Resources */,
 				F02685A11DD2EAAE00ACC668 /* Main.storyboard in Resources */,
 			);
