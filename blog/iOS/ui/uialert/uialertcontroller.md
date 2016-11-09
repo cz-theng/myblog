@@ -151,3 +151,9 @@ UIAlertController提供了两个属性：
 * 需要用户确认是否操作，比如删除时
 
 前两者一般使用"alert"的方式，并且可以有输入框，而后者倾向于“取消”的，可以考虑用"actionSheet"的方式。
+
+文中Demo参见[GitHub](https://github.com/cz-it/myblog/tree/master/blog/iOS/ui/uialert/examples/UIAlertDemo)
+
+## 参考
+[UIAlertController](https://developer.apple.com/reference/uikit/uialertcontroller)
+[UIAlertAction](https://developer.apple.com/reference/uikit/uialertaction)
