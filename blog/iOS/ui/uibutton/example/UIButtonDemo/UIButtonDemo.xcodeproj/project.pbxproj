@@ -13,6 +13,7 @@
 		212C5AD01DD0E24E008EE82E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 212C5ACF1DD0E24E008EE82E /* Assets.xcassets */; };
 		212C5AD31DD0E24E008EE82E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 212C5AD11DD0E24E008EE82E /* LaunchScreen.storyboard */; };
 		212C5ADE1DD0E24E008EE82E /* UIButtonDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212C5ADD1DD0E24E008EE82E /* UIButtonDemoTests.swift */; };
+		2178C3381DD3954F00A23437 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2178C3371DD3954F00A23437 /* background.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		212C5AD91DD0E24E008EE82E /* UIButtonDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIButtonDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		212C5ADD1DD0E24E008EE82E /* UIButtonDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonDemoTests.swift; sourceTree = "<group>"; };
 		212C5ADF1DD0E24E008EE82E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2178C3371DD3954F00A23437 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		212C5AC71DD0E24E008EE82E /* UIButtonDemo */ = {
 			isa = PBXGroup;
 			children = (
+				2178C3371DD3954F00A23437 /* background.png */,
 				212C5AC81DD0E24E008EE82E /* AppDelegate.swift */,
 				212C5ACA1DD0E24E008EE82E /* ViewController.swift */,
 				212C5ACC1DD0E24E008EE82E /* Main.storyboard */,
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				212C5AD31DD0E24E008EE82E /* LaunchScreen.storyboard in Resources */,
+				2178C3381DD3954F00A23437 /* background.png in Resources */,
 				212C5AD01DD0E24E008EE82E /* Assets.xcassets in Resources */,
 				212C5ACE1DD0E24E008EE82E /* Main.storyboard in Resources */,
 			);
@@ -410,6 +414,7 @@
 				212C5AE41DD0E24E008EE82E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		212C5AE51DD0E24E008EE82E /* Build configuration list for PBXNativeTarget "UIButtonDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +423,7 @@
 				212C5AE71DD0E24E008EE82E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
