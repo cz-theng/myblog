@@ -516,6 +516,7 @@
 				F026854C1DD2C6F500ACC668 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F026854D1DD2C6F500ACC668 /* Build configuration list for PBXNativeTarget "UIImagePickerForImageDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +525,7 @@
 				F026854F1DD2C6F500ACC668 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F02685501DD2C6F500ACC668 /* Build configuration list for PBXNativeTarget "UIImagePickerForImageDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +534,7 @@
 				F02685521DD2C6F500ACC668 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
