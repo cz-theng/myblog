@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func onWhichCamera(_ sender: AnyObject) {
         if UIImagePickerController.isCameraDeviceAvailable(.rear) {
             Confirm(title: "摄像头", message: "后置摄像头可用")
-            picker.cameraDevice = .rear
+            picker.cameraDevice = .front
         } else if UIImagePickerController.isCameraDeviceAvailable(.front) {
             Confirm(title: "摄像头", message: "后置摄像头不可用，但前置摄像头可用")
             picker.cameraDevice = .front
@@ -67,16 +67,31 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func onTakePhotos(_ sender: AnyObject) {
         picker.allowsEditing = true
-        //picker.delegate = self
+        picker.showsCameraControls = false
+        picker.cameraFlashMode = .auto
+        picker.delegate = self
         
         self.present(picker, animated: true) {
             //
         }
     }
     
-    /** UIImagePickerControllerDelegate & UINavigationControllerDelegate **/
+    
+    func onSave(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            // we got back an error!
+            Confirm(title: "Save Failed", message: error.localizedDescription)
+        } else {
+            Confirm(title: "Save Succfull", message: "Your altered image has been saved to your photos.")
+        }
+    }
+    
+    /** UIImagePickerControllerDelegate  **/
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         //
+        let img = info[UIImagePickerControllerOriginalImage]
+        UIImageWriteToSavedPhotosAlbum(img as! UIImage, self, #selector(onSave(_:didFinishSavingWithError:contextInfo:)), nil)
+        
         picker.dismiss(animated: true) { 
             //
         }
@@ -89,14 +104,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    
     /** UINavigationControllerDelegate **/
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        //kUTTypeMovie
-    }
-    
-    
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        //
-    }
 }
 
