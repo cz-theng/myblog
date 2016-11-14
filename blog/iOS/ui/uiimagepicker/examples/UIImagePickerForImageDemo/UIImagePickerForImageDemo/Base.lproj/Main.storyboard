@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,49 +19,69 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="A9T-jF-O0R"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whv-ib-zhU">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lmU-Tn-ZMj">
+                                <frame key="frameInset" minX="46" minY="96" width="113" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="yGS-gx-GU5"/>
-                                </constraints>
-                                <state key="normal" title="TestWeatherFrontEndCameraIsAvailable"/>
+                                <state key="normal" title="SetMediaSource"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onTestFrontendCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PqI-z7-Xe2"/>
+                                    <action selector="onMediaSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ts4-FA-Qpl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ve-TQ-xwi">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JkE-bS-vcm">
+                                <frame key="frameInset" minX="46" minY="255" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="JUo-z8-9Db"/>
-                                </constraints>
-                                <state key="normal" title="TestWeatherBackEndCameraIsAvailable"/>
+                                <state key="normal" title="TakePhotos"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="onTestBackendCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hH4-WB-hvr"/>
+                                    <action selector="onTakePhotos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4fw-ly-PTd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i2Y-8l-QOy">
+                                <frame key="frameInset" minX="46" minY="147" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="WhichCamera"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onWhichCamera:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4n3-ON-hAN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CpE-Uq-7bO">
+                                <frame key="frameInset" minX="46" minY="198" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="SetMediaType"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onSetMediaType:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1m4-9r-kML"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5ve-TQ-xwi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Cnj-Ki-vli"/>
                             <constraint firstItem="A9T-jF-O0R" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="NlQ-q9-TSR"/>
                             <constraint firstAttribute="trailing" secondItem="A9T-jF-O0R" secondAttribute="trailing" id="QoO-yK-tSG"/>
-                            <constraint firstItem="whv-ib-zhU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="Sc7-cA-ubw"/>
-                            <constraint firstItem="whv-ib-zhU" firstAttribute="top" secondItem="5ve-TQ-xwi" secondAttribute="bottom" constant="20" id="WeE-T1-EQU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="5ve-TQ-xwi" secondAttribute="trailing" constant="30" id="Xa6-4M-c0Y"/>
                             <constraint firstItem="A9T-jF-O0R" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZoY-ej-BDH"/>
-                            <constraint firstItem="5ve-TQ-xwi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="68" id="kdr-I6-aMG"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="A9T-jF-O0R" secondAttribute="bottom" id="oa5-Xt-wNw"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="whv-ib-zhU" secondAttribute="trailing" constant="30" id="yV8-Vg-En9"/>
                         </constraints>
                     </view>
                 </viewController>
