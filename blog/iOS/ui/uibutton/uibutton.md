@@ -1,6 +1,23 @@
-#全面了解UIKit之UIButton
+#庖丁UIKit之UIButton
+App中最常见的也是基本少不了的交互，就是按钮了。UIKit通过UIButton来提供按钮服务。 
+UIButton的基本结构如图：
 
-##使用步骤
+![button_sturcture](./images/button_structure.png)
+
+为了方便使用，UIKit提供的五中固定结构的按钮类，由UIButtonType枚举来表示：
+
+* case system ：
+* case detailDisclosure ：
+* case infoLight ：
+* case infoDark ：
+* case contactAdd ：
+
+除了上面五种，还有一种`case custom`表示完全自定义，用户根据上面介绍的UIButton的结构，自行组织按钮的外形和效果。
+
+## 0. 各种各样的按钮
+
+
+## 1. 使用步骤
 
 * 选择一个类型类创建一个按钮
 * 设置按钮的背景图片或者标题，并设置好大小
@@ -8,24 +25,12 @@
 * 调整按钮在UI中的位置
 * 提供辅助信息和国际化的文字或者图片
 
-## 创建指定类型的按钮
-按钮需要指定一个类型来创建：
-
-	 buttonWithType:
+## 2.为按钮添加触发动作
 	
-按钮类型之后不可以修改	
 
-按钮类型
 
-    UIButtonTypeCustom = 0,                         // no button type
-    UIButtonTypeSystem NS_ENUM_AVAILABLE_IOS(7_0),  // standard system button
 
-    UIButtonTypeDetailDisclosure,
-    UIButtonTypeInfoLight,
-    UIButtonTypeInfoDark,
-    UIButtonTypeContactAdd,
-
-## 按钮状态（5种）
+## 3. 设置按钮的状态属性
 
     UIControlStateNormal  
     UIControlStateHighlighted 
@@ -33,25 +38,10 @@
     UIControlStateSelected    
     UIControlStateFocused
 
-## 设置按钮触发动作
-方法：
+## 4.通过IB来设置Button
 
-	addTarget:action:forControlEvents:
-	
-方法的类型：
-
-	- (IBAction)doSomething;
-	- (IBAction)doSomething:(id)sender;
-	- (IBAction)doSomething:(id)sender forEvent:(UIEvent*)event;	
-
-## 按钮的基本组成
-包含三个部分：
-*  titleLabel
-*  imageView
-*  backgroud
-
-![button_component](./images/button_component.png)
-	
+## 5. 总结
 
 ##参考
+[UIButton API Reference](https://developer.apple.com/reference/uikit/uibutton)
 [Cocoa Application Competencies for iOS](https://developer.apple.com/library/content/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html#//apple_ref/doc/uid/TP40009071-CH3)
