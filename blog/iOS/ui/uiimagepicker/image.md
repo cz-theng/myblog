@@ -1,6 +1,10 @@
 #庖丁UIKit之用UIImagePickerController拍照
 
+UIImagePickerController是UIKit提供的一个提供系统拍照、摄像以及访问本机媒体资源的ViewController工具。因为他是一个服务性的ViewController,所以其基本使用就是"present"一个ViewController。
 
+这里我们先介绍如何用UIImagePickerController提供的界面进行照片的拍摄。由于是UIImagePickerController提供的一个系统服务，那么自然的在UI上就会有些固定的地方，不过UIImagePickerController也提供了一些自定义的可能。来看一个常用的拍照界面。
+
+![camera_sample](./images/camera_sample.png)
 
 ## 0. 设置UIImagePickerController进行拍照
 
@@ -173,8 +177,57 @@ UIImagePickerController虽然使用起来非常简单，不过其也提供了一
 答案是：
 
 	var cameraOverlayView: UIView?
-为其赋值一个自定义的View，就可以在自定义的View上进行交互设计了。比如做闪光灯的模式选择：
+为其赋值一个自定义的View，就可以在自定义的View上进行交互设计了。比如这样的效果:
 
+![camera_custom](./images/camera_custom.png)
+
+参考代码：
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        cameraView.frame = CGRect(x: 0, y: self.view.bounds.size.height-100, width: self.view.bounds.size.width, height: 100)
+        cameraView.backgroundColor = UIColor.blue
+        cameraView.alpha = 0.5
+		 // ... set for buttons
+        picker.cameraOverlayView = cameraView
+        
+    }
+    // action for buttons
+	@IBAction func onTakePhoto () {
+        picker.takePicture()
+    }
+    
+    @IBAction func onSwitchCamera() {
+        if cameraMode == .rear {
+            picker.cameraDevice = .front
+            cameraBtn.setTitle("Rear", for: .normal)
+            cameraMode = .front
+        } else {
+            picker.cameraDevice = .rear
+            cameraBtn.setTitle("Front", for: .normal)
+            cameraMode = .rear
+        }
+    }
+    
+    @IBAction func onFlashMode () {
+        if flashMode == .auto || flashMode == .on {
+            picker.cameraFlashMode = .off
+            flashMode = .off
+            flashBtn.setTitle("FlashON", for: .normal)
+        } else {
+            picker.cameraFlashMode = .on
+            flashMode = .on
+            flashBtn.setTitle("FlashOFF", for: .normal)
+        }
+    }
+
+
+
+因为UIImagePickerController是被“present”出来的，他还实现了“UINavigationControllerDelegate”来感知被“present”的结果，所以我们可以在
+
+	func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool)
+里面设置自定义View的效果。
+	
+这里在这个自定义的View上面做一些UI交互，比如做闪光灯的模式选择：
 设置`cameraFlashMode `为：
 
 	public enum UIImagePickerControllerCameraFlashMode : Int {	    case off	// 关闭
@@ -186,6 +239,9 @@ UIImagePickerController虽然使用起来非常简单，不过其也提供了一
 
 	picker.cameraDevice = .front
 	
+
+	
+
 总的来说，自定义的范围还是非常有限的。
 
 ## 3.总结

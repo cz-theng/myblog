@@ -12,6 +12,13 @@ import MobileCoreServices
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     let picker = UIImagePickerController()
+    let takeBtn = UIButton(type: .system)
+    let flashBtn = UIButton(type: .system)
+    let cameraBtn = UIButton(type: .system)
+    let cameraView = UIView()
+    
+    var cameraMode : UIImagePickerControllerCameraDevice = .rear
+    var flashMode : UIImagePickerControllerCameraFlashMode = .auto
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +45,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func onWhichCamera(_ sender: AnyObject) {
         if UIImagePickerController.isCameraDeviceAvailable(.rear) {
             Confirm(title: "摄像头", message: "后置摄像头可用")
-            picker.cameraDevice = .front
+            picker.cameraDevice = .rear
         } else if UIImagePickerController.isCameraDeviceAvailable(.front) {
             Confirm(title: "摄像头", message: "后置摄像头不可用，但前置摄像头可用")
             picker.cameraDevice = .front
@@ -104,7 +111,65 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    @IBAction func onTakePhoto () {
+        picker.takePicture()
+    }
+    
+    @IBAction func onSwitchCamera() {
+        if cameraMode == .rear {
+            picker.cameraDevice = .front
+            cameraBtn.setTitle("Rear", for: .normal)
+            cameraMode = .front
+        } else {
+            picker.cameraDevice = .rear
+            cameraBtn.setTitle("Front", for: .normal)
+            cameraMode = .rear
+        }
+    }
+    
+    @IBAction func onFlashMode () {
+        if flashMode == .auto || flashMode == .on {
+            picker.cameraFlashMode = .off
+            flashMode = .off
+            flashBtn.setTitle("FlashON", for: .normal)
+        } else {
+            picker.cameraFlashMode = .on
+            flashMode = .on
+            flashBtn.setTitle("FlashOFF", for: .normal)
+        }
+    }
     
     /** UINavigationControllerDelegate **/
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        cameraView.frame = CGRect(x: 0, y: self.view.bounds.size.height-100, width: self.view.bounds.size.width, height: 100)
+        cameraView.backgroundColor = UIColor.blue
+        //cameraView.alpha = 0.5
+
+        
+        
+        takeBtn.frame = CGRect(x: 140, y: 30, width: 100, height: 40)
+        takeBtn.backgroundColor = UIColor.green
+        takeBtn.layer.cornerRadius = 10
+        takeBtn.setTitle("TakePhoto", for: .normal)
+        takeBtn.addTarget(self, action: #selector(onTakePhoto), for: .touchDown)
+        cameraView.addSubview(takeBtn)
+        flashBtn.frame = CGRect(x: 20, y: 30, width: 100, height: 40)
+        flashBtn.addTarget(self, action: #selector(onFlashMode), for: .touchDown)
+        flashBtn.backgroundColor = UIColor.green
+        flashBtn.layer.cornerRadius = 10.0
+        flashBtn.setTitle("FlashOFF", for: .normal)
+        cameraView.addSubview(flashBtn)
+        cameraBtn.frame = CGRect(x: 260, y: 30, width: 100, height: 40)
+        cameraBtn.backgroundColor = UIColor.green
+        cameraBtn.layer.cornerRadius = 10
+        cameraBtn.addTarget(self, action: #selector(onSwitchCamera), for: .touchDown)
+        cameraBtn.setTitle("Front", for: .normal)
+        cameraView.addSubview(cameraBtn)
+
+        cameraMode = .rear
+        flashMode = .auto
+        picker.cameraOverlayView = cameraView
+        
+    }
 }
 
