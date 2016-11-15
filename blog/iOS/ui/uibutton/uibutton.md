@@ -2,7 +2,7 @@
 App中最常见的也是基本少不了的交互，就是按钮了。UIKit通过UIButton来提供按钮服务。 
 UIButton的基本结构如图：
 
-![button_sturcture](./images/button_structure.png)
+![button_sturcture](http://images.libcz.com:8000/images/blog/iOS/ui/uibutton/images/button_structure.png)
 
 包含一个图标UIImage,一个标题UILabel。
 
@@ -10,7 +10,7 @@ UIButton继承自UIControl,而UIControl又继承自UIView，所以UIButton本质
 
 所以在IB里面，UIButton有“Image” 和“Background”两个属性可以设置，并且都可以设置图片，其中这个“Image”其实只是按钮的一部分，还可以追加一段标题。如图中：
 
-![a_button](./images/a_button.png)
+![a_button](http://images.libcz.com:8000/images/blog/iOS/ui/uibutton/images/a_button.png)
 
 背景设置成蓝色，一个图标以及一个标题“Pause”。
 
@@ -21,10 +21,10 @@ UIButton继承自UIControl,而UIControl又继承自UIView，所以UIButton本质
 为了方便使用，UIKit提供的五中固定结构的按钮类，由UIButtonType枚举来表示：
 
 * case system ： 最常用的，标题和图片都可以自由设置，并且按下的时候会变暗，产生闪烁的点击效果
-* case detailDisclosure ：![info_button](./images/info_button.png)外形固定，是一个感叹号，用于表示点击后有说明信息的情况。
+* case detailDisclosure ：![info_button](http://images.libcz.com:8000/images/blog/iOS/ui/uibutton/images/info_button.png)外形固定，是一个感叹号，用于表示点击后有说明信息的情况。
 * case infoLight ：和“detailDisclosure”但是点击时会亮色闪烁，背景变大，特别醒目
 * case infoDark ： 和“detailDisclosure”但是点击时会暗色闪烁，背景变大，特别醒目
-* case contactAdd ：![add_button](./images/add_button.png)外形固定，是一个➕号，用于表示添加的意思
+* case contactAdd ：![add_button](http://images.libcz.com:8000/images/blog/iOS/ui/uibutton/images/add_button.png)外形固定，是一个➕号，用于表示添加的意思
 
 除了上面五种，还有一种`case custom`表示完全自定义，用户根据上面介绍的UIButton的结构，自行组织按钮的外形和效果。
 
