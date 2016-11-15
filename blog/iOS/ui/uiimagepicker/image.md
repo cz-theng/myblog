@@ -4,7 +4,7 @@ UIImagePickerController是UIKit提供的一个提供系统拍照、摄像以及�
 
 这里我们先介绍如何用UIImagePickerController提供的界面进行照片的拍摄。由于是UIImagePickerController提供的一个系统服务，那么自然的在UI上就会有些固定的地方，不过UIImagePickerController也提供了一些自定义的可能。来看一个常用的拍照界面。
 
-![camera_sample](./images/camera_sample.png)
+![camera_sample](http://images.libcz.com:8000/images/blog/iOS/ui/uiimagepicker/images/camera_sample.png)
 
 ## 0. 设置UIImagePickerController进行拍照
 
@@ -79,7 +79,7 @@ UIImagePickerController在获取图像资源，首先需要指定一个资源源
     
 如果一切正常的话，这时候应该就可以看到弹出来的拍照界面了:
 
-![camera](./images/camera.png)
+![camera](http://images.libcz.com:8000/images/blog/iOS/ui/uiimagepicker/images/camera.png)
 
 这里就和操作系统应用“相机”里面的拍照一样，但是如果拍照完，点击“使用照片”，会发现虽然拍照的界面消失了，但是系统“照片”里面却没有照片，同时也没有其他提示。
 
@@ -166,7 +166,7 @@ UIImagePickerController虽然使用起来非常简单，不过其也提供了一
 	picker.showsCameraControls = false
 此时得到界面就变成了：
 
-![no_control.png](./images/no_control.png)
+![no_control](http://images.libcz.com:8000/images/blog/iOS/ui/uiimagepicker/images/no_control.png)
 
 空空的一块板了，这时候需要调用：
 
@@ -179,7 +179,7 @@ UIImagePickerController虽然使用起来非常简单，不过其也提供了一
 	var cameraOverlayView: UIView?
 为其赋值一个自定义的View，就可以在自定义的View上进行交互设计了。比如这样的效果:
 
-![camera_custom](./images/camera_custom.png)
+![camera_custom](http://images.libcz.com:8000/images/blog/iOS/ui/uiimagepicker/images/camera_custom.png)
 
 参考代码：
 
