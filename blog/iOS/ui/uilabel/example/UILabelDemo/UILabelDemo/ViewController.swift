@@ -7,21 +7,32 @@
 //
 
 import UIKit
+import CoreText
 
 class ViewController: UIViewController {
 
     func layoutLabel () {
         let lbl = UILabel()
         lbl.text = "I'm a sample label"
-        lbl.adjustsFontSizeToFitWidth = true
+
+        
+        
+        //lbl.adjustsFontSizeToFitWidth = true
         //lbl.lineBreakMode = .byWordWrapping
         //lbl.allowsDefaultTighteningForTruncation = true
-        lbl.frame = CGRect(x: 10, y: 48, width: 200, height: 60)
+
         lbl.baselineAdjustment = .alignBaselines
+
+//        lbl.shadowColor = UIColor.red
+//        lbl.shadowOffset = CGSize(width: 0, height: 5)
+//        lbl.textRect(forBounds: lbl.frame, limitedToNumberOfLines: 0)
+        
         lbl.backgroundColor = UIColor.yellow
-        lbl.shadowColor = UIColor.red
-        lbl.shadowOffset = CGSize(width: 0, height: 5)
-        lbl.textRect(forBounds: lbl.frame, limitedToNumberOfLines: 0)
+        lbl.frame = CGRect(x: 10, y: 48, width: 200, height: 60)
+        let txt = "I'm a attribute Text"
+        let attrText = NSMutableAttributedString(string: txt )
+        attrText.addAttribute(NSUnderlineStyleAttributeName, value: 2, range: NSRange(location: 0, length: txt.lengthOfBytes(using: .utf8)))
+        lbl.attributedText = attrText
         self.view.addSubview(lbl)
     }
     

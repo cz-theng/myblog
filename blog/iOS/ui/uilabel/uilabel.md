@@ -11,7 +11,7 @@
     }
 然后看效果：
 
-![imalabel](./images/imalabel)
+![imalabel](./images/imalabel.png)
 
 会发现UILabel的使用非常简单,用构造函数创建一个UILabel对象，然后设置下其位置，在设置下label的具体值内容，就可以在要显示的父View上面调用`addSubview`将其显示了。这里虽然用了frame的方式来布局，由于UILabel继承自UIView，所以当然也可以或者说更应该用AutoLayout来进行布局。
 
@@ -113,14 +113,39 @@ byTruncatingMiddle| 从中间开始省略，如:  "ab...yz"
 
 ## 2. 设置Label的字体
 
-var attributedText: NSAttributedString?
+### 修改字体颜色
+最简单的设置字体，就是设置他的颜色了。
 
-var font: UIFont!
+	var textColor: UIColor! { get set }
+给一个既定的UIClolor即可。UIColor的使用参见[庖丁UIKit之UIColor]()
 
-var textColor: UIColor!
+### 给定字体
+UILabel还有个字体属性，可以设置成需要的字体：
+
+	var font: UIFont! { get set }
+给定义字体即可，UIFont参见[庖丁UIKit之UIFont]()
+### 设置属性字体
+上面的设置字体和字体颜色，都是针对整个UILabel中的文字的，如果要各个单词区别要如何实现呢？可以使用NSAttributedString进行辅助。通过设置：
+
+	@NSCopying var attributedText: NSAttributedString? { get set }
+为指定的NSAttributedString可以修改UILabel的内容。不同于UIFont，当设置了这个属性之后，原来的`text`属性中的值就不会再显示了。取而代之的是显示`attributedText `的内容。比如我们要显示一段带下划线的文字：
+
+    lbl.backgroundColor = UIColor.yellow
+    lbl.frame = CGRect(x: 10, y: 48, width: 200, height: 60)
+    let txt = "I'm a attribute Text"
+    let attrText = NSMutableAttributedString(string: txt )
+    attrText.addAttribute(NSUnderlineStyleAttributeName, value: 2, range: NSRange(location: 0, length: txt.lengthOfBytes(using: .utf8)))
+    lbl.attributedText = attrText
+    self.view.addSubview(lbl)
+ 效果如下：
+ ![undlerline](./images/underline.png)
+ 
+ 当然可以通过配置NSMutableAttributedString来获得更多的效果。
 
 ## 3. 通过IB更好的了解Label
+上面描述的控制UILabel的属性，基本都可以在IB中进行直观的设置。
 
+![ib_uilabel](./images/ib_uilabel.png)
 
 ## 参考
 [UILabel Class Reference](https://developer.apple.com/reference/uikit/uilabel)
