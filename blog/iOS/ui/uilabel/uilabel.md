@@ -96,7 +96,7 @@ byTruncatingMiddle| 从中间开始省略，如:  "ab...yz"
 ###根据字体实际内容大小设置Frame
 假设有这样的一个需求，要怎么实现：
 
-![title](./images/title.png)
+![title](./images/title.png )
 
 这里我们要准备两个资源，一个是竖线，一个是半圆，标题用UILabel来实现，让后内容设置成背景图片竖线，让他自动填充。这样我们就完成了矩形部分了。
 
