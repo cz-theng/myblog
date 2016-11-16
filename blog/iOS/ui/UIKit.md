@@ -1,14 +1,14 @@
 序号|UIXxx | 意义
 ---|---|---
-1  | UIKit.UIAccelerometer
-2  | UIKit.UIAccessibility
-3  | UIKit.UIAccessibilityAdditions
-4  | UIKit.UIAccessibilityConstants
-5  | UIKit.UIAccessibilityCustomAction
-6  | UIKit.UIAccessibilityCustomRotor
-7  | UIKit.UIAccessibilityElement
-8  | UIKit.UIAccessibilityIdentification
-9  | UIKit.UIAccessibilityZoom
+1  | UIKit.UIAccelerometer | iOS5.0以后就淘汰了，推荐用CoreMotion
+2  | UIKit.UIAccessibility | 障碍人士辅助
+3  | UIKit.UIAccessibilityAdditions | 障碍人士辅助
+4  | UIKit.UIAccessibilityConstants | 障碍人士辅助
+5  | UIKit.UIAccessibilityCustomAction | 障碍人士辅助
+6  | UIKit.UIAccessibilityCustomRotor| 障碍人士辅助
+7  | UIKit.UIAccessibilityElement | 障碍人士辅助
+8  | UIKit.UIAccessibilityIdentification | 障碍人士辅助
+9  | UIKit.UIAccessibilityZoom | 障碍人士辅助
 10  | UIKit.UIActionSheet | 被淘汰的底部Alert
 11  | UIKit.UIActivity
 12  | UIKit.UIActivityIndicatorView
@@ -35,7 +35,7 @@
 33  | UIKit.UICollectionViewLayout
 34  | UIKit.UICollectionViewTransitionLayout
 35  | UIKit.UICollisionBehavior
-36  | UIKit.UIColor
+36  | UIKit.UIColor | 颜色系
 37  | UIKit.UIContentSizeCategory
 38  | UIKit.UIContentSizeCategoryAdjusting
 39  | UIKit.UIControl
@@ -77,7 +77,7 @@
 75  | UIKit.UIInputViewController
 76  | UIKit.UIInterface
 77  | UIKit.UIKitDefines
-78  | UIKit.UILabel
+78  | UIKit.UILabel | 标题
 79  | UIKit.UILayoutGuide
 80  | UIKit.UILexicon
 81  | UIKit.UILocalNotification
