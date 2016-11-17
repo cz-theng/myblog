@@ -77,7 +77,7 @@ iOS系统默认支持好几种字体，并且系统界面也是有特定字体�
 ## 获取字体属性
 字体的组成结构和空间占用在Apple的[Text Programming Guide for iOS](https://developer.apple.com/library/content/documentation/StringsTextFonts/Conceptual/TextAndWebiPhoneOS/Introduction/Introduction.html#//apple_ref/doc/uid/TP40009542)有详细描述，当然我们这里不去深究CoreText的排班过程，仅看看对UIKit的影响，来看一个字体的空间：
 
-![font_structure](./images/font_structure.png)
+![font_structure](http://images.libcz.com:8000/images/blog/iOS/ui/uifont/images/font_structure.png)
 
 UIFont提供了一系列的Getter来获得这些属性：
 
@@ -107,7 +107,7 @@ lineHeight| CGFloat | 行高
 
 首先将自己的字体文件像一个Bundle文件一样加入到Xcode工程中，比如这里我加入一个MONACO.ttf的字体文件，然后在plist文件中添加“Fonts provided by application”表示数组的字段，里面每个单元就是一个要加入的字体的文件名。
 
-![font_plist](./images/font_plist.png)
+![font_plist](http://images.libcz.com:8000/images/blog/iOS/ui/uifont/images/font_plist.png)
 
 之后，在我们的系统库中就有了这个字体了，比如上面的枚举系统的代码就会看到：
 
@@ -158,7 +158,7 @@ lineHeight| CGFloat | 行高
 
 既然中国用户为Apple共享了那么多美金，Apple自然也不会忘记中文的支持，我们会发现Mac上提供了“字体簿”（FontBook）是提供了N多中文字体，比如中国特色的“隶书”：
 
-![font_book](./images/font_book.png)
+![font_book](http://images.libcz.com:8000/images/blog/iOS/ui/uifont/images/font_book.png)
 
 这里会看到有个“PostScript name”,Apple提供了一种通过这个名称下载字体到自己的手机系统位置的方式，也就是为出厂的手机系统的位置（`/private/var/mobile/Library/Assets/com_apple_MobileAsset_Font/`）新增一个字体，并且所有的应用都可以用了（上面两种方法都是针对当前App）的。
 
