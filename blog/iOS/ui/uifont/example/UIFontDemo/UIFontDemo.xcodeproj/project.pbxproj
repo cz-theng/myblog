@@ -14,6 +14,7 @@
 		F05522E91DDD7226006D342F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05522E71DDD7226006D342F /* LaunchScreen.storyboard */; };
 		F05522F41DDD7226006D342F /* UIFontDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05522F31DDD7226006D342F /* UIFontDemoTests.swift */; };
 		F05522FF1DDD7226006D342F /* UIFontDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05522FE1DDD7226006D342F /* UIFontDemoUITests.swift */; };
+		F05523851DDDEEF2006D342F /* MONACO.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F05523841DDDEEF2006D342F /* MONACO.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		F05522FA1DDD7226006D342F /* UIFontDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIFontDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05522FE1DDD7226006D342F /* UIFontDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontDemoUITests.swift; sourceTree = "<group>"; };
 		F05523001DDD7226006D342F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F05523841DDDEEF2006D342F /* MONACO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MONACO.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		F05522DD1DDD7226006D342F /* UIFontDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F05523841DDDEEF2006D342F /* MONACO.ttf */,
 				F05522DE1DDD7226006D342F /* AppDelegate.swift */,
 				F05522E01DDD7226006D342F /* ViewController.swift */,
 				F05522E21DDD7226006D342F /* Main.storyboard */,
@@ -238,6 +241,7 @@
 				F05522E91DDD7226006D342F /* LaunchScreen.storyboard in Resources */,
 				F05522E61DDD7226006D342F /* Assets.xcassets in Resources */,
 				F05522E41DDD7226006D342F /* Main.storyboard in Resources */,
+				F05523851DDDEEF2006D342F /* MONACO.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,6 +516,7 @@
 				F05523051DDD7226006D342F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F05523061DDD7226006D342F /* Build configuration list for PBXNativeTarget "UIFontDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +525,7 @@
 				F05523081DDD7226006D342F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F05523091DDD7226006D342F /* Build configuration list for PBXNativeTarget "UIFontDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +534,7 @@
 				F055230B1DDD7226006D342F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
