@@ -46,6 +46,22 @@
         [_playBtn setImage:[UIImage imageNamed:@"btn_pause.png"] forState:UIControlStateNormal];
         once = YES;
         
+        NSLog(@"Current Category:%@", [AVAudioSession sharedInstance].category);
+        NSError *error = nil;
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
+        if (nil != error) {
+            NSLog(@"set Category error %@", error.localizedDescription);
+        }
+        NSLog(@"Current Category:%@", [AVAudioSession sharedInstance].category);
+        AVAudioSessionCategoryOptions options = [[AVAudioSession sharedInstance] categoryOptions];
+        NSLog(@"Category[%@] has %lu options",  [AVAudioSession sharedInstance].category, options);
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback withOptions:AVAudioSessionCategoryOptionMixWithOthers error:&error];
+        if (nil != error) {
+            NSLog(@"set Option error %@", error.localizedDescription);
+        }
+        options = [[AVAudioSession sharedInstance] categoryOptions];
+        NSLog(@"Category[%@] has %lu options",  [AVAudioSession sharedInstance].category, options);
+        AVAudioSessionModeDefault
         if (nil != _player ) {
             [_player play];
         }
