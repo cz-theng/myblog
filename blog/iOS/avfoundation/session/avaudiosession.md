@@ -14,7 +14,7 @@ iOS给出的解决方案是"AVAudioSession" ，通过它可以实现对App当前
 
 这些场景的时候，就可以考虑一下“AVAudioSession”了。
 
-在很久以前（其实也是不是太久--iOS7以前）还有个[AudioSession](https://developer.apple.com/library/ios/documentation/AudioToolbox/Reference/AudioSessionServicesReference/)的存在，其功能与AVAudioSession类似，但是在iOS7以后就已经被标记为
+在很久以前（其实也是不是太久--iOS7以前）还有个[AudioSession](https://developer.apple.com/library/ios/documentation/AudioToolbox/Reference/AudioSessionServicesReference/)的存在，其功能与AVAudioSession类似，但是在iOS7 以后就已经被标记为
 “Not Applicable”,所以如果Google到了说AudioSession的内容而不是用的AVAudioSession，那么就可以直接PASS了，当然如果要兼容iOS6
 就另当别论了，不过现在QQ/微信都是要求iOS7的情况下，是否需要兼容iOS6就看老板们的意思吧。
 
@@ -222,7 +222,7 @@ AVAudioSessionInterruptionOptionShouldResume`表示此时也应该恢复继续�
 
 假设有这样的App：
 
-![route_change](./images/route_change.png)
+![route_change](./images/route_change.png )
 
 最开始在录音时，用户插入和拔出耳机我们都停止录音，这里通过Notification来通知有新设备了，或者设备被退出了，然后我们控制停止录音。或者在播放时，当耳机被拔出出时，Notification给了通知，我们先暂停音乐播放，待耳机插回时，在继续播放。
 
@@ -231,6 +231,7 @@ AVAudioSessionInterruptionOptionShouldResume`表示此时也应该恢复继续�
 在NSNotificationCenter中对AVAudioSessionRouteChangeNotification进行注册。在其userInfo中有键：
 
 * AVAudioSessionRouteChangeReasonKey ： 表示改变的原因
+
 枚举值|意义
 ---|---
 AVAudioSessionRouteChangeReasonUnknown | 未知原因
