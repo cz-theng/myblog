@@ -31,7 +31,7 @@ iOS给出的解决方案是"AVAudioSession" ，通过它可以实现对App当前
 
 来看[Demo](https://github.com/cz-it/myblog/tree/master/blog/iOS/avfoundation/session/example/AVAudioSessionDemo)。
 
-![demo_player](./images/demo_player.png)
+![demo_player](http://images.libcz.com:8000/images/blog/iOS/avfoundation/session/images/demo_player.png)
 
 通过这播放器demo可以验证上面的默认Session行为。
 
@@ -222,7 +222,7 @@ AVAudioSessionInterruptionOptionShouldResume`表示此时也应该恢复继续�
 
 假设有这样的App：
 
-![route_change](./images/route_change.png )
+![route_change](http://images.libcz.com:8000/images/blog/iOS/avfoundation/session/images/route_change.png )
 
 最开始在录音时，用户插入和拔出耳机我们都停止录音，这里通过Notification来通知有新设备了，或者设备被退出了，然后我们控制停止录音。或者在播放时，当耳机被拔出出时，Notification给了通知，我们先暂停音乐播放，待耳机插回时，在继续播放。
 
